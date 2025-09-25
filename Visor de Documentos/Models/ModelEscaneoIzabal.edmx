@@ -1,0 +1,189 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="NOTASMESOIZABALModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Escaneos">
+          <Key>
+            <PropertyRef Name="IdEscaneo" />
+          </Key>
+          <Property Name="IdEscaneo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdAdmin" Type="int" Nullable="false" />
+          <Property Name="IdDocumento" Type="int" />
+          <Property Name="Carne" Type="nvarchar" MaxLength="50" />
+          <Property Name="Fecha" Type="datetime" />
+          <Property Name="nombrearchivo" Type="nvarchar(max)" />
+          <Property Name="idArchivo" Type="nvarchar" MaxLength="50" />
+          <Property Name="idDirectorio" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'NOTASMESOIZABAL.dbo.View_EscaneosDetalle' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="View_EscaneosDetalle">
+          <Key>
+            <PropertyRef Name="Número de carné" />
+            <PropertyRef Name="IdAdmin" />
+            <PropertyRef Name="IdEscaneo" />
+          </Key>
+          <Property Name="Número de carné" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Nombre_Completo" Type="nvarchar" MaxLength="50" />
+          <Property Name="nombrearchivo" Type="nvarchar(max)" />
+          <Property Name="IdAdmin" Type="int" Nullable="false" />
+          <Property Name="Fecha" Type="datetime" />
+          <Property Name="IdEscaneo" Type="int" Nullable="false" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'NOTASMESOIZABAL.dbo.View_EscaneosGeneral' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="View_EscaneosGeneral">
+          <Key>
+            <PropertyRef Name="IdAdmin" />
+          </Key>
+          <Property Name="Carne" Type="nvarchar" MaxLength="50" />
+          <Property Name="Fecha" Type="datetime" />
+          <Property Name="Nombres" Type="nvarchar" MaxLength="50" />
+          <Property Name="Apellidos" Type="nvarchar" MaxLength="50" />
+          <Property Name="IdAdmin" Type="int" Nullable="false" />
+          <Property Name="Nombre_Completo" Type="nvarchar" MaxLength="50" />
+          <Property Name="Nombre de la carrera" Type="nvarchar" MaxLength="200" />
+        </EntityType>
+        <EntityContainer Name="NOTASMESOIZABALModelStoreContainer">
+          <EntitySet Name="Escaneos" EntityType="Self.Escaneos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="View_EscaneosDetalle" EntityType="Self.View_EscaneosDetalle" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [View_EscaneosDetalle].[Número de carné] AS [Número de carné], 
+    [View_EscaneosDetalle].[Nombre_Completo] AS [Nombre_Completo], 
+    [View_EscaneosDetalle].[nombrearchivo] AS [nombrearchivo], 
+    [View_EscaneosDetalle].[IdAdmin] AS [IdAdmin], 
+    [View_EscaneosDetalle].[Fecha] AS [Fecha], 
+    [View_EscaneosDetalle].[IdEscaneo] AS [IdEscaneo]
+    FROM [dbo].[View_EscaneosDetalle] AS [View_EscaneosDetalle]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="View_EscaneosGeneral" EntityType="Self.View_EscaneosGeneral" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [View_EscaneosGeneral].[Carne] AS [Carne], 
+    [View_EscaneosGeneral].[Fecha] AS [Fecha], 
+    [View_EscaneosGeneral].[Nombres] AS [Nombres], 
+    [View_EscaneosGeneral].[Apellidos] AS [Apellidos], 
+    [View_EscaneosGeneral].[IdAdmin] AS [IdAdmin], 
+    [View_EscaneosGeneral].[Nombre_Completo] AS [Nombre_Completo], 
+    [View_EscaneosGeneral].[Nombre de la carrera] AS [Nombre de la carrera]
+    FROM [dbo].[View_EscaneosGeneral] AS [View_EscaneosGeneral]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="NOTASMESOIZABALModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Escaneos">
+          <Key>
+            <PropertyRef Name="IdEscaneo" />
+          </Key>
+          <Property Name="IdEscaneo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdAdmin" Type="Int32" Nullable="false" />
+          <Property Name="IdDocumento" Type="Int32" />
+          <Property Name="Carne" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Fecha" Type="DateTime" Precision="3" />
+          <Property Name="nombrearchivo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="idArchivo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="idDirectorio" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityContainer Name="NOTASMESOIZABALEntitiesEscaneos" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Escaneos" EntityType="Self.Escaneos" />
+          <EntitySet Name="View_EscaneosGeneral" EntityType="NOTASMESOIZABALModel.View_EscaneosGeneral" />
+          <EntitySet Name="View_EscaneosDetalle" EntityType="NOTASMESOIZABALModel.View_EscaneosDetalle" />
+        </EntityContainer>
+        <EntityType Name="View_EscaneosGeneral">
+          <Key>
+            <PropertyRef Name="IdAdmin" />
+          </Key>
+          <Property Name="Carne" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Fecha" Type="DateTime" Precision="3"/>
+          <Property Name="IdAdmin" Type="Int32" Nullable="false" />
+          <Property Name="Nombre_Completo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Nombre_de_la_carrera" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Nombres" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Apellidos" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="View_EscaneosDetalle">
+          <Key>
+            <PropertyRef Name="Número_de_carné" />
+            <PropertyRef Name="IdAdmin" />
+            <PropertyRef Name="IdEscaneo" />
+          </Key>
+          <Property Name="Número_de_carné" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Nombre_Completo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="nombrearchivo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IdAdmin" Type="Int32" Nullable="false" />
+          <Property Name="Fecha" Type="DateTime" Precision="3" />
+          <Property Name="IdEscaneo" Type="Int32" Nullable="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="NOTASMESOIZABALModelStoreContainer" CdmEntityContainer="NOTASMESOIZABALEntitiesEscaneos">
+          <EntitySetMapping Name="Escaneos">
+            <EntityTypeMapping TypeName="NOTASMESOIZABALModel.Escaneos">
+              <MappingFragment StoreEntitySet="Escaneos">
+                <ScalarProperty Name="IdEscaneo" ColumnName="IdEscaneo" />
+                <ScalarProperty Name="IdAdmin" ColumnName="IdAdmin" />
+                <ScalarProperty Name="IdDocumento" ColumnName="IdDocumento" />
+                <ScalarProperty Name="Carne" ColumnName="Carne" />
+                <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+                <ScalarProperty Name="nombrearchivo" ColumnName="nombrearchivo" />
+                <ScalarProperty Name="idArchivo" ColumnName="idArchivo" />
+                <ScalarProperty Name="idDirectorio" ColumnName="idDirectorio" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="View_EscaneosGeneral">
+            <EntityTypeMapping TypeName="NOTASMESOIZABALModel.View_EscaneosGeneral">
+              <MappingFragment StoreEntitySet="View_EscaneosGeneral">
+                <ScalarProperty Name="Apellidos" ColumnName="Apellidos" />
+                <ScalarProperty Name="Nombres" ColumnName="Nombres" />
+                <ScalarProperty Name="Nombre_de_la_carrera" ColumnName="Nombre de la carrera" />
+                <ScalarProperty Name="Nombre_Completo" ColumnName="Nombre_Completo" />
+                <ScalarProperty Name="IdAdmin" ColumnName="IdAdmin" />
+                <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+                <ScalarProperty Name="Carne" ColumnName="Carne" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="View_EscaneosDetalle">
+            <EntityTypeMapping TypeName="NOTASMESOIZABALModel.View_EscaneosDetalle">
+              <MappingFragment StoreEntitySet="View_EscaneosDetalle">
+                <ScalarProperty Name="IdEscaneo" ColumnName="IdEscaneo" />
+                <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+                <ScalarProperty Name="IdAdmin" ColumnName="IdAdmin" />
+                <ScalarProperty Name="nombrearchivo" ColumnName="nombrearchivo" />
+                <ScalarProperty Name="Nombre_Completo" ColumnName="Nombre_Completo" />
+                <ScalarProperty Name="Número_de_carné" ColumnName="Número de carné" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

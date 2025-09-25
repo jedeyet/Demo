@@ -1,0 +1,190 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="LOGINModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Admins">
+          <Key>
+            <PropertyRef Name="ID_Admin" />
+          </Key>
+          <Property Name="ID_Admin" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="password" Type="nchar" MaxLength="10" />
+          <Property Name="Apellidos" Type="nvarchar" MaxLength="50" />
+          <Property Name="Nombres" Type="nvarchar" MaxLength="50" />
+          <Property Name="Puesto" Type="nvarchar" MaxLength="50" />
+          <Property Name="Nivel" Type="int" />
+          <Property Name="Departamento" Type="int" />
+        </EntityType>
+        <EntityType Name="Catedraticos">
+          <Key>
+            <PropertyRef Name="Codigo_Catedratico" />
+          </Key>
+          <Property Name="Codigo_Catedratico" Type="float" Nullable="false" />
+          <Property Name="Password" Type="nvarchar" MaxLength="255" />
+          <Property Name="Nombre y apellidos del catedrático" Type="nvarchar" MaxLength="255" />
+          <Property Name="Cedula" Type="nvarchar" MaxLength="255" />
+          <Property Name="Titulo" Type="nvarchar" MaxLength="255" />
+          <Property Name="Titulo2" Type="nvarchar" MaxLength="50" />
+          <Property Name="Celular" Type="nvarchar" MaxLength="255" />
+          <Property Name="Telefono" Type="nvarchar" MaxLength="255" />
+          <Property Name="Email" Type="nvarchar" MaxLength="255" />
+          <Property Name="Esta_Activo" Type="bit" Nullable="false" />
+          <Property Name="NivelSeguridad" Type="int" />
+          <Property Name="Pais" Type="nvarchar" MaxLength="50" />
+          <Property Name="Huella" Type="varbinary(max)" />
+          <Property Name="Sexo" Type="nvarchar" MaxLength="50" />
+          <Property Name="E_Civil" Type="nvarchar" MaxLength="15" />
+          <Property Name="Fecha_Nac" Type="datetime" />
+          <Property Name="N_Pais" Type="int" />
+          <Property Name="N_Dep" Type="int" />
+          <Property Name="N_Mun" Type="nvarchar" MaxLength="10" />
+          <Property Name="retencionisr" Type="float" />
+          <Property Name="sueldo" Type="float" />
+          <Property Name="Usuario" Type="nvarchar" MaxLength="50" />
+          <Property Name="Fecha_Creacion_Usuario" Type="smalldatetime" />
+          <Property Name="Rango_Catedraticos" Type="int" />
+          <Property Name="NIT" Type="nvarchar" MaxLength="15" />
+          <Property Name="RegimenFiscal" Type="float" />
+          <Property Name="CuentaReformador" Type="nvarchar" MaxLength="20" />
+          <Property Name="Correo_Institucional" Type="nvarchar" MaxLength="30" />
+          <Property Name="Fecha_Vence_Factura" Type="date" />
+        </EntityType>
+        <EntityContainer Name="LOGINModelStoreContainer">
+          <EntitySet Name="Admins" EntityType="Self.Admins" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Catedraticos" EntityType="Self.Catedraticos" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="LOGINModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Admins">
+          <Key>
+            <PropertyRef Name="ID_Admin" />
+          </Key>
+          <Property Name="ID_Admin" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="password" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Apellidos" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Nombres" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Puesto" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Nivel" Type="Int32" />
+          <Property Name="Departamento" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Catedraticos">
+          <Key>
+            <PropertyRef Name="Codigo_Catedratico" />
+          </Key>
+          <Property Name="Codigo_Catedratico" Type="Double" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Nombre_y_apellidos_del_catedrático" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Cedula" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Titulo" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Titulo2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Celular" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Telefono" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Esta_Activo" Type="Boolean" Nullable="false" />
+          <Property Name="NivelSeguridad" Type="Int32" />
+          <Property Name="Pais" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Huella" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="Sexo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="E_Civil" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="Fecha_Nac" Type="DateTime" Precision="3" />
+          <Property Name="N_Pais" Type="Int32" />
+          <Property Name="N_Dep" Type="Int32" />
+          <Property Name="N_Mun" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="retencionisr" Type="Double" />
+          <Property Name="sueldo" Type="Double" />
+          <Property Name="Usuario" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Fecha_Creacion_Usuario" Type="DateTime" Precision="0" />
+          <Property Name="Rango_Catedraticos" Type="Int32" />
+          <Property Name="NIT" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="RegimenFiscal" Type="Double" />
+          <Property Name="CuentaReformador" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Correo_Institucional" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="Fecha_Vence_Factura" Type="DateTime" Precision="0" />
+        </EntityType>
+        <EntityContainer Name="LOGINEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Admins" EntityType="Self.Admins" />
+          <EntitySet Name="Catedraticos" EntityType="Self.Catedraticos" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="LOGINModelStoreContainer" CdmEntityContainer="LOGINEntities">
+          <EntitySetMapping Name="Admins">
+            <EntityTypeMapping TypeName="LOGINModel.Admins">
+              <MappingFragment StoreEntitySet="Admins">
+                <ScalarProperty Name="ID_Admin" ColumnName="ID_Admin" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="Apellidos" ColumnName="Apellidos" />
+                <ScalarProperty Name="Nombres" ColumnName="Nombres" />
+                <ScalarProperty Name="Puesto" ColumnName="Puesto" />
+                <ScalarProperty Name="Nivel" ColumnName="Nivel" />
+                <ScalarProperty Name="Departamento" ColumnName="Departamento" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Catedraticos">
+            <EntityTypeMapping TypeName="LOGINModel.Catedraticos">
+              <MappingFragment StoreEntitySet="Catedraticos">
+                <ScalarProperty Name="Codigo_Catedratico" ColumnName="Codigo_Catedratico" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Nombre_y_apellidos_del_catedrático" ColumnName="Nombre y apellidos del catedrático" />
+                <ScalarProperty Name="Cedula" ColumnName="Cedula" />
+                <ScalarProperty Name="Titulo" ColumnName="Titulo" />
+                <ScalarProperty Name="Titulo2" ColumnName="Titulo2" />
+                <ScalarProperty Name="Celular" ColumnName="Celular" />
+                <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Esta_Activo" ColumnName="Esta_Activo" />
+                <ScalarProperty Name="NivelSeguridad" ColumnName="NivelSeguridad" />
+                <ScalarProperty Name="Pais" ColumnName="Pais" />
+                <ScalarProperty Name="Huella" ColumnName="Huella" />
+                <ScalarProperty Name="Sexo" ColumnName="Sexo" />
+                <ScalarProperty Name="E_Civil" ColumnName="E_Civil" />
+                <ScalarProperty Name="Fecha_Nac" ColumnName="Fecha_Nac" />
+                <ScalarProperty Name="N_Pais" ColumnName="N_Pais" />
+                <ScalarProperty Name="N_Dep" ColumnName="N_Dep" />
+                <ScalarProperty Name="N_Mun" ColumnName="N_Mun" />
+                <ScalarProperty Name="retencionisr" ColumnName="retencionisr" />
+                <ScalarProperty Name="sueldo" ColumnName="sueldo" />
+                <ScalarProperty Name="Usuario" ColumnName="Usuario" />
+                <ScalarProperty Name="Fecha_Creacion_Usuario" ColumnName="Fecha_Creacion_Usuario" />
+                <ScalarProperty Name="Rango_Catedraticos" ColumnName="Rango_Catedraticos" />
+                <ScalarProperty Name="NIT" ColumnName="NIT" />
+                <ScalarProperty Name="RegimenFiscal" ColumnName="RegimenFiscal" />
+                <ScalarProperty Name="CuentaReformador" ColumnName="CuentaReformador" />
+                <ScalarProperty Name="Correo_Institucional" ColumnName="Correo_Institucional" />
+                <ScalarProperty Name="Fecha_Vence_Factura" ColumnName="Fecha_Vence_Factura" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

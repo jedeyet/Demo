@@ -1,0 +1,383 @@
+<%-- ClientIDMode para poder usar el Jquery<--%>
+
+<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.Master.cs" ClientIDMode="Static" Inherits="VisorDeDocumentos.SiteMaster" %>
+
+<!DOCTYPE html>
+
+
+<html lang="es">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <asp:ContentPlaceHolder ID="HeaderC" runat="server">
+        <script src="Scripts/Site.Master.js" type="text/javascript"></script>
+    </asp:ContentPlaceHolder>
+    
+    <link href="./vendor/animate.css/animate.min.css" rel="stylesheet" />
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+   <meta name="description" content="Bootstrap Admin App + jQuery">
+   <meta name="keywords" content="app, responsive, jquery, bootstrap, dashboard, admin" aria-haspopup="True">
+   <title>SIM Sistema Integrado Mesoamericana</title>
+   <%--<!-- =============== Mis estilos> -->
+   <link rel="stylesheet" href="./app/MisEstilos/Alineacion.css" id="Alineacion">
+   <!-- =============== VENDOR STYLES ===============-->
+   
+   <!-- FONT AWESOME-->
+   <link rel="stylesheet" href="./vendor/fontawesome/css/font-awesome.min.css">
+   <!-- SIMPLE LINE ICONS-->
+   <link rel="stylesheet" href="./vendor/simple-line-icons/css/simple-line-icons.css">
+   <!-- ANIMATE.CSS-->
+   <link rel="stylesheet" href="./vendor/animate.css/animate.min.css">
+   <!-- WHIRL (spinners)-->
+   <link rel="stylesheet" href="./vendor/whirl/dist/whirl.css">
+   <!-- =============== PAGE VENDOR STYLES ===============-->
+   <!-- =============== BOOTSTRAP STYLES ===============-->
+   <link rel="stylesheet" href="./app/css/bootstrap.css" id="bscss">
+   <!-- =============== APP STYLES ===============-->
+   <link rel="stylesheet" href="./app/css/app.css" id="maincss">
+    <link rel="stylesheet" href="./app/css/theme-f.css">--%>
+
+
+    <%--<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="description" content="Bootstrap Admin App + jQuery">
+    <meta name="keywords" content="app, responsive, jquery, bootstrap, dashboard, admin">
+    <title>Sistema Integrado Mesoamericana SIM</title>
+    <!-- =============== VENDOR STYLES ===============-->
+    <!-- FONT AWESOME-->
+    <link rel="stylesheet" href="./vendor/fontawesome/css/font-awesome.min.css">
+    <!-- SIMPLE LINE ICONS-->
+    <link rel="stylesheet" href="./vendor/simple-line-icons/css/simple-line-icons.css">
+    <!-- ANIMATE.CSS-->
+    <link rel="stylesheet" href="./vendor/animate.css/animate.min.css">
+    <!-- WHIRL (spinners)-->
+    <link rel="stylesheet" href="./vendor/whirl/dist/whirl.css">
+    <!-- =============== PAGE VENDOR STYLES ===============-->
+    <!-- =============== BOOTSTRAP STYLES ===============-->
+    <link rel="stylesheet" href="./app/css/bootstrap.css" id="bscss">
+    <!-- =============== APP STYLES ===============-->
+    <link rel="stylesheet" href="./app/css/app.css" id="maincss">--%>
+
+    <!-- Font Tags Start -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="./src/font/CS-Interface/style.css" />
+    <!-- Font Tags End -->
+
+    <!-- Vendor Styles Start -->
+    <link rel="stylesheet" href="./src/css/vendor/bootstrap.min.css" />
+    <link rel="stylesheet" href="./src/css/vendor/OverlayScrollbars.min.css" />
+    <!-- Vendor Styles End -->
+
+    <!-- Template Base Styles Start -->
+    <link rel="stylesheet" href="./src/css/styles.css" />
+    <!-- Template Base Styles End -->
+
+    <!-- User Styles Start -->
+    <link rel="stylesheet" href="./src/css/main.css" />
+    <!-- User Styles End -->
+
+    <!-- Loader Start -->
+    <script src="./src/js/base/loader.js"></script>
+    <!-- Loader End -->
+</head>
+
+<body>
+      <!-- Content Container Start -->
+      <div id="root">
+
+      <!-- Nav Content Start -->
+      <div id="nav" class="nav-container d-flex">
+          <div class="nav-content d-flex">
+          <!-- Logo Start -->
+          <div class="logo position-relative">
+            <a href="Dashboards.Patient.html">
+              <!-- Logo can be added directly -->               
+               <img src="./app/img/LogoUMES.png" alt="App Logo" class="img-responsive">
+
+              <!-- Or added via css to provide different ones for different color themes -->
+              <%--<div class="img"></div>--%>
+            </a>
+          </div>
+          <!-- Logo End -->
+          <!-- User Menu Start -->
+          
+          <!-- User Menu End -->
+
+          <!-- Icons Menu Start -->
+          <ul class="list-unstyled list-inline text-center menu-icons">            
+            <li class="list-inline-item">
+              <a href="#" id="pinButton" class="pin-button">
+                <i data-acorn-icon="lock-on" class="unpin" data-acorn-size="18"></i>
+                <i data-acorn-icon="lock-off" class="pin" data-acorn-size="18"></i>
+              </a>
+            </li>
+            <li class="list-inline-item">
+              <a href="#" id="colorButton">
+                <i data-acorn-icon="light-on" class="light" data-acorn-size="18"></i>
+                <i data-acorn-icon="light-off" class="dark" data-acorn-size="18"></i>
+              </a>
+            </li>
+
+          </ul>
+          <!-- Icons Menu End -->
+
+          <!-- Menu Start -->
+          <div class="menu-container flex-grow-1">
+            <ul id="menu" class="menu">
+              <li>
+                  <a href="#Academico" data-href="Pages.html">
+                  <i data-acorn-icon="notebook-1" class="icon" data-acorn-size="18"></i>
+                  <span class="label">Academico</span>
+                </a>
+                <ul id="Academico">
+                  <li>
+                    <a href="#docentes" data-href="Pages.Authentication.html">
+                      <span class="label">Docentes</span>
+                    </a>
+                    <ul id="docentes">
+                      <li>
+                    <a href="PagsDocentesReporteDetallado.aspx"><span class="label">Reporte Detallado</span></a>
+                  </li>
+                        <li>
+                    <a href="PagsDocentesSede.aspx"><span class="label">Por Sede</span></a>
+                  </li>
+                  <li>
+                    <a href="PagsDocenteCarrera.aspx"><span class="label">Por Carrera</span></a>
+                  </li>
+                  <li>
+                    <a href="PagsDocentesActivo.aspx"><span class="label">Activos/Inactivos</span></a>
+                  </li>
+                  <li>
+                    <a href="PagsDocenteIndividual.aspx"><span class="label">Por Docente</span></a>
+                  </li>
+                  <li>
+                    <a href="PagsDocentesZona.aspx"><span class="label">Zonas</span></a>
+                  </li>
+                  <li>
+                    <a href="PagsDocentesActasNoEnviadas.aspx"><span class="label">Envío de Zonas y Finales</span></a>
+                  </li>
+                  <li>
+                    <a href="PagsDocentesSedeDocumentos.aspx"><span class="label">Documentos subidos por Sede</span></a>
+                  </li>
+                  <li>
+                    <a href="PagsDocenteVerDocumentos.aspx"><span class="label">Visor de documentos</span></a>
+                  </li>
+                    <li>
+                    <a href="PagsDocentesHistorial.aspx"><span class="label">Historial Cursos</span></a>
+                  </li>
+                  <li>
+                    <a href="PagsDocentesEvaluacionAsignatura.aspx"><span class="label">Evaluación por curso</span></a>
+                  </li>
+                  <li>
+                    <a href="PagsDocentesEvaluacionPorCatedratico.aspx"><span class="label">Evaluación por docente</span></a>
+                  </li>
+                  <li>
+                    <a href="PagsDocentesEvaluacionPorCatedraticoHistorial.aspx"><span class="label">Evaluación por docente Historial</span></a>
+                  </li>
+                    </ul>
+                  </li>
+                  <li>
+                    <a href="#alumnos" data-href="Pages.Blog.html">
+                      <span class="label">Alumnos</span>
+                    </a>
+                    <ul id="alumnos">
+                     <li>
+                    <a href="AlumnosIndividual.aspx"><span class="label">Por Alumno</span></a>
+                  </li>
+                  <li>
+                    <a href="PagsPagos.aspx"><span class="label">Pagos</span></a>
+                  </li>
+                  <li>
+                    <a href="PagsAlumnosHistorial.aspx"><span class="label">Cursos</span></a>
+                  </li>
+                    </ul>
+                  </li>
+                  <li>
+                    <a href="#registro" data-href="Pages.Miscellaneous.html">
+                      <span class="label">Registro Académico</span>
+                    </a>
+                    <ul id="registro">
+                        <li>
+                    <a href="PagsAlumnosDejaronMasDe2.aspx"><span class="label">Con más de 2 perdidos</span></a>
+                  </li>
+                  <li>
+                    <a href="PagsDocentesEvaluacionesCarrera.aspx"><span class="label">Evaluación a docentes</span></a>
+                  </li>
+                  <li>
+                    <a href="pagsAlumnosInscritos.aspx"><span class="label">Inscripciones</span></a>
+                  </li>
+                  <li>
+                    <a href="pagsAlumnosRetirados.aspx"><span class="label">Alumnos Retirados</span></a>
+                  </li>
+                  <li>
+                    <a href="pagsAlumnosNacionalidad.aspx"><span class="label">Alumnos Extranjeros</span></a>
+                  </li>
+                  <li>
+                    <a href="PagsAlumnosInscripcionGenero.aspx"><span class="label">Alumnos por género</span></a>
+                  </li>
+                
+                    </ul>
+                  </li>
+
+                </ul>
+              </li>
+
+
+
+              <li>
+                  <a href="#Administrativo" data-href="Pages.html">
+                  <i data-acorn-icon="building-large" class="icon" data-acorn-size="18"></i>
+                  <span class="label">Administrativo</span>
+                </a>
+                <ul id="Administrativo">
+                  <li>
+                    <a href="#rrhh" data-href="Pages.Authentication.html">
+                      <span class="label">Docentes</span>
+                    </a>
+                    <ul id="rrhh">
+                        <li><a href="#"><span class="label">Administrativos</span></a></li>
+                        <li><a href="#"><span class="label">Operativos</span></a></li>
+                    </ul>
+                  </li>
+                  <li>
+                    <a href="#financiero" data-href="Pages.Blog.html">
+                      <span class="label">Área Financiera</span>
+                    </a>
+                    <ul id="financiero">
+                     <li>
+                    <a href="#"><span class="label">Contabilidad</span></a>
+                  </li>
+                  <li>
+                    <a href="#"><span class="label">Caja</span></a>
+                  </li>                  
+                    </ul>
+                  </li>                  
+                </ul>
+              </li>
+
+
+
+              <li>
+                <a href="./Logout.aspx">
+                  <i data-acorn-icon="logout" class="icon" data-acorn-size="18"></i>
+                  <span class="label">Salir</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+          <!-- Menu End -->
+          <!-- Mobile Buttons Start -->
+          <div class="mobile-buttons-container">
+            <!-- Menu Button Start -->
+            <a href="#" id="mobileMenuButton" class="menu-button">
+              <i data-acorn-icon="menu"></i>
+            </a>
+            <!-- Menu Button End -->
+          </div>
+          <!-- Mobile Buttons End -->
+      </div>
+     </div>
+      <!-- Nav Content End -->
+
+      <!-- Main Content Start -->
+      <main>
+          <div class="content-wrapper">
+                <div class="content-heading">
+                    <!-- START Language list
+               <div class="pull-right">
+                  <div class="btn-group">
+                     <button type="button" data-toggle="dropdown" class="btn btn-default">English</button>
+                     <ul role="menu" class="dropdown-menu dropdown-menu-right animated fadeInUpShort">
+                        <li><a href="#" data-set-lang="en">English</a>
+                        </li>
+                        <li><a href="#" data-set-lang="es">Spanish</a>
+                        </li>
+                     </ul>
+                  </div>
+               </div>
+               <!-- END Language list    -->
+
+                    <small data-localize="dashboard.WELCOME"></small>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12 text-center">
+                        <div class="container body-content">
+                            <asp:ContentPlaceHolder ID="MainContent" runat="server">
+                            </asp:ContentPlaceHolder>
+                            <hr />
+                            <footer>
+                                <p>&copy; <%: DateTime.Now.Year %> - SIM Sistema Integrado Mesoamericana</p>
+                            </footer>
+                        </div>
+                    </div>
+                </div>
+            </div>
+      </main>
+      <!-- Main Content End -->
+
+      <!-- Footer Content Start -->
+      <footer>
+            <span>&copy; Redes y Programas</span>
+      </footer>
+      <!-- Footer Content End -->
+      
+    </div>
+    <!-- Content Container End -->
+
+
+
+    <%--<!-- =============== VENDOR SCRIPTS ===============-->
+    <!-- MODERNIZR-->
+    <script src="./vendor/modernizr/modernizr.js"></script>
+    <!-- JQUERY-->
+    <script src="./vendor/jquery/dist/jquery.js"></script>
+    <!-- BOOTSTRAP-->
+    <script src="./vendor/bootstrap/dist/js/bootstrap.js"></script>
+    <!-- STORAGE API-->
+    <script src="./vendor/jQuery-Storage-API/jquery.storageapi.js"></script>
+    <!-- JQUERY EASING-->
+    <script src="./vendor/jquery.easing/js/jquery.easing.js"></script>
+    <!-- ANIMO-->
+    <script src="./vendor/animo.js/animo.js"></script>
+    <!-- SLIMSCROLL-->
+    <script src="./vendor/slimScroll/jquery.slimscroll.min.js"></script>
+    <!-- SCREENFULL-->
+    <script src="./vendor/screenfull/dist/screenfull.js"></script>
+    <!-- LOCALIZE-->
+    <script src="./vendor/jquery-localize-i18n/dist/jquery.localize.js"></script>
+    <!-- =============== PAGE VENDOR SCRIPTS ===============-->
+    <!-- =============== APP SCRIPTS ===============-->
+    <script src="./app/js/app.js"></script>--%>
+
+    <!-- Vendor Scripts Start -->
+    <script src="./src/js/vendor/jquery-3.5.1.min.js"></script>
+    <script src="./src/js/vendor/bootstrap.bundle.min.js"></script>
+    <script src="./src/js/vendor/OverlayScrollbars.min.js"></script>
+    <script src="./src/js/vendor/autoComplete.min.js"></script>
+    <script src="./src/js/vendor/clamp.min.js"></script>
+    <!-- Vendor Scripts End -->
+
+    <!-- Acorn Icons Start -->
+    <script src="./src/icon/acorn-icons.js"></script>
+    <script src="./src/icon/acorn-icons-interface.js"></script>
+    <!-- Acorn Icons End -->
+
+    <!-- Template Base Scripts Start -->
+    <script src="./src/js/base/helpers.js"></script>
+    <script src="./src/js/base/globals.js"></script>
+    <script src="./src/js/base/nav.js"></script>
+    <script src="./src/js/base/search.js"></script>
+    <script src="./src/js/base/settings.js"></script>
+    <!-- Template Base Scripts End -->
+
+    <!-- Page Specific and Initialization Scripts Start -->
+    <script src="./src/js/common.js"></script>
+    <script src="./src/js/scripts.js"></script>
+    <!-- Page Specific and Initialization Scripts End -->
+</body>
+
+</html>
+

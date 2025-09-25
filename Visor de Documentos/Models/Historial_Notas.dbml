@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="NOTASMESO" Class="Historial_NotasDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=gp4;Initial Catalog=NOTASMESO;User ID=Local;MultipleActiveResultSets=True;Application Name=EntityFramework" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="NOTASMESOConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Vista_Notas" Member="Vista_Notas">
+    <Type Name="Vista_Notas">
+      <Column Name="Asignatura" Type="System.String" DbType="NVarChar(141)" CanBeNull="true" />
+      <Column Name="Zona" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[Examen final]" Member="Examen_final" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[Nota final]" Member="Nota_final" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[Nombre y apellidos del catedrático]" Member="Nombre_y_apellidos_del_catedrático" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="semestre_Cursado" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[Número de carné]" Member="Número_de_carné" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Seccion" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="semestre" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Apellidos" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="Codigo_Asignacion_Curso_Profesor" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Codigo_Acta" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="[Fecha aprobación]" Member="Fecha_aprobación" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ano" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="gano" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="No_Obligatorio" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="Nombre_Completo" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="TipoNota" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="[Nombre de la carrera]" Member="Nombre_de_la_carrera" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="facultad" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="Créditos" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Codigo_Asignatura" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Departamento" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="NomCorto" Type="System.String" DbType="NVarChar(40)" CanBeNull="true" />
+      <Column Name="Visible" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Derecho_Examen" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Finales" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Numero_Acta" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="[Id Carrera]" Member="Id_Carrera" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+</Database>

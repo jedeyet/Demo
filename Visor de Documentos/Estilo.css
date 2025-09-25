@@ -1,0 +1,12 @@
+﻿.highlight
+{
+    background-color:#F7F5CB;
+}
+.highlight-td
+{
+    background-color:#E5DE78;
+}
+td
+{
+    cursor:pointer;
+}

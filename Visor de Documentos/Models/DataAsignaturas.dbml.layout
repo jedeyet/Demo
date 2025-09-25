@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="DataAsignaturas">
+  <DataContextMoniker Name="/DataAsignaturasDataContext" />
+  <nestedChildShapes>
+    <classShape Id="f2f6bad6-4b55-4343-80fb-919194671f53" absoluteBounds="6, 1.125, 2, 3.5016097005208326">
+      <DataClassMoniker Name="/DataAsignaturasDataContext/asignatura" />
+      <nestedChildShapes>
+        <elementListCompartment Id="fd9a5f8a-839d-47b8-86b4-cce0c2f8ecdb" absoluteBounds="6.015, 1.585, 1.9700000000000002, 2.941609700520833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="6d10498b-4a27-47d9-934b-a8e531dd08a0" absoluteBounds="3.375, 1.25, 2, 3.3093082682291666">
+      <DataClassMoniker Name="/DataAsignaturasDataContext/Carrera" />
+      <nestedChildShapes>
+        <elementListCompartment Id="4b41dd93-4de9-4c28-9466-d368e4bff4f2" absoluteBounds="3.3899999999999997, 1.71, 1.9700000000000002, 2.7493082682291665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="76a83ee3-447d-448e-8d9d-295470618cda" absoluteBounds="0.75, 0.875, 2, 1.9631982421875">
+      <DataClassMoniker Name="/DataAsignaturasDataContext/Pensum_Asignaturas" />
+      <nestedChildShapes>
+        <elementListCompartment Id="68790bdd-9a0d-4316-ac91-a71a945d024a" absoluteBounds="0.76500000000000012, 1.335, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

@@ -1,0 +1,156 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="CAJAModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'CAJA.dbo.ConsultaRecibos' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="ConsultaRecibos">
+          <Key>
+            <PropertyRef Name="carnet" />
+            <PropertyRef Name="semestre_actual" />
+            <PropertyRef Name="recibo_numero" />
+            <PropertyRef Name="id_usuario" />
+            <PropertyRef Name="fecha_recibo" />
+            <PropertyRef Name="monto" />
+            <PropertyRef Name="mes_pago" />
+            <PropertyRef Name="anio_pago" />
+            <PropertyRef Name="nombre_concepto" />
+            <PropertyRef Name="id_concepto" />
+            <PropertyRef Name="descripcion" />
+            <PropertyRef Name="id_derivado" />
+            <PropertyRef Name="pago" />
+          </Key>
+          <Property Name="Nombre_Completo" Type="nvarchar" MaxLength="50" />
+          <Property Name="Donante" Type="nvarchar" MaxLength="50" />
+          <Property Name="carnet" Type="nvarchar" MaxLength="11" Nullable="false" />
+          <Property Name="semestre_actual" Type="tinyint" Nullable="false" />
+          <Property Name="recibo_numero" Type="nvarchar" MaxLength="11" Nullable="false" />
+          <Property Name="id_usuario" Type="int" Nullable="false" />
+          <Property Name="fecha_recibo" Type="smalldatetime" Nullable="false" />
+          <Property Name="monto" Type="smallmoney" Nullable="false" />
+          <Property Name="mes_pago" Type="tinyint" Nullable="false" />
+          <Property Name="anio_pago" Type="int" Nullable="false" />
+          <Property Name="nombre_concepto" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="id_concepto" Type="int" Nullable="false" />
+          <Property Name="descripcion" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="id_derivado" Type="bigint" Nullable="false" />
+          <Property Name="pago" Type="smallmoney" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="CAJAModelStoreContainer">
+          <EntitySet Name="ConsultaRecibos" EntityType="Self.ConsultaRecibos" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [ConsultaRecibos].[Nombre_Completo] AS [Nombre_Completo], 
+    [ConsultaRecibos].[Donante] AS [Donante], 
+    [ConsultaRecibos].[carnet] AS [carnet], 
+    [ConsultaRecibos].[semestre_actual] AS [semestre_actual], 
+    [ConsultaRecibos].[recibo_numero] AS [recibo_numero], 
+    [ConsultaRecibos].[id_usuario] AS [id_usuario], 
+    [ConsultaRecibos].[fecha_recibo] AS [fecha_recibo], 
+    [ConsultaRecibos].[monto] AS [monto], 
+    [ConsultaRecibos].[mes_pago] AS [mes_pago], 
+    [ConsultaRecibos].[anio_pago] AS [anio_pago], 
+    [ConsultaRecibos].[nombre_concepto] AS [nombre_concepto], 
+    [ConsultaRecibos].[id_concepto] AS [id_concepto], 
+    [ConsultaRecibos].[descripcion] AS [descripcion], 
+    [ConsultaRecibos].[id_derivado] AS [id_derivado], 
+    [ConsultaRecibos].[pago] AS [pago]
+    FROM [dbo].[ConsultaRecibos] AS [ConsultaRecibos]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="CAJAModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="ConsultaRecibos">
+          <Key>
+            <PropertyRef Name="carnet" />
+            <PropertyRef Name="semestre_actual" />
+            <PropertyRef Name="recibo_numero" />
+            <PropertyRef Name="id_usuario" />
+            <PropertyRef Name="fecha_recibo" />
+            <PropertyRef Name="monto" />
+            <PropertyRef Name="mes_pago" />
+            <PropertyRef Name="anio_pago" />
+            <PropertyRef Name="nombre_concepto" />
+            <PropertyRef Name="id_concepto" />
+            <PropertyRef Name="descripcion" />
+            <PropertyRef Name="id_derivado" />
+            <PropertyRef Name="pago" />
+          </Key>
+          <Property Name="Nombre_Completo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Donante" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="carnet" Type="String" MaxLength="11" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="semestre_actual" Type="Byte" Nullable="false" />
+          <Property Name="recibo_numero" Type="String" Nullable="false" />
+          <Property Name="id_usuario" Type="Int32" Nullable="false" />
+          <Property Name="fecha_recibo" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="monto" Type="Decimal" Precision="10" Scale="4" Nullable="false" />
+          <Property Name="mes_pago" Type="Byte" Nullable="false" />
+          <Property Name="anio_pago" Type="Int32" Nullable="false" />
+          <Property Name="nombre_concepto" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="id_concepto" Type="Int32" Nullable="false" />
+          <Property Name="descripcion" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="id_derivado" Type="Int64" Nullable="false" />
+          <Property Name="pago" Type="Decimal" Precision="10" Scale="4" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="CAJAEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="ConsultaRecibos" EntityType="Self.ConsultaRecibos" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="CAJAModelStoreContainer" CdmEntityContainer="CAJAEntities">
+          <EntitySetMapping Name="ConsultaRecibos">
+            <EntityTypeMapping TypeName="CAJAModel.ConsultaRecibos">
+              <MappingFragment StoreEntitySet="ConsultaRecibos">
+                <ScalarProperty Name="Nombre_Completo" ColumnName="Nombre_Completo" />
+                <ScalarProperty Name="Donante" ColumnName="Donante" />
+                <ScalarProperty Name="carnet" ColumnName="carnet" />
+                <ScalarProperty Name="semestre_actual" ColumnName="semestre_actual" />
+                <ScalarProperty Name="recibo_numero" ColumnName="recibo_numero" />
+                <ScalarProperty Name="id_usuario" ColumnName="id_usuario" />
+                <ScalarProperty Name="fecha_recibo" ColumnName="fecha_recibo" />
+                <ScalarProperty Name="monto" ColumnName="monto" />
+                <ScalarProperty Name="mes_pago" ColumnName="mes_pago" />
+                <ScalarProperty Name="anio_pago" ColumnName="anio_pago" />
+                <ScalarProperty Name="nombre_concepto" ColumnName="nombre_concepto" />
+                <ScalarProperty Name="id_concepto" ColumnName="id_concepto" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+                <ScalarProperty Name="id_derivado" ColumnName="id_derivado" />
+                <ScalarProperty Name="pago" ColumnName="pago" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram DiagramId="802fff7ee709449aab3420c01f5035c5" Name="Diagram1">
+        <EntityTypeShape EntityType="CAJAModel.ConsultaRecibos" Width="1.5" PointX="2.625" PointY="1" IsExpanded="true" />
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>

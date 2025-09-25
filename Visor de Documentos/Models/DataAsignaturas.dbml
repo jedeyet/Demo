@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="NOTASMESO" Class="DataAsignaturasDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=gp4;Initial Catalog=NOTASMESO;User ID=Local;MultipleActiveResultSets=True;Application Name=EntityFramework" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="NOTASMESOConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.asignatura" Member="asignatura">
+    <Type Name="asignatura">
+      <Column Name="Codigo_Asignatura" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Asignatura" Member="Asignatura1" Type="System.String" DbType="NVarChar(90)" CanBeNull="true" />
+      <Column Name="Carrera" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Semestre" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Créditos" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="YaNoseDa" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="Periodos" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Codigo_Acta" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Complemento" Type="System.String" DbType="NVarChar(5)" CanBeNull="true" />
+      <Column Name="Semestre_Trimestre" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Prerequisito" Type="System.String" DbType="NVarChar(90)" CanBeNull="true" />
+      <Column Name="Cobrado" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Codigo_Certif" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="MasDatos" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Carrera" Member="Carrera">
+    <Type Name="Carrera">
+      <Column Name="[Id Carrera]" Member="Id_Carrera" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="[Nombre de la carrera]" Member="Nombre_de_la_carrera" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="Codigo_Facultad" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Semestres" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="NomCorto" Type="System.String" DbType="NVarChar(40)" CanBeNull="true" />
+      <Column Name="Estado" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+      <Column Name="Pensum_Actual" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Conta_Carne" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Departamento" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="ID_Categoria" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Semestre_inicia" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Semestre_finaliza" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Plan_E" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Pensum_Asignaturas" Member="Pensum_Asignaturas">
+    <Type Name="Pensum_Asignaturas">
+      <Column Name="ID_Pensum_Asignatura" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ID_Encabezado_Pensum" Type="System.String" DbType="NVarChar(7) NOT NULL" CanBeNull="false" />
+      <Column Name="No_curso" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Asignatura" Type="System.String" DbType="NVarChar(90) NOT NULL" CanBeNull="false" />
+      <Column Name="Creditos" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Semestre" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+</Database>

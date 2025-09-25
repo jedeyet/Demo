@@ -1,0 +1,1999 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" />
+  <Import Project="..\packages\Microsoft.TypeScript.MSBuild.4.8.3\build\Microsoft.TypeScript.MSBuild.props" Condition="Exists('..\packages\Microsoft.TypeScript.MSBuild.4.8.3\build\Microsoft.TypeScript.MSBuild.props')" />
+  <Import Project="..\packages\Microsoft.Net.Compilers.4.2.0\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.4.2.0\build\Microsoft.Net.Compilers.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{DBE05CF9-6D30-41B0-AF1D-F6FD69340D59}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Visor_de_Documentos</RootNamespace>
+    <AssemblyName>Visor de Documentos</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort>44390</IISExpressSSLPort>
+    <IISExpressAnonymousAuthentication>enabled</IISExpressAnonymousAuthentication>
+    <IISExpressWindowsAuthentication>disabled</IISExpressWindowsAuthentication>
+    <IISExpressUseClassicPipelineMode>false</IISExpressUseClassicPipelineMode>
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <Use64BitIISExpress />
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Antlr3.Runtime, Version=3.5.0.2, Culture=neutral, PublicKeyToken=eb42632606e9261f, processorArchitecture=MSIL">
+      <HintPath>..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="AspNet.ScriptManager.jQuery, Version=3.6.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\AspNet.ScriptManager.jQuery.3.6.0\lib\net45\AspNet.ScriptManager.jQuery.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Apis, Version=1.57.0.0, Culture=neutral, PublicKeyToken=4b01fa6e34db77ab, processorArchitecture=MSIL">
+      <HintPath>..\packages\Google.Apis.1.57.0\lib\net45\Google.Apis.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Apis.Auth, Version=1.57.0.0, Culture=neutral, PublicKeyToken=4b01fa6e34db77ab, processorArchitecture=MSIL">
+      <HintPath>..\packages\Google.Apis.Auth.1.57.0\lib\net461\Google.Apis.Auth.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Apis.Auth.PlatformServices, Version=1.57.0.0, Culture=neutral, PublicKeyToken=4b01fa6e34db77ab, processorArchitecture=MSIL">
+      <HintPath>..\packages\Google.Apis.Auth.1.57.0\lib\net461\Google.Apis.Auth.PlatformServices.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Apis.Core, Version=1.57.0.0, Culture=neutral, PublicKeyToken=4b01fa6e34db77ab, processorArchitecture=MSIL">
+      <HintPath>..\packages\Google.Apis.Core.1.57.0\lib\net45\Google.Apis.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Apis.Drive.v3, Version=1.57.0.2789, Culture=neutral, PublicKeyToken=4b01fa6e34db77ab, processorArchitecture=MSIL">
+      <HintPath>..\packages\Google.Apis.Drive.v3.1.57.0.2789\lib\net45\Google.Apis.Drive.v3.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Apis.PlatformServices, Version=1.57.0.0, Culture=neutral, PublicKeyToken=4b01fa6e34db77ab, processorArchitecture=MSIL">
+      <HintPath>..\packages\Google.Apis.1.57.0\lib\net45\Google.Apis.PlatformServices.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp">
+      <HintPath>..\..\..\Downloads\itextsharp\itextsharp.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.Agent.Intercept, Version=2.4.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.2.4.0\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.DependencyCollector, Version=2.21.0.429, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.DependencyCollector.2.21.0\lib\net452\Microsoft.AI.DependencyCollector.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.PerfCounterCollector, Version=2.21.0.429, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.PerfCounterCollector.2.21.0\lib\net452\Microsoft.AI.PerfCounterCollector.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.ServerTelemetryChannel, Version=2.21.0.429, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.2.21.0\lib\net452\Microsoft.AI.ServerTelemetryChannel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.Web, Version=2.21.0.429, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Web.2.21.0\lib\net452\Microsoft.AI.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.WindowsServer, Version=2.21.0.429, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.2.21.0\lib\net452\Microsoft.AI.WindowsServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ApplicationInsights, Version=2.21.0.429, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.2.21.0\lib\net46\Microsoft.ApplicationInsights.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.3\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.2.3\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Owin, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Owin.2.2.3\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.TelemetryCorrelation, Version=1.0.8.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.TelemetryCorrelation.1.0.8\lib\net45\Microsoft.AspNet.TelemetryCorrelation.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=3.6.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Owin, Version=4.2.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.4.2.2\lib\net45\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb, Version=4.2.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.4.2.2\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security, Version=4.2.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.4.2.2\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Cookies, Version=4.2.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.Cookies.4.2.2\lib\net45\Microsoft.Owin.Security.Cookies.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Facebook, Version=4.2.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.Facebook.4.2.2\lib\net45\Microsoft.Owin.Security.Facebook.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Google, Version=4.2.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.Google.4.2.2\lib\net45\Microsoft.Owin.Security.Google.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.MicrosoftAccount, Version=4.2.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.MicrosoftAccount.4.2.2\lib\net45\Microsoft.Owin.Security.MicrosoftAccount.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.OAuth, Version=4.2.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.OAuth.4.2.2\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure, Version=2.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.2.0.1\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Diagnostics.DiagnosticSource, Version=6.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Diagnostics.DiagnosticSource.6.0.0\lib\net461\System.Diagnostics.DiagnosticSource.dll</HintPath>
+    </Reference>
+    <Reference Include="System.IO, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.4.3.0\lib\net462\System.IO.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Management" />
+    <Reference Include="System.Memory, Version=4.0.1.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.4.5.5\lib\net461\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http, Version=4.1.1.3, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Net.Http.4.3.4\lib\net46\System.Net.Http.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest" />
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime, Version=4.1.1.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.4.3.1\lib\net462\System.Runtime.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Runtime.Caching" />
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.6.0.0\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Security.Cryptography.Algorithms, Version=4.2.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.Algorithms.4.3.1\lib\net463\System.Security.Cryptography.Algorithms.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Encoding, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.Encoding.4.3.0\lib\net46\System.Security.Cryptography.Encoding.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Primitives, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.Primitives.4.3.0\lib\net46\System.Security.Cryptography.Primitives.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.X509Certificates, Version=4.1.1.2, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.X509Certificates.4.3.2\lib\net461\System.Security.Cryptography.X509Certificates.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.DataVisualization" />
+    <Reference Include="System.Web.DataVisualization.Design" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="Microsoft.ScriptManager.MSAjax">
+      <HintPath>..\packages\Microsoft.AspNet.ScriptManager.MSAjax.5.0.0\lib\net45\Microsoft.ScriptManager.MSAjax.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ScriptManager.WebForms">
+      <HintPath>..\packages\Microsoft.AspNet.ScriptManager.WebForms.5.0.0\lib\net45\Microsoft.ScriptManager.WebForms.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization, Version=1.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="Microsoft.AspNet.Web.Optimization.WebForms">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.WebForms.1.1.3\lib\net45\Microsoft.AspNet.Web.Optimization.WebForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.FriendlyUrls">
+      <HintPath>..\packages\Microsoft.AspNet.FriendlyUrls.Core.1.0.2\lib\net45\Microsoft.AspNet.FriendlyUrls.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease, Version=1.6.5135.21930, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System.Web.Providers">
+      <HintPath>..\packages\Microsoft.AspNet.Providers.Core.2.0.0\lib\net40\System.Web.Providers.dll</HintPath>
+    </Reference>
+    <Reference Include="Owin">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="AcademiaEjemplo.aspx" />
+    <Content Include="Account\Creacion.aspx" />
+    <Content Include="Account\Logo-Un-Color_icono.png" />
+    <Content Include="Account\MisEstilos.css" />
+    <Content Include="Account\Portada Sistema.jpg" />
+    <Content Include="Account\UMES.jpg" />
+    <Content Include="Account\UMES2.jpg" />
+    <Content Include="AlumnosBuscar.aspx" />
+    <Content Include="AlumnosIndividual.aspx" />
+    <Content Include="app\css\app-rtl.css" />
+    <Content Include="app\css\app.css" />
+    <Content Include="app\css\bootstrap-rtl.css" />
+    <Content Include="app\css\bootstrap.css" />
+    <Content Include="app\css\theme-a.css" />
+    <Content Include="app\css\theme-b.css" />
+    <Content Include="app\css\theme-c.css" />
+    <Content Include="app\css\theme-d.css" />
+    <Content Include="app\css\theme-e.css" />
+    <Content Include="app\css\theme-f.css" />
+    <Content Include="app\css\theme-g.css" />
+    <Content Include="app\css\theme-h.css" />
+    <Content Include="app\img\bg1.jpg" />
+    <Content Include="app\img\bg10.jpg" />
+    <Content Include="app\img\bg2.jpg" />
+    <Content Include="app\img\bg3.jpg" />
+    <Content Include="app\img\bg4.jpg" />
+    <Content Include="app\img\bg5.jpg" />
+    <Content Include="app\img\bg6.jpg" />
+    <Content Include="app\img\bg7.jpg" />
+    <Content Include="app\img\bg8.jpg" />
+    <Content Include="app\img\bg9.jpg" />
+    <Content Include="app\img\dummy.png" />
+    <Content Include="app\img\lock-bg.jpg" />
+    <Content Include="app\img\logo-single.png" />
+    <Content Include="app\img\Logo-Un-Color_icono - Single.png" />
+    <Content Include="app\img\Logo-Un-Color_icono.png" />
+    <Content Include="app\img\logo.png" />
+    <Content Include="app\img\LogoUMES.png" />
+    <Content Include="app\img\mb-sample.jpg" />
+    <Content Include="app\img\mockup.png" />
+    <Content Include="app\img\profile-bg.jpg" />
+    <Content Include="app\img\user\01.jpg" />
+    <Content Include="app\img\user\02.jpg" />
+    <Content Include="app\img\user\03.jpg" />
+    <Content Include="app\img\user\04.jpg" />
+    <Content Include="app\img\user\05.jpg" />
+    <Content Include="app\img\user\06.jpg" />
+    <Content Include="app\img\user\07.jpg" />
+    <Content Include="app\img\user\08.jpg" />
+    <Content Include="app\img\user\09.jpg" />
+    <Content Include="app\img\user\10.jpg" />
+    <Content Include="app\img\user\11.jpg" />
+    <Content Include="app\img\user\12.jpg" />
+    <Content Include="app\img\user\13.jpg" />
+    <Content Include="app\js\app.js" />
+    <Content Include="app\singleview.html" />
+    <Content Include="app\submenu.html" />
+    <Content Include="Content\bootstrap-grid.css" />
+    <Content Include="Content\bootstrap-grid.min.css" />
+    <Content Include="Content\bootstrap-grid.rtl.css" />
+    <Content Include="Content\bootstrap-grid.rtl.min.css" />
+    <Content Include="Content\bootstrap-reboot.css" />
+    <Content Include="Content\bootstrap-reboot.min.css" />
+    <Content Include="Content\bootstrap-reboot.rtl.css" />
+    <Content Include="Content\bootstrap-reboot.rtl.min.css" />
+    <Content Include="Content\bootstrap-utilities.css" />
+    <Content Include="Content\bootstrap-utilities.min.css" />
+    <Content Include="Content\bootstrap-utilities.rtl.css" />
+    <Content Include="Content\bootstrap-utilities.rtl.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\bootstrap.rtl.css" />
+    <Content Include="Content\bootstrap.rtl.min.css" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Imagenes\Portada Sistema.jpg" />
+    <Content Include="Models\ModelEscaneoIzabal.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ModelEscaneoIzabal.edmx</DependentUpon>
+      <LastGenOutput>ModelEscaneoIzabal.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\ModelEscaneoIzabal.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ModelEscaneoIzabal.edmx</DependentUpon>
+      <LastGenOutput>ModelEscaneoIzabal.cs</LastGenOutput>
+    </Content>
+    <Content Include="ListaProgramasVirPorCarrera.aspx" />
+    <Content Include="ListaProgramasVirPorCarrera.aspx.vb">
+      <SubType>ASPXCodeBehind</SubType>
+    </Content>
+    <Content Include="ListarPVCatedraticos.aspx" />
+    <Content Include="ListarPVCatedraticos.aspx.vb">
+      <SubType>ASPXCodeBehind</SubType>
+    </Content>
+    <Content Include="Models\ModelEscaneos.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ModelEscaneos.edmx</DependentUpon>
+      <LastGenOutput>ModelEscaneos.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\ModelEscaneos.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ModelEscaneos.edmx</DependentUpon>
+      <LastGenOutput>ModelEscaneos.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\ModelEscaneosAmatitlan.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ModelEscaneosAmatitlan.edmx</DependentUpon>
+      <LastGenOutput>ModelEscaneosAmatitlan.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\ModelEscaneosAmatitlan.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ModelEscaneosAmatitlan.edmx</DependentUpon>
+      <LastGenOutput>ModelEscaneosAmatitlan.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\ModelEscaneosCenses.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ModelEscaneosCenses.edmx</DependentUpon>
+      <LastGenOutput>ModelEscaneosCenses.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\ModelEscaneosCenses.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ModelEscaneosCenses.edmx</DependentUpon>
+      <LastGenOutput>ModelEscaneosCenses.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\ModelEscaneosCoban.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ModelEscaneosCoban.edmx</DependentUpon>
+      <LastGenOutput>ModelEscaneosCoban.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\ModelEscaneosCoban.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ModelEscaneosCoban.edmx</DependentUpon>
+      <LastGenOutput>ModelEscaneosCoban.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\ModelEscaneosGuate.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ModelEscaneosGuate.edmx</DependentUpon>
+      <LastGenOutput>ModelEscaneosGuate.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\ModelEscaneosGuate.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ModelEscaneosGuate.edmx</DependentUpon>
+      <LastGenOutput>ModelEscaneosGuate.cs</LastGenOutput>
+    </Content>
+    <Content Include="PagsAlumnosCarreraCorreo.aspx" />
+    <Content Include="PagsAlumnosEntrevista.aspx" />
+    <Content Include="PagsAlumnosFinales.aspx" />
+    <Content Include="PagsAlumnosInscripcionGenero.aspx" />
+    <Content Include="PagsAlumnosNohanEvaluado.aspx" />
+    <Content Include="PagsAlumnosPromedios.aspx" />
+    <Content Include="PagsDocentesEvaluacionCarreraDocentes.aspx" />
+    <Content Include="PagsReporteEscaneos.aspx" />
+    <Content Include="Estudiantes3Perdidos.aspx" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Account\Login.aspx" />
+    <Content Include="Imagenes\excel2.jpg" />
+    <Content Include="Imagenes\iconoImpresion1.JPG" />
+    <Content Include="Logout.aspx" />
+    <Content Include="ModelCatedraticoXela.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ModelCatedraticoXela.edmx</DependentUpon>
+      <LastGenOutput>ModelCatedraticoXela.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="ModelCatedraticoXela.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ModelCatedraticoXela.edmx</DependentUpon>
+      <LastGenOutput>ModelCatedraticoXela.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\ModelLogin.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ModelLogin.edmx</DependentUpon>
+      <LastGenOutput>ModelLogin.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\ModelLogin.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ModelLogin.edmx</DependentUpon>
+      <LastGenOutput>ModelLogin.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\ModeloCaja.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ModeloCaja.edmx</DependentUpon>
+      <LastGenOutput>ModeloCaja.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\ModeloCaja.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ModeloCaja.edmx</DependentUpon>
+      <LastGenOutput>ModeloCaja.cs</LastGenOutput>
+    </Content>
+    <Content Include="PagsAlumnosDejaronMasDe2.aspx" />
+    <Content Include="PagsAlumnosHistorial.aspx" />
+    <Content Include="pagsAlumnosInscritos.aspx" />
+    <Content Include="pagsAlumnosNacionalidad.aspx" />
+    <Content Include="PagsAlumnosPasosIncompletos.aspx" />
+    <Content Include="PagsAlumnosReporteDetallado.aspx" />
+    <Content Include="PagsAlumnosRetirados.aspx" />
+    <Content Include="PagsCajaBeca.aspx" />
+    <Content Include="PagsDocenteCarrera.aspx" />
+    <Content Include="PagsDocenteIndividual.aspx" />
+    <Content Include="PagsDocenteIndividualimpresion.aspx" />
+    <Content Include="PagsDocenteIndividualLista.aspx" />
+    <Content Include="PagsDocentesActas.aspx" />
+    <Content Include="PagsDocentesActasNoEnviadas.aspx" />
+    <Content Include="PagsDocentesActivo.aspx" />
+    <Content Include="PagsDocentesContenidos.aspx" />
+    <Content Include="PagsDocentesContratos.aspx" />
+    <Content Include="PagsDocentesEvaluacionAsignatura.aspx" />
+    <Content Include="PagsDocentesEvaluacionesCarrera.aspx" />
+    <Content Include="PagsDocentesEvaluacionPorCatedratico.aspx" />
+    <Content Include="PagsDocentesEvaluacionPorCatedraticoHistorial.aspx" />
+    <Content Include="PagsDocentesHistorial.aspx" />
+    <Content Include="PagsDocentesPrivadosConsolidados.aspx" />
+    <Content Include="PagsDocentesPrivadosPorArea.aspx" />
+    <Content Include="PagsDocentesPromedio.aspx" />
+    <Content Include="PagsDocentesReporteDetallado.aspx" />
+    <Content Include="PagsCajaConvenio.aspx" />
+    <Content Include="PagsDocentesSedeDocumentos.aspx" />
+    <Content Include="PagsDocentesSede.aspx" />
+    <Content Include="PagsDocentesZona.aspx" />
+    <Content Include="PagsDocenteVerDocumentos.aspx" />
+    <Content Include="PagsPagos.aspx" />
+    <Content Include="PagsReporteEscaneosDetallado.aspx" />
+    <Content Include="PagsReporteEscaneosPorAlumno.aspx" />
+    <Content Include="Scripts\bootstrap.bundle.js" />
+    <Content Include="Scripts\bootstrap.bundle.min.js" />
+    <Content Include="Scripts\bootstrap.esm.js" />
+    <Content Include="Scripts\bootstrap.esm.min.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\esm\popper-utils.js" />
+    <Content Include="Scripts\esm\popper-utils.min.js" />
+    <Content Include="Scripts\esm\popper.js" />
+    <Content Include="Scripts\esm\popper.min.js" />
+    <Content Include="Scripts\index.js.flow" />
+    <Content Include="Scripts\esm\popper.min.js.map" />
+    <Content Include="Scripts\esm\popper.js.map" />
+    <Content Include="Scripts\esm\popper-utils.min.js.map" />
+    <Content Include="Scripts\esm\popper-utils.js.map" />
+    <Content Include="Scripts\bootstrap.min.js.map" />
+    <Content Include="Scripts\bootstrap.js.map" />
+    <Content Include="Scripts\bootstrap.esm.min.js.map" />
+    <Content Include="Scripts\bootstrap.esm.js.map" />
+    <Content Include="Scripts\bootstrap.bundle.min.js.map" />
+    <Content Include="Scripts\bootstrap.bundle.js.map" />
+    <Content Include="Content\bootstrap.rtl.min.css.map" />
+    <Content Include="Content\bootstrap.rtl.css.map" />
+    <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap-utilities.rtl.min.css.map" />
+    <Content Include="Content\bootstrap-utilities.rtl.css.map" />
+    <Content Include="Content\bootstrap-utilities.min.css.map" />
+    <Content Include="Content\bootstrap-utilities.css.map" />
+    <Content Include="Content\bootstrap-reboot.rtl.min.css.map" />
+    <Content Include="Content\bootstrap-reboot.rtl.css.map" />
+    <Content Include="Content\bootstrap-reboot.min.css.map" />
+    <Content Include="Content\bootstrap-reboot.css.map" />
+    <Content Include="Content\bootstrap-grid.rtl.min.css.map" />
+    <Content Include="Content\bootstrap-grid.rtl.css.map" />
+    <Content Include="Content\bootstrap-grid.min.css.map" />
+    <Content Include="Content\bootstrap-grid.css.map" />
+    <EntityDeploy Include="Models\ModelEscaneos.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ModelEscaneos.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\ModelEscaneos.edmx.diagram">
+      <DependentUpon>ModelEscaneos.edmx</DependentUpon>
+    </Content>
+    <EntityDeploy Include="Models\ModelEscaneosGuate.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ModelEscaneosGuate.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\ModelEscaneosGuate.edmx.diagram">
+      <DependentUpon>ModelEscaneosGuate.edmx</DependentUpon>
+    </Content>
+    <EntityDeploy Include="Models\ModelEscaneosCoban.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ModelEscaneosCoban.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\ModelEscaneosCoban.edmx.diagram">
+      <DependentUpon>ModelEscaneosCoban.edmx</DependentUpon>
+    </Content>
+    <EntityDeploy Include="Models\ModelEscaneosCenses.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ModelEscaneosCenses.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\ModelEscaneosCenses.edmx.diagram">
+      <DependentUpon>ModelEscaneosCenses.edmx</DependentUpon>
+    </Content>
+    <EntityDeploy Include="Models\ModelEscaneoIzabal.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ModelEscaneoIzabal.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\ModelEscaneoIzabal.edmx.diagram">
+      <DependentUpon>ModelEscaneoIzabal.edmx</DependentUpon>
+    </Content>
+    <EntityDeploy Include="Models\ModelEscaneosAmatitlan.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ModelEscaneosAmatitlan.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\ModelEscaneosAmatitlan.edmx.diagram">
+      <DependentUpon>ModelEscaneosAmatitlan.edmx</DependentUpon>
+    </Content>
+    <None Include="Scripts\jquery-3.6.0.intellisense.js" />
+    <Content Include="Scripts\jquery-3.6.0.js" />
+    <Content Include="Scripts\jquery-3.6.0.min.js" />
+    <Content Include="Scripts\jquery-3.6.0.slim.js" />
+    <Content Include="Scripts\jquery-3.6.0.slim.min.js" />
+    <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\popper-utils.js" />
+    <Content Include="Scripts\popper-utils.min.js" />
+    <Content Include="Scripts\popper.js" />
+    <Content Include="Scripts\popper.min.js" />
+    <Content Include="Scripts\respond.js" />
+    <Content Include="Scripts\respond.matchmedia.addListener.js" />
+    <Content Include="Scripts\respond.matchmedia.addListener.min.js" />
+    <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\src\index.js" />
+    <Content Include="Scripts\src\methods\defaults.js" />
+    <Content Include="Scripts\src\methods\destroy.js" />
+    <Content Include="Scripts\src\methods\disableEventListeners.js" />
+    <Content Include="Scripts\src\methods\enableEventListeners.js" />
+    <Content Include="Scripts\src\methods\placements.js" />
+    <Content Include="Scripts\src\methods\update.js" />
+    <Content Include="Scripts\src\modifiers\applyStyle.js" />
+    <Content Include="Scripts\src\modifiers\arrow.js" />
+    <Content Include="Scripts\src\modifiers\computeStyle.js" />
+    <Content Include="Scripts\src\modifiers\flip.js" />
+    <Content Include="Scripts\src\modifiers\hide.js" />
+    <Content Include="Scripts\src\modifiers\index.js" />
+    <Content Include="Scripts\src\modifiers\inner.js" />
+    <Content Include="Scripts\src\modifiers\keepTogether.js" />
+    <Content Include="Scripts\src\modifiers\offset.js" />
+    <Content Include="Scripts\src\modifiers\preventOverflow.js" />
+    <Content Include="Scripts\src\modifiers\shift.js" />
+    <Content Include="Scripts\src\utils\clockwise.js" />
+    <Content Include="Scripts\src\utils\computeAutoPlacement.js" />
+    <Content Include="Scripts\src\utils\debounce.js" />
+    <Content Include="Scripts\src\utils\find.js" />
+    <Content Include="Scripts\src\utils\findCommonOffsetParent.js" />
+    <Content Include="Scripts\src\utils\findIndex.js" />
+    <Content Include="Scripts\src\utils\getBordersSize.js" />
+    <Content Include="Scripts\src\utils\getBoundaries.js" />
+    <Content Include="Scripts\src\utils\getBoundingClientRect.js" />
+    <Content Include="Scripts\src\utils\getClientRect.js" />
+    <Content Include="Scripts\src\utils\getFixedPositionOffsetParent.js" />
+    <Content Include="Scripts\src\utils\getOffsetParent.js" />
+    <Content Include="Scripts\src\utils\getOffsetRect.js" />
+    <Content Include="Scripts\src\utils\getOffsetRectRelativeToArbitraryNode.js" />
+    <Content Include="Scripts\src\utils\getOppositePlacement.js" />
+    <Content Include="Scripts\src\utils\getOppositeVariation.js" />
+    <Content Include="Scripts\src\utils\getOuterSizes.js" />
+    <Content Include="Scripts\src\utils\getParentNode.js" />
+    <Content Include="Scripts\src\utils\getPopperOffsets.js" />
+    <Content Include="Scripts\src\utils\getReferenceNode.js" />
+    <Content Include="Scripts\src\utils\getReferenceOffsets.js" />
+    <Content Include="Scripts\src\utils\getRoot.js" />
+    <Content Include="Scripts\src\utils\getRoundedOffsets.js" />
+    <Content Include="Scripts\src\utils\getScroll.js" />
+    <Content Include="Scripts\src\utils\getScrollParent.js" />
+    <Content Include="Scripts\src\utils\getStyleComputedProperty.js" />
+    <Content Include="Scripts\src\utils\getSupportedPropertyName.js" />
+    <Content Include="Scripts\src\utils\getViewportOffsetRectRelativeToArtbitraryNode.js" />
+    <Content Include="Scripts\src\utils\getWindow.js" />
+    <Content Include="Scripts\src\utils\getWindowSizes.js" />
+    <Content Include="Scripts\src\utils\includeScroll.js" />
+    <Content Include="Scripts\src\utils\index.js" />
+    <Content Include="Scripts\src\utils\isBrowser.js" />
+    <Content Include="Scripts\src\utils\isFixed.js" />
+    <Content Include="Scripts\src\utils\isFunction.js" />
+    <Content Include="Scripts\src\utils\isIE.js" />
+    <Content Include="Scripts\src\utils\isModifierEnabled.js" />
+    <Content Include="Scripts\src\utils\isModifierRequired.js" />
+    <Content Include="Scripts\src\utils\isNumeric.js" />
+    <Content Include="Scripts\src\utils\isOffsetContainer.js" />
+    <Content Include="Scripts\src\utils\removeEventListeners.js" />
+    <Content Include="Scripts\src\utils\runModifiers.js" />
+    <Content Include="Scripts\src\utils\setAttributes.js" />
+    <Content Include="Scripts\src\utils\setStyles.js" />
+    <Content Include="Scripts\src\utils\setupEventListeners.js" />
+    <Content Include="Scripts\umd\popper-utils.js" />
+    <Content Include="Scripts\umd\popper-utils.min.js" />
+    <Content Include="Scripts\umd\popper.js" />
+    <Content Include="Scripts\umd\popper.min.js" />
+    <Content Include="Site.Mobile.Master" />
+    <Content Include="src\css\main.css" />
+    <Content Include="src\css\styles.css" />
+    <Content Include="src\css\vendor\autoComplete.css" />
+    <Content Include="src\css\vendor\baguetteBox.min.css" />
+    <Content Include="src\css\vendor\bootstrap-datepicker3.standalone.min.css" />
+    <Content Include="src\css\vendor\bootstrap.min.css" />
+    <Content Include="src\css\vendor\datatables.min.css" />
+    <Content Include="src\css\vendor\dropzone.min.css" />
+    <Content Include="src\css\vendor\fullcalendar.min.css" />
+    <Content Include="src\css\vendor\glide.core.min.css" />
+    <Content Include="src\css\vendor\introjs.min.css" />
+    <Content Include="src\css\vendor\jquery.contextMenu.min.css" />
+    <Content Include="src\css\vendor\nouislider.min.css" />
+    <Content Include="src\css\vendor\OverlayScrollbars.min.css" />
+    <Content Include="src\css\vendor\plyr.css" />
+    <Content Include="src\css\vendor\quill.bubble.css" />
+    <Content Include="src\css\vendor\quill.snow.css" />
+    <Content Include="src\css\vendor\select2-bootstrap4.min.css" />
+    <Content Include="src\css\vendor\select2.min.css" />
+    <Content Include="src\css\vendor\tagify.css" />
+    <Content Include="src\font\CS-Interface\demo-files\demo.css" />
+    <Content Include="src\font\CS-Interface\demo-files\demo.js" />
+    <Content Include="src\font\CS-Interface\demo.html" />
+    <Content Include="src\font\CS-Interface\fonts\CS-Interface.svg" />
+    <Content Include="src\font\CS-Interface\Read Me.txt" />
+    <Content Include="src\font\CS-Interface\style.css" />
+    <Content Include="src\icon\acorn-icons-commerce.js" />
+    <Content Include="src\icon\acorn-icons-interface.js" />
+    <Content Include="src\icon\acorn-icons-learning.js" />
+    <Content Include="src\icon\acorn-icons-medical.js" />
+    <Content Include="src\icon\acorn-icons.js" />
+    <Content Include="src\icon\index.html" />
+    <Content Include="src\img\favicon\apple-touch-icon-114x114.png" />
+    <Content Include="src\img\favicon\apple-touch-icon-120x120.png" />
+    <Content Include="src\img\favicon\apple-touch-icon-144x144.png" />
+    <Content Include="src\img\favicon\apple-touch-icon-152x152.png" />
+    <Content Include="src\img\favicon\apple-touch-icon-57x57.png" />
+    <Content Include="src\img\favicon\apple-touch-icon-60x60.png" />
+    <Content Include="src\img\favicon\apple-touch-icon-72x72.png" />
+    <Content Include="src\img\favicon\apple-touch-icon-76x76.png" />
+    <Content Include="src\img\favicon\favicon-128.png" />
+    <Content Include="src\img\favicon\favicon-16x16.png" />
+    <Content Include="src\img\favicon\favicon-196x196.png" />
+    <Content Include="src\img\favicon\favicon-32x32.png" />
+    <Content Include="src\img\favicon\favicon-96x96.png" />
+    <Content Include="src\img\favicon\favicon.ico" />
+    <Content Include="src\img\favicon\mstile-144x144.png" />
+    <Content Include="src\img\favicon\mstile-150x150.png" />
+    <Content Include="src\img\favicon\mstile-310x150.png" />
+    <Content Include="src\img\favicon\mstile-310x310.png" />
+    <Content Include="src\img\favicon\mstile-70x70.png" />
+    <Content Include="src\img\logo\logo-blue-dark.svg" />
+    <Content Include="src\img\logo\logo-blue-light.svg" />
+    <Content Include="src\img\logo\logo-green-dark.svg" />
+    <Content Include="src\img\logo\logo-green-light.svg" />
+    <Content Include="src\img\logo\logo-light.svg" />
+    <Content Include="src\img\logo\logo-lime-dark.svg" />
+    <Content Include="src\img\logo\logo-lime-light.svg" />
+    <Content Include="src\img\logo\logo-pink-dark.svg" />
+    <Content Include="src\img\logo\logo-pink-light.svg" />
+    <Content Include="src\img\logo\logo-purple-dark.svg" />
+    <Content Include="src\img\logo\logo-purple-light.svg" />
+    <Content Include="src\img\logo\logo-red-dark.svg" />
+    <Content Include="src\img\logo\logo-red-light.svg" />
+    <Content Include="src\img\logo\logo-sky-dark.svg" />
+    <Content Include="src\img\logo\logo-sky-light.svg" />
+    <Content Include="src\img\logo\logo-teal-dark.svg" />
+    <Content Include="src\img\logo\logo-teal-light.svg" />
+    <Content Include="src\js\base\globals.js" />
+    <Content Include="src\js\base\helpers.js" />
+    <Content Include="src\js\base\loader.js" />
+    <Content Include="src\js\base\nav.js" />
+    <Content Include="src\js\base\search.js" />
+    <Content Include="src\js\base\settings.js" />
+    <Content Include="src\js\common.js" />
+    <Content Include="src\js\cs\autocomplete.custom.js" />
+    <Content Include="src\js\cs\charts.extend.js" />
+    <Content Include="src\js\cs\checkall.js" />
+    <Content Include="src\js\cs\datatable.extend.js" />
+    <Content Include="src\js\cs\dropzone.templates.js" />
+    <Content Include="src\js\cs\glide.custom.js" />
+    <Content Include="src\js\cs\responsivetab.js" />
+    <Content Include="src\js\cs\scrollspy.js" />
+    <Content Include="src\js\cs\wizard.js" />
+    <Content Include="src\js\pages\appointments.new.js" />
+    <Content Include="src\js\pages\articles.js" />
+    <Content Include="src\js\pages\consult.js" />
+    <Content Include="src\js\pages\dashboards.doctor.js" />
+    <Content Include="src\js\pages\dashboards.patient.js" />
+    <Content Include="src\js\pages\doctors.detail.js" />
+    <Content Include="src\js\pages\doctors.js" />
+    <Content Include="src\js\pages\settings.js" />
+    <Content Include="src\js\print.min.js" />
+    <Content Include="src\js\scripts.js" />
+    <Content Include="src\js\vendor\autoComplete.min.js" />
+    <Content Include="src\js\vendor\autosize.min.js" />
+    <Content Include="src\js\vendor\baguetteBox.min.js" />
+    <Content Include="src\js\vendor\bootstrap-notify.min.js" />
+    <Content Include="src\js\vendor\bootstrap-submenu.js" />
+    <Content Include="src\js\vendor\bootstrap.bundle.min.js" />
+    <Content Include="src\js\vendor\Chart.bundle.min.js" />
+    <Content Include="src\js\vendor\chartjs-plugin-crosshair.js" />
+    <Content Include="src\js\vendor\chartjs-plugin-datalabels.js" />
+    <Content Include="src\js\vendor\chartjs-plugin-rounded-bar.min.js" />
+    <Content Include="src\js\vendor\chartjs-plugin-streaming.min.js" />
+    <Content Include="src\js\vendor\clamp.min.js" />
+    <Content Include="src\js\vendor\countdown.min.js" />
+    <Content Include="src\js\vendor\datatables.min.js" />
+    <Content Include="src\js\vendor\datepicker\bootstrap-datepicker.min.js" />
+    <Content Include="src\js\vendor\datepicker\locales\bootstrap-datepicker-en-CA.min.js" />
+    <Content Include="src\js\vendor\datepicker\locales\bootstrap-datepicker.ar-tn.min.js" />
+    <Content Include="src\js\vendor\datepicker\locales\bootstrap-datepicker.ar.min.js" />
+    <Content Include="src\js\vendor\datepicker\locales\bootstrap-datepicker.az.min.js" />
+    <Content Include="src\js\vendor\datepicker\locales\bootstrap-datepicker.bg.min.js" />
+    <Content Include="src\js\vendor\datepicker\locales\bootstrap-datepicker.bm.min.js" />
+    <Content Include="src\js\vendor\datepicker\locales\bootstrap-datepicker.bn.min.js" />
+    <Content Include="src\js\vendor\datepicker\locales\bootstrap-datepicker.br.min.js" />
+    <Content Include="src\js\vendor\datepicker\locales\bootstrap-datepicker.bs.min.js" />
+    <Content Include="src\js\vendor\datepicker\locales\bootstrap-datepicker.ca.min.js" />
+    <Content Include="src\js\vendor\datepicker\locales\bootstrap-datepicker.cs.min.js" />
+    <Content Include="src\js\vendor\datepicker\locales\bootstrap-datepicker.cy.min.js" />
+    <Content Include="src\js\vendor\datepicker\locales\bootstrap-datepicker.da.min.js" />
+    <Content Include="src\js\vendor\datepicker\locales\bootstrap-datepicker.de.min.js" />
+    <Content Include="src\js\vendor\datepicker\locales\bootstrap-datepicker.el.min.js" />
+    <Content Include="src\js\vendor\datepicker\locales\bootstrap-datepicker.en-AU.min.js" />
+    <Content Include="src\js\vendor\datepicker\locales\bootstrap-datepicker.en-CA.min.js" />
+    <Content Include="src\js\vendor\datepicker\locales\bootstrap-datepicker.en-GB.min.js" />
+    <Content Include="src\js\vendor\datepicker\locales\bootstrap-datepicker.en-IE.min.js" />
+    <Content Include="src\js\vendor\datepicker\locales\bootstrap-datepicker.en-NZ.min.js" />
+    <Content Include="src\js\vendor\datepicker\locales\bootstrap-datepicker.en-ZA.min.js" />
+    <Content Include="src\js\vendor\datepicker\locales\bootstrap-datepicker.eo.min.js" />
+    <Content Include="src\js\vendor\datepicker\locales\bootstrap-datepicker.es.min.js" />
+    <Content Include="src\js\vendor\datepicker\locales\bootstrap-datepicker.et.min.js" />
+    <Content Include="src\js\vendor\datepicker\locales\bootstrap-datepicker.eu.min.js" />
+    <Content Include="src\js\vendor\datepicker\locales\bootstrap-datepicker.fa.min.js" />
+    <Content Include="src\js\vendor\datepicker\locales\bootstrap-datepicker.fi.min.js" />
+    <Content Include="src\js\vendor\datepicker\locales\bootstrap-datepicker.fo.min.js" />
+    <Content Include="src\js\vendor\datepicker\locales\bootstrap-datepicker.fr-CH.min.js" />
+    <Content Include="src\js\vendor\datepicker\locales\bootstrap-datepicker.fr.min.js" />
+    <Content Include="src\js\vendor\datepicker\locales\bootstrap-datepicker.gl.min.js" />
+    <Content Include="src\js\vendor\datepicker\locales\bootstrap-datepicker.he.min.js" />
+    <Content Include="src\js\vendor\datepicker\locales\bootstrap-datepicker.hi.min.js" />
+    <Content Include="src\js\vendor\datepicker\locales\bootstrap-datepicker.hr.min.js" />
+    <Content Include="src\js\vendor\datepicker\locales\bootstrap-datepicker.hu.min.js" />
+    <Content Include="src\js\vendor\datepicker\locales\bootstrap-datepicker.hy.min.js" />
+    <Content Include="src\js\vendor\datepicker\locales\bootstrap-datepicker.id.min.js" />
+    <Content Include="src\js\vendor\datepicker\locales\bootstrap-datepicker.is.min.js" />
+    <Content Include="src\js\vendor\datepicker\locales\bootstrap-datepicker.it-CH.min.js" />
+    <Content Include="src\js\vendor\datepicker\locales\bootstrap-datepicker.it.min.js" />
+    <Content Include="src\js\vendor\datepicker\locales\bootstrap-datepicker.ja.min.js" />
+    <Content Include="src\js\vendor\datepicker\locales\bootstrap-datepicker.ka.min.js" />
+    <Content Include="src\js\vendor\datepicker\locales\bootstrap-datepicker.kh.min.js" />
+    <Content Include="src\js\vendor\datepicker\locales\bootstrap-datepicker.kk.min.js" />
+    <Content Include="src\js\vendor\datepicker\locales\bootstrap-datepicker.km.min.js" />
+    <Content Include="src\js\vendor\datepicker\locales\bootstrap-datepicker.ko.min.js" />
+    <Content Include="src\js\vendor\datepicker\locales\bootstrap-datepicker.kr.min.js" />
+    <Content Include="src\js\vendor\datepicker\locales\bootstrap-datepicker.lt.min.js" />
+    <Content Include="src\js\vendor\datepicker\locales\bootstrap-datepicker.lv.min.js" />
+    <Content Include="src\js\vendor\datepicker\locales\bootstrap-datepicker.me.min.js" />
+    <Content Include="src\js\vendor\datepicker\locales\bootstrap-datepicker.mk.min.js" />
+    <Content Include="src\js\vendor\datepicker\locales\bootstrap-datepicker.mn.min.js" />
+    <Content Include="src\js\vendor\datepicker\locales\bootstrap-datepicker.ms.min.js" />
+    <Content Include="src\js\vendor\datepicker\locales\bootstrap-datepicker.nl-BE.min.js" />
+    <Content Include="src\js\vendor\datepicker\locales\bootstrap-datepicker.nl.min.js" />
+    <Content Include="src\js\vendor\datepicker\locales\bootstrap-datepicker.no.min.js" />
+    <Content Include="src\js\vendor\datepicker\locales\bootstrap-datepicker.oc.min.js" />
+    <Content Include="src\js\vendor\datepicker\locales\bootstrap-datepicker.pl.min.js" />
+    <Content Include="src\js\vendor\datepicker\locales\bootstrap-datepicker.pt-BR.min.js" />
+    <Content Include="src\js\vendor\datepicker\locales\bootstrap-datepicker.pt.min.js" />
+    <Content Include="src\js\vendor\datepicker\locales\bootstrap-datepicker.ro.min.js" />
+    <Content Include="src\js\vendor\datepicker\locales\bootstrap-datepicker.rs-latin.min.js" />
+    <Content Include="src\js\vendor\datepicker\locales\bootstrap-datepicker.rs.min.js" />
+    <Content Include="src\js\vendor\datepicker\locales\bootstrap-datepicker.ru.min.js" />
+    <Content Include="src\js\vendor\datepicker\locales\bootstrap-datepicker.si.min.js" />
+    <Content Include="src\js\vendor\datepicker\locales\bootstrap-datepicker.sk.min.js" />
+    <Content Include="src\js\vendor\datepicker\locales\bootstrap-datepicker.sl.min.js" />
+    <Content Include="src\js\vendor\datepicker\locales\bootstrap-datepicker.sq.min.js" />
+    <Content Include="src\js\vendor\datepicker\locales\bootstrap-datepicker.sr-latin.min.js" />
+    <Content Include="src\js\vendor\datepicker\locales\bootstrap-datepicker.sr.min.js" />
+    <Content Include="src\js\vendor\datepicker\locales\bootstrap-datepicker.sv.min.js" />
+    <Content Include="src\js\vendor\datepicker\locales\bootstrap-datepicker.sw.min.js" />
+    <Content Include="src\js\vendor\datepicker\locales\bootstrap-datepicker.ta.min.js" />
+    <Content Include="src\js\vendor\datepicker\locales\bootstrap-datepicker.tg.min.js" />
+    <Content Include="src\js\vendor\datepicker\locales\bootstrap-datepicker.th.min.js" />
+    <Content Include="src\js\vendor\datepicker\locales\bootstrap-datepicker.tk.min.js" />
+    <Content Include="src\js\vendor\datepicker\locales\bootstrap-datepicker.tr.min.js" />
+    <Content Include="src\js\vendor\datepicker\locales\bootstrap-datepicker.uk.min.js" />
+    <Content Include="src\js\vendor\datepicker\locales\bootstrap-datepicker.uz-cyrl.min.js" />
+    <Content Include="src\js\vendor\datepicker\locales\bootstrap-datepicker.uz-latn.min.js" />
+    <Content Include="src\js\vendor\datepicker\locales\bootstrap-datepicker.vi.min.js" />
+    <Content Include="src\js\vendor\datepicker\locales\bootstrap-datepicker.zh-CN.min.js" />
+    <Content Include="src\js\vendor\datepicker\locales\bootstrap-datepicker.zh-TW.min.js" />
+    <Content Include="src\js\vendor\dropzone.min.js" />
+    <Content Include="src\js\vendor\fullcalendar\locales-all.js" />
+    <Content Include="src\js\vendor\fullcalendar\locales-all.min.js" />
+    <Content Include="src\js\vendor\fullcalendar\locales\af.js" />
+    <Content Include="src\js\vendor\fullcalendar\locales\ar-dz.js" />
+    <Content Include="src\js\vendor\fullcalendar\locales\ar-kw.js" />
+    <Content Include="src\js\vendor\fullcalendar\locales\ar-ly.js" />
+    <Content Include="src\js\vendor\fullcalendar\locales\ar-ma.js" />
+    <Content Include="src\js\vendor\fullcalendar\locales\ar-sa.js" />
+    <Content Include="src\js\vendor\fullcalendar\locales\ar-tn.js" />
+    <Content Include="src\js\vendor\fullcalendar\locales\ar.js" />
+    <Content Include="src\js\vendor\fullcalendar\locales\az.js" />
+    <Content Include="src\js\vendor\fullcalendar\locales\bg.js" />
+    <Content Include="src\js\vendor\fullcalendar\locales\bn.js" />
+    <Content Include="src\js\vendor\fullcalendar\locales\bs.js" />
+    <Content Include="src\js\vendor\fullcalendar\locales\ca.js" />
+    <Content Include="src\js\vendor\fullcalendar\locales\cs.js" />
+    <Content Include="src\js\vendor\fullcalendar\locales\cy.js" />
+    <Content Include="src\js\vendor\fullcalendar\locales\da.js" />
+    <Content Include="src\js\vendor\fullcalendar\locales\de-at.js" />
+    <Content Include="src\js\vendor\fullcalendar\locales\de.js" />
+    <Content Include="src\js\vendor\fullcalendar\locales\el.js" />
+    <Content Include="src\js\vendor\fullcalendar\locales\en-au.js" />
+    <Content Include="src\js\vendor\fullcalendar\locales\en-gb.js" />
+    <Content Include="src\js\vendor\fullcalendar\locales\en-nz.js" />
+    <Content Include="src\js\vendor\fullcalendar\locales\eo.js" />
+    <Content Include="src\js\vendor\fullcalendar\locales\es-us.js" />
+    <Content Include="src\js\vendor\fullcalendar\locales\es.js" />
+    <Content Include="src\js\vendor\fullcalendar\locales\et.js" />
+    <Content Include="src\js\vendor\fullcalendar\locales\eu.js" />
+    <Content Include="src\js\vendor\fullcalendar\locales\fa.js" />
+    <Content Include="src\js\vendor\fullcalendar\locales\fi.js" />
+    <Content Include="src\js\vendor\fullcalendar\locales\fr-ca.js" />
+    <Content Include="src\js\vendor\fullcalendar\locales\fr-ch.js" />
+    <Content Include="src\js\vendor\fullcalendar\locales\fr.js" />
+    <Content Include="src\js\vendor\fullcalendar\locales\gl.js" />
+    <Content Include="src\js\vendor\fullcalendar\locales\he.js" />
+    <Content Include="src\js\vendor\fullcalendar\locales\hi.js" />
+    <Content Include="src\js\vendor\fullcalendar\locales\hr.js" />
+    <Content Include="src\js\vendor\fullcalendar\locales\hu.js" />
+    <Content Include="src\js\vendor\fullcalendar\locales\hy-am.js" />
+    <Content Include="src\js\vendor\fullcalendar\locales\id.js" />
+    <Content Include="src\js\vendor\fullcalendar\locales\is.js" />
+    <Content Include="src\js\vendor\fullcalendar\locales\it.js" />
+    <Content Include="src\js\vendor\fullcalendar\locales\ja.js" />
+    <Content Include="src\js\vendor\fullcalendar\locales\ka.js" />
+    <Content Include="src\js\vendor\fullcalendar\locales\kk.js" />
+    <Content Include="src\js\vendor\fullcalendar\locales\ko.js" />
+    <Content Include="src\js\vendor\fullcalendar\locales\lb.js" />
+    <Content Include="src\js\vendor\fullcalendar\locales\lt.js" />
+    <Content Include="src\js\vendor\fullcalendar\locales\lv.js" />
+    <Content Include="src\js\vendor\fullcalendar\locales\mk.js" />
+    <Content Include="src\js\vendor\fullcalendar\locales\ms.js" />
+    <Content Include="src\js\vendor\fullcalendar\locales\nb.js" />
+    <Content Include="src\js\vendor\fullcalendar\locales\ne.js" />
+    <Content Include="src\js\vendor\fullcalendar\locales\nl.js" />
+    <Content Include="src\js\vendor\fullcalendar\locales\nn.js" />
+    <Content Include="src\js\vendor\fullcalendar\locales\pl.js" />
+    <Content Include="src\js\vendor\fullcalendar\locales\pt-br.js" />
+    <Content Include="src\js\vendor\fullcalendar\locales\pt.js" />
+    <Content Include="src\js\vendor\fullcalendar\locales\ro.js" />
+    <Content Include="src\js\vendor\fullcalendar\locales\ru.js" />
+    <Content Include="src\js\vendor\fullcalendar\locales\sk.js" />
+    <Content Include="src\js\vendor\fullcalendar\locales\sl.js" />
+    <Content Include="src\js\vendor\fullcalendar\locales\sq.js" />
+    <Content Include="src\js\vendor\fullcalendar\locales\sr-cyrl.js" />
+    <Content Include="src\js\vendor\fullcalendar\locales\sr.js" />
+    <Content Include="src\js\vendor\fullcalendar\locales\sv.js" />
+    <Content Include="src\js\vendor\fullcalendar\locales\ta-in.js" />
+    <Content Include="src\js\vendor\fullcalendar\locales\th.js" />
+    <Content Include="src\js\vendor\fullcalendar\locales\tr.js" />
+    <Content Include="src\js\vendor\fullcalendar\locales\ug.js" />
+    <Content Include="src\js\vendor\fullcalendar\locales\uk.js" />
+    <Content Include="src\js\vendor\fullcalendar\locales\uz.js" />
+    <Content Include="src\js\vendor\fullcalendar\locales\vi.js" />
+    <Content Include="src\js\vendor\fullcalendar\locales\zh-cn.js" />
+    <Content Include="src\js\vendor\fullcalendar\locales\zh-tw.js" />
+    <Content Include="src\js\vendor\fullcalendar\main.js" />
+    <Content Include="src\js\vendor\fullcalendar\main.min.js" />
+    <Content Include="src\js\vendor\fuse.js" />
+    <Content Include="src\js\vendor\glide.min.js" />
+    <Content Include="src\js\vendor\imask.js" />
+    <Content Include="src\js\vendor\input-spinner.min.js" />
+    <Content Include="src\js\vendor\intro.min.js" />
+    <Content Include="src\js\vendor\jquery-3.5.1.min.js" />
+    <Content Include="src\js\vendor\jquery.barrating.min.js" />
+    <Content Include="src\js\vendor\jquery.contextMenu.min.js" />
+    <Content Include="src\js\vendor\jquery.validate\additional-methods.min.js" />
+    <Content Include="src\js\vendor\jquery.validate\jquery.validate.min.js" />
+    <Content Include="src\js\vendor\jquery.validate\localization\messages_ar.js" />
+    <Content Include="src\js\vendor\jquery.validate\localization\messages_ar.min.js" />
+    <Content Include="src\js\vendor\jquery.validate\localization\messages_az.js" />
+    <Content Include="src\js\vendor\jquery.validate\localization\messages_az.min.js" />
+    <Content Include="src\js\vendor\jquery.validate\localization\messages_bg.js" />
+    <Content Include="src\js\vendor\jquery.validate\localization\messages_bg.min.js" />
+    <Content Include="src\js\vendor\jquery.validate\localization\messages_bn_BD.js" />
+    <Content Include="src\js\vendor\jquery.validate\localization\messages_bn_BD.min.js" />
+    <Content Include="src\js\vendor\jquery.validate\localization\messages_ca.js" />
+    <Content Include="src\js\vendor\jquery.validate\localization\messages_ca.min.js" />
+    <Content Include="src\js\vendor\jquery.validate\localization\messages_cs.js" />
+    <Content Include="src\js\vendor\jquery.validate\localization\messages_cs.min.js" />
+    <Content Include="src\js\vendor\jquery.validate\localization\messages_da.js" />
+    <Content Include="src\js\vendor\jquery.validate\localization\messages_da.min.js" />
+    <Content Include="src\js\vendor\jquery.validate\localization\messages_de.js" />
+    <Content Include="src\js\vendor\jquery.validate\localization\messages_de.min.js" />
+    <Content Include="src\js\vendor\jquery.validate\localization\messages_el.js" />
+    <Content Include="src\js\vendor\jquery.validate\localization\messages_el.min.js" />
+    <Content Include="src\js\vendor\jquery.validate\localization\messages_es.js" />
+    <Content Include="src\js\vendor\jquery.validate\localization\messages_es.min.js" />
+    <Content Include="src\js\vendor\jquery.validate\localization\messages_es_AR.js" />
+    <Content Include="src\js\vendor\jquery.validate\localization\messages_es_AR.min.js" />
+    <Content Include="src\js\vendor\jquery.validate\localization\messages_es_PE.js" />
+    <Content Include="src\js\vendor\jquery.validate\localization\messages_es_PE.min.js" />
+    <Content Include="src\js\vendor\jquery.validate\localization\messages_et.js" />
+    <Content Include="src\js\vendor\jquery.validate\localization\messages_et.min.js" />
+    <Content Include="src\js\vendor\jquery.validate\localization\messages_eu.js" />
+    <Content Include="src\js\vendor\jquery.validate\localization\messages_eu.min.js" />
+    <Content Include="src\js\vendor\jquery.validate\localization\messages_fa.js" />
+    <Content Include="src\js\vendor\jquery.validate\localization\messages_fa.min.js" />
+    <Content Include="src\js\vendor\jquery.validate\localization\messages_fi.js" />
+    <Content Include="src\js\vendor\jquery.validate\localization\messages_fi.min.js" />
+    <Content Include="src\js\vendor\jquery.validate\localization\messages_fr.js" />
+    <Content Include="src\js\vendor\jquery.validate\localization\messages_fr.min.js" />
+    <Content Include="src\js\vendor\jquery.validate\localization\messages_ge.js" />
+    <Content Include="src\js\vendor\jquery.validate\localization\messages_ge.min.js" />
+    <Content Include="src\js\vendor\jquery.validate\localization\messages_gl.js" />
+    <Content Include="src\js\vendor\jquery.validate\localization\messages_gl.min.js" />
+    <Content Include="src\js\vendor\jquery.validate\localization\messages_he.js" />
+    <Content Include="src\js\vendor\jquery.validate\localization\messages_he.min.js" />
+    <Content Include="src\js\vendor\jquery.validate\localization\messages_hr.js" />
+    <Content Include="src\js\vendor\jquery.validate\localization\messages_hr.min.js" />
+    <Content Include="src\js\vendor\jquery.validate\localization\messages_hu.js" />
+    <Content Include="src\js\vendor\jquery.validate\localization\messages_hu.min.js" />
+    <Content Include="src\js\vendor\jquery.validate\localization\messages_hy_AM.js" />
+    <Content Include="src\js\vendor\jquery.validate\localization\messages_hy_AM.min.js" />
+    <Content Include="src\js\vendor\jquery.validate\localization\messages_id.js" />
+    <Content Include="src\js\vendor\jquery.validate\localization\messages_id.min.js" />
+    <Content Include="src\js\vendor\jquery.validate\localization\messages_is.js" />
+    <Content Include="src\js\vendor\jquery.validate\localization\messages_is.min.js" />
+    <Content Include="src\js\vendor\jquery.validate\localization\messages_it.js" />
+    <Content Include="src\js\vendor\jquery.validate\localization\messages_it.min.js" />
+    <Content Include="src\js\vendor\jquery.validate\localization\messages_ja.js" />
+    <Content Include="src\js\vendor\jquery.validate\localization\messages_ja.min.js" />
+    <Content Include="src\js\vendor\jquery.validate\localization\messages_ka.js" />
+    <Content Include="src\js\vendor\jquery.validate\localization\messages_ka.min.js" />
+    <Content Include="src\js\vendor\jquery.validate\localization\messages_kk.js" />
+    <Content Include="src\js\vendor\jquery.validate\localization\messages_kk.min.js" />
+    <Content Include="src\js\vendor\jquery.validate\localization\messages_ko.js" />
+    <Content Include="src\js\vendor\jquery.validate\localization\messages_ko.min.js" />
+    <Content Include="src\js\vendor\jquery.validate\localization\messages_lt.js" />
+    <Content Include="src\js\vendor\jquery.validate\localization\messages_lt.min.js" />
+    <Content Include="src\js\vendor\jquery.validate\localization\messages_lv.js" />
+    <Content Include="src\js\vendor\jquery.validate\localization\messages_lv.min.js" />
+    <Content Include="src\js\vendor\jquery.validate\localization\messages_mk.js" />
+    <Content Include="src\js\vendor\jquery.validate\localization\messages_mk.min.js" />
+    <Content Include="src\js\vendor\jquery.validate\localization\messages_my.js" />
+    <Content Include="src\js\vendor\jquery.validate\localization\messages_my.min.js" />
+    <Content Include="src\js\vendor\jquery.validate\localization\messages_nl.js" />
+    <Content Include="src\js\vendor\jquery.validate\localization\messages_nl.min.js" />
+    <Content Include="src\js\vendor\jquery.validate\localization\messages_no.js" />
+    <Content Include="src\js\vendor\jquery.validate\localization\messages_no.min.js" />
+    <Content Include="src\js\vendor\jquery.validate\localization\messages_pl.js" />
+    <Content Include="src\js\vendor\jquery.validate\localization\messages_pl.min.js" />
+    <Content Include="src\js\vendor\jquery.validate\localization\messages_pt_BR.js" />
+    <Content Include="src\js\vendor\jquery.validate\localization\messages_pt_BR.min.js" />
+    <Content Include="src\js\vendor\jquery.validate\localization\messages_pt_PT.js" />
+    <Content Include="src\js\vendor\jquery.validate\localization\messages_pt_PT.min.js" />
+    <Content Include="src\js\vendor\jquery.validate\localization\messages_ro.js" />
+    <Content Include="src\js\vendor\jquery.validate\localization\messages_ro.min.js" />
+    <Content Include="src\js\vendor\jquery.validate\localization\messages_ru.js" />
+    <Content Include="src\js\vendor\jquery.validate\localization\messages_ru.min.js" />
+    <Content Include="src\js\vendor\jquery.validate\localization\messages_sd.js" />
+    <Content Include="src\js\vendor\jquery.validate\localization\messages_sd.min.js" />
+    <Content Include="src\js\vendor\jquery.validate\localization\messages_si.js" />
+    <Content Include="src\js\vendor\jquery.validate\localization\messages_si.min.js" />
+    <Content Include="src\js\vendor\jquery.validate\localization\messages_sk.js" />
+    <Content Include="src\js\vendor\jquery.validate\localization\messages_sk.min.js" />
+    <Content Include="src\js\vendor\jquery.validate\localization\messages_sl.js" />
+    <Content Include="src\js\vendor\jquery.validate\localization\messages_sl.min.js" />
+    <Content Include="src\js\vendor\jquery.validate\localization\messages_sr.js" />
+    <Content Include="src\js\vendor\jquery.validate\localization\messages_sr.min.js" />
+    <Content Include="src\js\vendor\jquery.validate\localization\messages_sr_lat.js" />
+    <Content Include="src\js\vendor\jquery.validate\localization\messages_sr_lat.min.js" />
+    <Content Include="src\js\vendor\jquery.validate\localization\messages_sv.js" />
+    <Content Include="src\js\vendor\jquery.validate\localization\messages_sv.min.js" />
+    <Content Include="src\js\vendor\jquery.validate\localization\messages_th.js" />
+    <Content Include="src\js\vendor\jquery.validate\localization\messages_th.min.js" />
+    <Content Include="src\js\vendor\jquery.validate\localization\messages_tj.js" />
+    <Content Include="src\js\vendor\jquery.validate\localization\messages_tj.min.js" />
+    <Content Include="src\js\vendor\jquery.validate\localization\messages_tr.js" />
+    <Content Include="src\js\vendor\jquery.validate\localization\messages_tr.min.js" />
+    <Content Include="src\js\vendor\jquery.validate\localization\messages_uk.js" />
+    <Content Include="src\js\vendor\jquery.validate\localization\messages_uk.min.js" />
+    <Content Include="src\js\vendor\jquery.validate\localization\messages_ur.js" />
+    <Content Include="src\js\vendor\jquery.validate\localization\messages_ur.min.js" />
+    <Content Include="src\js\vendor\jquery.validate\localization\messages_vi.js" />
+    <Content Include="src\js\vendor\jquery.validate\localization\messages_vi.min.js" />
+    <Content Include="src\js\vendor\jquery.validate\localization\messages_zh.js" />
+    <Content Include="src\js\vendor\jquery.validate\localization\messages_zh.min.js" />
+    <Content Include="src\js\vendor\jquery.validate\localization\messages_zh_TW.js" />
+    <Content Include="src\js\vendor\jquery.validate\localization\messages_zh_TW.min.js" />
+    <Content Include="src\js\vendor\jquery.validate\localization\methods_de.js" />
+    <Content Include="src\js\vendor\jquery.validate\localization\methods_de.min.js" />
+    <Content Include="src\js\vendor\jquery.validate\localization\methods_es_CL.js" />
+    <Content Include="src\js\vendor\jquery.validate\localization\methods_es_CL.min.js" />
+    <Content Include="src\js\vendor\jquery.validate\localization\methods_fi.js" />
+    <Content Include="src\js\vendor\jquery.validate\localization\methods_fi.min.js" />
+    <Content Include="src\js\vendor\jquery.validate\localization\methods_it.js" />
+    <Content Include="src\js\vendor\jquery.validate\localization\methods_it.min.js" />
+    <Content Include="src\js\vendor\jquery.validate\localization\methods_nl.js" />
+    <Content Include="src\js\vendor\jquery.validate\localization\methods_nl.min.js" />
+    <Content Include="src\js\vendor\jquery.validate\localization\methods_pt.js" />
+    <Content Include="src\js\vendor\jquery.validate\localization\methods_pt.min.js" />
+    <Content Include="src\js\vendor\list.js" />
+    <Content Include="src\js\vendor\lolight-1.3.0.min.js" />
+    <Content Include="src\js\vendor\masonry.pkgd.min.js" />
+    <Content Include="src\js\vendor\moment-with-locales.min.js" />
+    <Content Include="src\js\vendor\mousetrap.min.js" />
+    <Content Include="src\js\vendor\movecontent.js" />
+    <Content Include="src\js\vendor\nouislider.min.js" />
+    <Content Include="src\js\vendor\OverlayScrollbars.min.js" />
+    <Content Include="src\js\vendor\plyr.min.js" />
+    <Content Include="src\js\vendor\progressbar.min.js" />
+    <Content Include="src\js\vendor\quill.active.js" />
+    <Content Include="src\js\vendor\quill.min.js" />
+    <Content Include="src\js\vendor\select2.full.min.js" />
+    <Content Include="src\js\vendor\singleimageupload.js" />
+    <Content Include="src\js\vendor\sortable.min.js" />
+    <Content Include="src\js\vendor\tagify.min.js" />
+    <Content Include="src\js\vendor\timepicker.js" />
+    <Content Include="temp\excel2.jpg" />
+    <Content Include="vendor\MisEstilos\MisEstilos.css" />
+    <Content Include="VerPdf.aspx" />
+    <EntityDeploy Include="Models\ModeloCaja.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ModeloCaja.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\DataAlumno.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>DataAlumno.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Models\DataAsignaturas.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>DataAsignaturas.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Models\Historial_Notas.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>Historial_Notas.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Models\Procedimientos.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>Procedimientos.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </Content>
+    <EntityDeploy Include="Models\ModelLogin.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ModelLogin.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Account\Web.config" />
+    <EntityDeploy Include="ModelCatedraticoXela.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ModelCatedraticoXela.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="webFormPDF.aspx" />
+    <Content Include="Scripts\Default.aspx.js" />
+    <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\WebForms\DetailsView.js" />
+    <Content Include="Scripts\WebForms\Focus.js" />
+    <Content Include="Scripts\WebForms\GridView.js" />
+    <Content Include="Scripts\WebForms\Menu.js" />
+    <Content Include="Scripts\WebForms\MenuStandards.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjax.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxApplicationServices.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxComponentModel.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxCore.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxGlobalization.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxHistory.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxNetwork.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxSerialization.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxTimer.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxWebForms.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxWebServices.js" />
+    <Content Include="Scripts\WebForms\SmartNav.js" />
+    <Content Include="Scripts\WebForms\TreeView.js" />
+    <Content Include="Scripts\WebForms\WebForms.js" />
+    <Content Include="Scripts\WebForms\WebParts.js" />
+    <Content Include="Scripts\WebForms\WebUIValidation.js" />
+    <Content Include="Scripts\_references.js" />
+    <Content Include="Default.aspx" />
+    <Content Include="favicon.ico" />
+    <Content Include="Global.asax" />
+    <Content Include="Site.Master" />
+    <Content Include="vendor\animate.css\animate.min.css" />
+    <Content Include="vendor\animo.js\animo.js" />
+    <Content Include="vendor\bootstrap\dist\css\bootstrap.css" />
+    <Content Include="vendor\bootstrap\dist\js\bootstrap.js" />
+    <Content Include="vendor\fontawesome\css\font-awesome.min.css" />
+    <Content Include="vendor\fontawesome\fonts\fontawesome-webfont.svg" />
+    <Content Include="vendor\jquery-localize-i18n\dist\jquery.localize.js" />
+    <Content Include="vendor\jQuery-Storage-API\jquery.storageapi.js" />
+    <Content Include="vendor\jquery.easing\js\jquery.easing.js" />
+    <Content Include="vendor\jquery\dist\jquery.js" />
+    <Content Include="vendor\modernizr\modernizr.custom.js" />
+    <Content Include="vendor\modernizr\modernizr.js" />
+    <Content Include="vendor\screenfull\dist\screenfull.js" />
+    <Content Include="vendor\simple-line-icons\css\simple-line-icons.css" />
+    <Content Include="vendor\simple-line-icons\fonts\Simple-Line-Icons.svg" />
+    <Content Include="vendor\slimScroll\jquery.slimscroll.min.js" />
+    <Content Include="vendor\whirl\dist\whirl.css" />
+    <Content Include="ViewSwitcher.ascx" />
+    <Content Include="Bundle.config" />
+    <Content Include="packages.config" />
+    <None Include="Project_Readme.html" />
+    <Content Include="vendor\fontawesome\fonts\fontawesome-webfont.eot" />
+    <Content Include="vendor\fontawesome\fonts\fontawesome-webfont.ttf" />
+    <Content Include="vendor\fontawesome\fonts\fontawesome-webfont.woff" />
+    <Content Include="vendor\fontawesome\fonts\fontawesome-webfont.woff2" />
+    <Content Include="vendor\fontawesome\fonts\FontAwesome.otf" />
+    <Content Include="vendor\simple-line-icons\fonts\Simple-Line-Icons.eot" />
+    <Content Include="vendor\simple-line-icons\fonts\Simple-Line-Icons.ttf" />
+    <Content Include="vendor\simple-line-icons\fonts\Simple-Line-Icons.woff" />
+    <Content Include="Scripts\Site.Master.js" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Visor_de_Documentos-27e42bdbc16b.p12">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="vendor\simple-line-icons\fonts\Simple-Line-Icons.woff2" />
+    <Content Include="VisordeDocumentosRyP-7f82f28d5b1f.p12">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="src\css\vendor\bootstrap.min.css.map" />
+    <Content Include="src\font\CS-Interface\fonts\CS-Interface.ttf" />
+    <Content Include="src\font\CS-Interface\fonts\CS-Interface.woff" />
+    <Content Include="src\font\CS-Interface\selection.json" />
+    <Content Include="src\img\banner\cta-doctor.webp" />
+    <Content Include="src\img\blog\large\blog-1.webp" />
+    <Content Include="src\img\blog\small\blog-1.webp" />
+    <Content Include="src\img\blog\small\blog-2.webp" />
+    <Content Include="src\img\blog\small\blog-3.webp" />
+    <Content Include="src\img\blog\small\blog-4.webp" />
+    <Content Include="src\img\blog\small\blog-5.webp" />
+    <Content Include="src\img\blog\small\blog-6.webp" />
+    <Content Include="src\img\blog\small\blog-7.webp" />
+    <Content Include="src\img\illustration\icon-appointment.webp" />
+    <Content Include="src\img\illustration\icon-review.webp" />
+    <Content Include="src\img\illustration\icon-support.webp" />
+    <Content Include="src\img\profile\profile-1.webp" />
+    <Content Include="src\img\profile\profile-12.webp" />
+    <Content Include="src\img\profile\profile-13.webp" />
+    <Content Include="src\img\profile\profile-14.webp" />
+    <Content Include="src\img\profile\profile-15.webp" />
+    <Content Include="src\img\profile\profile-16.webp" />
+    <Content Include="src\img\profile\profile-2.webp" />
+    <Content Include="src\img\profile\profile-3.webp" />
+    <Content Include="src\img\profile\profile-4.webp" />
+    <Content Include="src\img\profile\profile-5.webp" />
+    <Content Include="src\img\profile\profile-6.webp" />
+    <Content Include="src\img\profile\profile-8.webp" />
+    <Content Include="src\img\profile\profile-large-1.webp" />
+    <Content Include="src\img\profile\profile-large-2.webp" />
+    <Content Include="src\img\profile\profile-large-3.webp" />
+    <Content Include="src\img\profile\profile-large-4.webp" />
+    <Content Include="src\img\profile\profile-large-5.webp" />
+    <Content Include="src\img\profile\profile-large-6.webp" />
+    <Content Include="src\img\profile\profile-large-7.webp" />
+    <Content Include="src\img\profile\profile-large-8.webp" />
+    <Content Include="src\json\search.json" />
+    <Content Include="src\js\vendor\bootstrap.bundle.min.js.map" />
+    <Content Include="src\sass\bootstrap\_accordion.scss" />
+    <Content Include="src\sass\bootstrap\_alert.scss" />
+    <Content Include="src\sass\bootstrap\_background.scss" />
+    <Content Include="src\sass\bootstrap\_badge.scss" />
+    <Content Include="src\sass\bootstrap\_border.scss" />
+    <Content Include="src\sass\bootstrap\_button.scss" />
+    <Content Include="src\sass\bootstrap\_card.scss" />
+    <Content Include="src\sass\bootstrap\_dropdown.scss" />
+    <Content Include="src\sass\bootstrap\_form.scss" />
+    <Content Include="src\sass\bootstrap\_grid.scss" />
+    <Content Include="src\sass\bootstrap\_inputgroup.scss" />
+    <Content Include="src\sass\bootstrap\_modal.scss" />
+    <Content Include="src\sass\bootstrap\_nav.scss" />
+    <Content Include="src\sass\bootstrap\_offcanvas.scss" />
+    <Content Include="src\sass\bootstrap\_popover.scss" />
+    <Content Include="src\sass\bootstrap\_progress.scss" />
+    <Content Include="src\sass\bootstrap\_spinner.scss" />
+    <Content Include="src\sass\bootstrap\_tables.scss" />
+    <Content Include="src\sass\bootstrap\_texts.scss" />
+    <Content Include="src\sass\bootstrap\_toast.scss" />
+    <Content Include="src\sass\bootstrap\_tooltip.scss" />
+    <Content Include="src\sass\layout\_base.scss" />
+    <Content Include="src\sass\layout\_footer.scss" />
+    <Content Include="src\sass\layout\_main.scss" />
+    <Content Include="src\sass\layout\_nav.primary.scss" />
+    <Content Include="src\sass\layout\_nav.side.scss" />
+    <Content Include="src\sass\layout\_print.scss" />
+    <Content Include="src\sass\layout\_settings.scss" />
+    <Content Include="src\sass\layout\_typography.scss" />
+    <Content Include="src\sass\plugins\_autocomplete.scss" />
+    <Content Include="src\sass\plugins\_autosize.scss" />
+    <Content Include="src\sass\plugins\_calendar.scss" />
+    <Content Include="src\sass\plugins\_contextmenu.scss" />
+    <Content Include="src\sass\plugins\_datatable.scss" />
+    <Content Include="src\sass\plugins\_datepicker.scss" />
+    <Content Include="src\sass\plugins\_dropzone.scss" />
+    <Content Include="src\sass\plugins\_editor.scss" />
+    <Content Include="src\sass\plugins\_glide.scss" />
+    <Content Include="src\sass\plugins\_lightbox.scss" />
+    <Content Include="src\sass\plugins\_listjs.scss" />
+    <Content Include="src\sass\plugins\_notify.scss" />
+    <Content Include="src\sass\plugins\_player.scss" />
+    <Content Include="src\sass\plugins\_progressbar.scss" />
+    <Content Include="src\sass\plugins\_rating.scss" />
+    <Content Include="src\sass\plugins\_scrollbar.scss" />
+    <Content Include="src\sass\plugins\_select2.scss" />
+    <Content Include="src\sass\plugins\_slider.scss" />
+    <Content Include="src\sass\plugins\_sortable.scss" />
+    <Content Include="src\sass\plugins\_steps.scss" />
+    <Content Include="src\sass\plugins\_tagify.scss" />
+    <Content Include="src\sass\plugins\_timepicker.scss" />
+    <Content Include="src\sass\plugins\_tour.scss" />
+    <Content Include="src\sass\plugins\_validation.scss" />
+    <Content Include="src\sass\plugins\_wizard.scss" />
+    <Content Include="src\sass\styles.scss" />
+    <Content Include="src\sass\themes\_dark.blue.scss" />
+    <Content Include="src\sass\themes\_dark.green.scss" />
+    <Content Include="src\sass\themes\_dark.lime.scss" />
+    <Content Include="src\sass\themes\_dark.pink.scss" />
+    <Content Include="src\sass\themes\_dark.purple.scss" />
+    <Content Include="src\sass\themes\_dark.red.scss" />
+    <Content Include="src\sass\themes\_dark.sky.scss" />
+    <Content Include="src\sass\themes\_dark.teal.scss" />
+    <Content Include="src\sass\themes\_light.blue.scss" />
+    <Content Include="src\sass\themes\_light.green.scss" />
+    <Content Include="src\sass\themes\_light.lime.scss" />
+    <Content Include="src\sass\themes\_light.pink.scss" />
+    <Content Include="src\sass\themes\_light.purple.scss" />
+    <Content Include="src\sass\themes\_light.red.scss" />
+    <Content Include="src\sass\themes\_light.sky.scss" />
+    <Content Include="src\sass\themes\_light.teal.scss" />
+    <Content Include="src\sass\themes\_shared.scss" />
+    <Content Include="src\sass\utils\_mixins.scss" />
+    <Content Include="src\sass\utils\_positions.scss" />
+    <Content Include="src\sass\utils\_shared.scss" />
+    <Content Include="src\sass\utils\_sizes.scss" />
+    <Content Include="Scripts\umd\popper.min.js.map" />
+    <Content Include="Scripts\umd\popper.js.map" />
+    <Content Include="Scripts\umd\popper.js.flow" />
+    <Content Include="Scripts\umd\popper-utils.min.js.map" />
+    <Content Include="Scripts\umd\popper-utils.js.map" />
+    <Content Include="Scripts\README.md" />
+    <Content Include="Scripts\popper.min.js.map" />
+    <Content Include="Scripts\popper.js.map" />
+    <Content Include="Scripts\popper-utils.min.js.map" />
+    <Content Include="Scripts\popper-utils.js.map" />
+    <Content Include="Scripts\jquery-3.6.0.slim.min.map" />
+    <Content Include="Scripts\jquery-3.6.0.min.map" />
+    <Content Include="Visor de Documentos-5c7bec426d6c.p12" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AcademiaEjemplo.aspx.cs">
+      <DependentUpon>AcademiaEjemplo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AcademiaEjemplo.aspx.designer.cs">
+      <DependentUpon>AcademiaEjemplo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Account\Creacion.aspx.cs">
+      <DependentUpon>Creacion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\Creacion.aspx.designer.cs">
+      <DependentUpon>Creacion.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AlumnosBuscar.aspx.cs">
+      <DependentUpon>AlumnosBuscar.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AlumnosBuscar.aspx.designer.cs">
+      <DependentUpon>AlumnosBuscar.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AlumnosIndividual.aspx.cs">
+      <DependentUpon>AlumnosIndividual.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AlumnosIndividual.aspx.designer.cs">
+      <DependentUpon>AlumnosIndividual.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\IdentityConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Catedraticos.cs">
+      <DependentUpon>ModelCatedraticoXela.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CatedraticosColegios.cs">
+      <DependentUpon>ModelCatedraticoXela.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CatedraticosDocumentos.cs">
+      <DependentUpon>ModelCatedraticoXela.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CatedraticosEmpresas.cs">
+      <DependentUpon>ModelCatedraticoXela.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CatedraticosIdiomas.cs">
+      <DependentUpon>ModelCatedraticoXela.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CatedraticosSalud.cs">
+      <DependentUpon>ModelCatedraticoXela.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CatedraticosSaludEnfermedades.cs">
+      <DependentUpon>ModelCatedraticoXela.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CatedraticosTipo.cs">
+      <DependentUpon>ModelCatedraticoXela.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CatedraticosTitulos.cs">
+      <DependentUpon>ModelCatedraticoXela.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Catedraticos_Rangos.cs">
+      <DependentUpon>ModelCatedraticoXela.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ColegiosProfesionales.cs">
+      <DependentUpon>ModelCatedraticoXela.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Helpers\BootstrapAlertHelper.cs" />
+    <Compile Include="Models\Escaneos.cs">
+      <DependentUpon>ModelEscaneos.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ModelEscaneoIzabal.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelEscaneoIzabal.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ModelEscaneoIzabal.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelEscaneoIzabal.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ModelEscaneoIzabal.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelEscaneoIzabal.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ModelEscaneos.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelEscaneos.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ModelEscaneos.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelEscaneos.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ModelEscaneos.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelEscaneos.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ModelEscaneosAmatitlan.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelEscaneosAmatitlan.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ModelEscaneosAmatitlan.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelEscaneosAmatitlan.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ModelEscaneosAmatitlan.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelEscaneosAmatitlan.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ModelEscaneosCenses.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelEscaneosCenses.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ModelEscaneosCenses.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelEscaneosCenses.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ModelEscaneosCenses.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelEscaneosCenses.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ModelEscaneosCoban.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelEscaneosCoban.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ModelEscaneosCoban.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelEscaneosCoban.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ModelEscaneosCoban.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelEscaneosCoban.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ModelEscaneosGuate.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelEscaneosGuate.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ModelEscaneosGuate.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelEscaneosGuate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ModelEscaneosGuate.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelEscaneosGuate.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\View_EscaneosDetalle.cs">
+      <DependentUpon>ModelEscaneos.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PaginaProtegida.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PagsAlumnosCarreraCorreo.aspx.cs">
+      <DependentUpon>PagsAlumnosCarreraCorreo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PagsAlumnosCarreraCorreo.aspx.designer.cs">
+      <DependentUpon>PagsAlumnosCarreraCorreo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PagsAlumnosEntrevista.aspx.cs">
+      <DependentUpon>PagsAlumnosEntrevista.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PagsAlumnosEntrevista.aspx.designer.cs">
+      <DependentUpon>PagsAlumnosEntrevista.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PagsAlumnosFinales.aspx.cs">
+      <DependentUpon>PagsAlumnosFinales.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PagsAlumnosFinales.aspx.designer.cs">
+      <DependentUpon>PagsAlumnosFinales.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PagsAlumnosInscripcionGenero.aspx.cs">
+      <DependentUpon>PagsAlumnosInscripcionGenero.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PagsAlumnosInscripcionGenero.aspx.designer.cs">
+      <DependentUpon>PagsAlumnosInscripcionGenero.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PagsAlumnosNohanEvaluado.aspx.cs">
+      <DependentUpon>PagsAlumnosNohanEvaluado.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PagsAlumnosNohanEvaluado.aspx.designer.cs">
+      <DependentUpon>PagsAlumnosNohanEvaluado.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PagsAlumnosPromedios.aspx.cs">
+      <DependentUpon>PagsAlumnosPromedios.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PagsAlumnosPromedios.aspx.designer.cs">
+      <DependentUpon>PagsAlumnosPromedios.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PagsDocentesEvaluacionCarreraDocentes.aspx.cs">
+      <DependentUpon>PagsDocentesEvaluacionCarreraDocentes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PagsDocentesEvaluacionCarreraDocentes.aspx.designer.cs">
+      <DependentUpon>PagsDocentesEvaluacionCarreraDocentes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PagsReporteEscaneos.aspx.cs">
+      <DependentUpon>PagsReporteEscaneos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PagsReporteEscaneos.aspx.designer.cs">
+      <DependentUpon>PagsReporteEscaneos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Estudiantes3Perdidos.aspx.cs">
+      <DependentUpon>Estudiantes3Perdidos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Estudiantes3Perdidos.aspx.designer.cs">
+      <DependentUpon>Estudiantes3Perdidos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Account\Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Logout.aspx.cs">
+      <DependentUpon>Logout.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Logout.aspx.designer.cs">
+      <DependentUpon>Logout.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ModelCatedraticoXela.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelCatedraticoXela.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelCatedraticoXela.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelCatedraticoXela.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelCatedraticoXela.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelCatedraticoXela.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Admins.cs">
+      <DependentUpon>ModelLogin.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Catedraticos.cs">
+      <DependentUpon>ModelLogin.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Conex.cs" />
+    <Compile Include="Models\ConsultaRecibos.cs">
+      <DependentUpon>ModeloCaja.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataAlumno.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataAlumno.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataAsignaturas.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataAsignaturas.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Historial_Notas.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Historial_Notas.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\ModelLogin.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelLogin.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ModelLogin.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelLogin.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ModelLogin.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelLogin.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ModeloCaja.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModeloCaja.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ModeloCaja.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModeloCaja.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ModeloCaja.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModeloCaja.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Procedimientos.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Procedimientos.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="Models\View_EscaneosGeneral.cs">
+      <DependentUpon>ModelEscaneos.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PagsAlumnosDejaronMasDe2.aspx.cs">
+      <DependentUpon>PagsAlumnosDejaronMasDe2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PagsAlumnosDejaronMasDe2.aspx.designer.cs">
+      <DependentUpon>PagsAlumnosDejaronMasDe2.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PagsAlumnosHistorial.aspx.cs">
+      <DependentUpon>PagsAlumnosHistorial.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PagsAlumnosHistorial.aspx.designer.cs">
+      <DependentUpon>PagsAlumnosHistorial.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="pagsAlumnosInscritos.aspx.cs">
+      <DependentUpon>pagsAlumnosInscritos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pagsAlumnosInscritos.aspx.designer.cs">
+      <DependentUpon>pagsAlumnosInscritos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="pagsAlumnosNacionalidad.aspx.cs">
+      <DependentUpon>pagsAlumnosNacionalidad.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pagsAlumnosNacionalidad.aspx.designer.cs">
+      <DependentUpon>pagsAlumnosNacionalidad.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PagsAlumnosPasosIncompletos.aspx.cs">
+      <DependentUpon>PagsAlumnosPasosIncompletos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PagsAlumnosPasosIncompletos.aspx.designer.cs">
+      <DependentUpon>PagsAlumnosPasosIncompletos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PagsAlumnosReporteDetallado.aspx.cs">
+      <DependentUpon>PagsAlumnosReporteDetallado.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PagsAlumnosReporteDetallado.aspx.designer.cs">
+      <DependentUpon>PagsAlumnosReporteDetallado.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PagsAlumnosRetirados.aspx.cs">
+      <DependentUpon>PagsAlumnosRetirados.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PagsAlumnosRetirados.aspx.designer.cs">
+      <DependentUpon>PagsAlumnosRetirados.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PagsCajaBeca.aspx.cs">
+      <DependentUpon>PagsCajaBeca.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PagsCajaBeca.aspx.designer.cs">
+      <DependentUpon>PagsCajaBeca.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PagsDocenteCarrera.aspx.cs">
+      <DependentUpon>PagsDocenteCarrera.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PagsDocenteCarrera.aspx.designer.cs">
+      <DependentUpon>PagsDocenteCarrera.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PagsDocenteIndividual.aspx.cs">
+      <DependentUpon>PagsDocenteIndividual.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PagsDocenteIndividual.aspx.designer.cs">
+      <DependentUpon>PagsDocenteIndividual.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PagsDocenteIndividualimpresion.aspx.cs">
+      <DependentUpon>PagsDocenteIndividualimpresion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PagsDocenteIndividualimpresion.aspx.designer.cs">
+      <DependentUpon>PagsDocenteIndividualimpresion.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PagsDocenteIndividualLista.aspx.cs">
+      <DependentUpon>PagsDocenteIndividualLista.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PagsDocenteIndividualLista.aspx.designer.cs">
+      <DependentUpon>PagsDocenteIndividualLista.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PagsDocentesActas.aspx.cs">
+      <DependentUpon>PagsDocentesActas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PagsDocentesActas.aspx.designer.cs">
+      <DependentUpon>PagsDocentesActas.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PagsDocentesActasNoEnviadas.aspx.cs">
+      <DependentUpon>PagsDocentesActasNoEnviadas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PagsDocentesActasNoEnviadas.aspx.designer.cs">
+      <DependentUpon>PagsDocentesActasNoEnviadas.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PagsDocentesActivo.aspx.cs">
+      <DependentUpon>PagsDocentesActivo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PagsDocentesActivo.aspx.designer.cs">
+      <DependentUpon>PagsDocentesActivo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PagsDocentesContenidos.aspx.cs">
+      <DependentUpon>PagsDocentesContenidos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PagsDocentesContenidos.aspx.designer.cs">
+      <DependentUpon>PagsDocentesContenidos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PagsDocentesContratos.aspx.cs">
+      <DependentUpon>PagsDocentesContratos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PagsDocentesContratos.aspx.designer.cs">
+      <DependentUpon>PagsDocentesContratos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PagsDocentesEvaluacionAsignatura.aspx.cs">
+      <DependentUpon>PagsDocentesEvaluacionAsignatura.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PagsDocentesEvaluacionAsignatura.aspx.designer.cs">
+      <DependentUpon>PagsDocentesEvaluacionAsignatura.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PagsDocentesEvaluacionesCarrera.aspx.cs">
+      <DependentUpon>PagsDocentesEvaluacionesCarrera.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PagsDocentesEvaluacionesCarrera.aspx.designer.cs">
+      <DependentUpon>PagsDocentesEvaluacionesCarrera.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PagsDocentesEvaluacionPorCatedratico.aspx.cs">
+      <DependentUpon>PagsDocentesEvaluacionPorCatedratico.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PagsDocentesEvaluacionPorCatedratico.aspx.designer.cs">
+      <DependentUpon>PagsDocentesEvaluacionPorCatedratico.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PagsDocentesEvaluacionPorCatedraticoHistorial.aspx.cs">
+      <DependentUpon>PagsDocentesEvaluacionPorCatedraticoHistorial.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PagsDocentesEvaluacionPorCatedraticoHistorial.aspx.designer.cs">
+      <DependentUpon>PagsDocentesEvaluacionPorCatedraticoHistorial.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PagsDocentesHistorial.aspx.cs">
+      <DependentUpon>PagsDocentesHistorial.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PagsDocentesHistorial.aspx.designer.cs">
+      <DependentUpon>PagsDocentesHistorial.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PagsDocentesPrivadosConsolidados.aspx.cs">
+      <DependentUpon>PagsDocentesPrivadosConsolidados.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PagsDocentesPrivadosConsolidados.aspx.designer.cs">
+      <DependentUpon>PagsDocentesPrivadosConsolidados.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PagsDocentesPrivadosPorArea.aspx.cs">
+      <DependentUpon>PagsDocentesPrivadosPorArea.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PagsDocentesPrivadosPorArea.aspx.designer.cs">
+      <DependentUpon>PagsDocentesPrivadosPorArea.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PagsDocentesPromedio.aspx.cs">
+      <DependentUpon>PagsDocentesPromedio.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PagsDocentesPromedio.aspx.designer.cs">
+      <DependentUpon>PagsDocentesPromedio.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PagsDocentesReporteDetallado.aspx.cs">
+      <DependentUpon>PagsDocentesReporteDetallado.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PagsDocentesReporteDetallado.aspx.designer.cs">
+      <DependentUpon>PagsDocentesReporteDetallado.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PagsCajaConvenio.aspx.cs">
+      <DependentUpon>PagsCajaConvenio.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PagsCajaConvenio.aspx.designer.cs">
+      <DependentUpon>PagsCajaConvenio.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PagsDocentesSedeDocumentos.aspx.cs">
+      <DependentUpon>PagsDocentesSedeDocumentos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PagsDocentesSedeDocumentos.aspx.designer.cs">
+      <DependentUpon>PagsDocentesSedeDocumentos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PagsDocentesSede.aspx.cs">
+      <DependentUpon>PagsDocentesSede.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PagsDocentesSede.aspx.designer.cs">
+      <DependentUpon>PagsDocentesSede.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PagsDocentesZona.aspx.cs">
+      <DependentUpon>PagsDocentesZona.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PagsDocentesZona.aspx.designer.cs">
+      <DependentUpon>PagsDocentesZona.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PagsDocenteVerDocumentos.aspx.cs">
+      <DependentUpon>PagsDocenteVerDocumentos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PagsDocenteVerDocumentos.aspx.designer.cs">
+      <DependentUpon>PagsDocenteVerDocumentos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PagsPagos.aspx.cs">
+      <DependentUpon>PagsPagos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PagsPagos.aspx.designer.cs">
+      <DependentUpon>PagsPagos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PagsReporteEscaneosDetallado.aspx.cs">
+      <DependentUpon>PagsReporteEscaneosDetallado.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PagsReporteEscaneosDetallado.aspx.designer.cs">
+      <DependentUpon>PagsReporteEscaneosDetallado.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PagsReporteEscaneosPorAlumno.aspx.cs">
+      <DependentUpon>PagsReporteEscaneosPorAlumno.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PagsReporteEscaneosPorAlumno.aspx.designer.cs">
+      <DependentUpon>PagsReporteEscaneosPorAlumno.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Site.Mobile.Master.cs">
+      <DependentUpon>Site.Mobile.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Site.Mobile.Master.designer.cs">
+      <DependentUpon>Site.Mobile.Master</DependentUpon>
+    </Compile>
+    <Compile Include="VerPdf.aspx.cs">
+      <DependentUpon>VerPdf.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="VerPdf.aspx.designer.cs">
+      <DependentUpon>VerPdf.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="webFormPDF.aspx.cs">
+      <DependentUpon>webFormPDF.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="webFormPDF.aspx.designer.cs">
+      <DependentUpon>webFormPDF.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Site.Master.cs">
+      <DependentUpon>Site.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Site.Master.designer.cs">
+      <DependentUpon>Site.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Startup.cs" />
+    <Compile Include="ViewSwitcher.ascx.cs">
+      <DependentUpon>ViewSwitcher.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ViewSwitcher.ascx.designer.cs">
+      <DependentUpon>ViewSwitcher.ascx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Escaneos\" />
+    <Folder Include="Pages\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
+    <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Models\DataAlumno.dbml.layout">
+      <DependentUpon>DataAlumno.dbml</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Models\DataAsignaturas.dbml.layout">
+      <DependentUpon>DataAsignaturas.dbml</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Models\Historial_Notas.dbml.layout">
+      <DependentUpon>Historial_Notas.dbml</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Models\Procedimientos.dbml.layout">
+      <DependentUpon>Procedimientos.dbml</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <TypeScriptCompile Include="Scripts\index.d.ts" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>50504</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>https://localhost:44390/</IISUrl>
+          <OverrideIISAppRootUrl>True</OverrideIISAppRootUrl>
+          <IISAppRootUrl>https://localhost:44390/</IISAppRootUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>Este proyecto hace referencia a los paquetes NuGet que faltan en este equipo. Use la restauración de paquetes NuGet para descargarlos. Para obtener más información, consulte http://go.microsoft.com/fwlink/?LinkID=322105. El archivo que falta es {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\build\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\build\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.4.2.0\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.4.2.0\build\Microsoft.Net.Compilers.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.ApplicationInsights.DependencyCollector.2.21.0\build\Microsoft.ApplicationInsights.DependencyCollector.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.ApplicationInsights.DependencyCollector.2.21.0\build\Microsoft.ApplicationInsights.DependencyCollector.targets'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.ApplicationInsights.PerfCounterCollector.2.21.0\build\Microsoft.ApplicationInsights.PerfCounterCollector.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.ApplicationInsights.PerfCounterCollector.2.21.0\build\Microsoft.ApplicationInsights.PerfCounterCollector.targets'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.2.21.0\build\Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.2.21.0\build\Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.targets'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.ApplicationInsights.WindowsServer.2.21.0\build\Microsoft.ApplicationInsights.WindowsServer.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.ApplicationInsights.WindowsServer.2.21.0\build\Microsoft.ApplicationInsights.WindowsServer.targets'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.ApplicationInsights.Web.2.21.0\build\Microsoft.ApplicationInsights.Web.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.ApplicationInsights.Web.2.21.0\build\Microsoft.ApplicationInsights.Web.targets'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.TypeScript.MSBuild.4.8.3\build\Microsoft.TypeScript.MSBuild.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.TypeScript.MSBuild.4.8.3\build\Microsoft.TypeScript.MSBuild.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.TypeScript.MSBuild.4.8.3\build\Microsoft.TypeScript.MSBuild.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.TypeScript.MSBuild.4.8.3\build\Microsoft.TypeScript.MSBuild.targets'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.targets'))" />
+  </Target>
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\build\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\build\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets')" />
+  <Import Project="..\packages\Microsoft.ApplicationInsights.DependencyCollector.2.21.0\build\Microsoft.ApplicationInsights.DependencyCollector.targets" Condition="Exists('..\packages\Microsoft.ApplicationInsights.DependencyCollector.2.21.0\build\Microsoft.ApplicationInsights.DependencyCollector.targets')" />
+  <Import Project="..\packages\Microsoft.ApplicationInsights.PerfCounterCollector.2.21.0\build\Microsoft.ApplicationInsights.PerfCounterCollector.targets" Condition="Exists('..\packages\Microsoft.ApplicationInsights.PerfCounterCollector.2.21.0\build\Microsoft.ApplicationInsights.PerfCounterCollector.targets')" />
+  <Import Project="..\packages\Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.2.21.0\build\Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.targets" Condition="Exists('..\packages\Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.2.21.0\build\Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.targets')" />
+  <Import Project="..\packages\Microsoft.ApplicationInsights.WindowsServer.2.21.0\build\Microsoft.ApplicationInsights.WindowsServer.targets" Condition="Exists('..\packages\Microsoft.ApplicationInsights.WindowsServer.2.21.0\build\Microsoft.ApplicationInsights.WindowsServer.targets')" />
+  <Import Project="..\packages\Microsoft.ApplicationInsights.Web.2.21.0\build\Microsoft.ApplicationInsights.Web.targets" Condition="Exists('..\packages\Microsoft.ApplicationInsights.Web.2.21.0\build\Microsoft.ApplicationInsights.Web.targets')" />
+  <Import Project="..\packages\Microsoft.TypeScript.MSBuild.4.8.3\build\Microsoft.TypeScript.MSBuild.targets" Condition="Exists('..\packages\Microsoft.TypeScript.MSBuild.4.8.3\build\Microsoft.TypeScript.MSBuild.targets')" />
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

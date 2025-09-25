@@ -1,0 +1,830 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="NOTASMESOModelCatedraticoXela.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Catedraticos">
+          <Key>
+            <PropertyRef Name="Codigo_Catedratico" />
+          </Key>
+          <Property Name="Codigo_Catedratico" Type="float" Nullable="false" />
+          <Property Name="Password" Type="nvarchar" MaxLength="255" />
+          <Property Name="Nombre y apellidos del catedrático" Type="nvarchar" MaxLength="255" />
+          <Property Name="Cedula" Type="nvarchar" MaxLength="255" />
+          <Property Name="Titulo" Type="nvarchar(max)" />
+          <Property Name="Titulo2" Type="nvarchar(max)" />
+          <Property Name="Celular" Type="nvarchar" MaxLength="255" />
+          <Property Name="Telefono" Type="nvarchar" MaxLength="255" />
+          <Property Name="Email" Type="nvarchar" MaxLength="255" />
+          <Property Name="Esta_Activo" Type="bit" Nullable="false" />
+          <Property Name="NivelSeguridad" Type="int" />
+          <Property Name="Pais" Type="nvarchar" MaxLength="50" />
+          <Property Name="Huella" Type="varbinary(max)" />
+          <Property Name="Sexo" Type="nvarchar" MaxLength="50" />
+          <Property Name="E_Civil" Type="nvarchar" MaxLength="15" />
+          <Property Name="Fecha_Nac" Type="datetime" />
+          <Property Name="N_Pais" Type="int" />
+          <Property Name="N_Dep" Type="int" />
+          <Property Name="N_Mun" Type="nvarchar" MaxLength="10" />
+          <Property Name="retencionisr" Type="float" />
+          <Property Name="sueldo" Type="float" />
+          <Property Name="Usuario" Type="nvarchar" MaxLength="50" />
+          <Property Name="Fecha_Creacion_Usuario" Type="smalldatetime" />
+          <Property Name="Rango_Catedraticos" Type="int" />
+          <Property Name="NIT" Type="nvarchar" MaxLength="15" />
+          <Property Name="RegimenFiscal" Type="float" />
+          <Property Name="CuentaReformador" Type="nvarchar" MaxLength="20" />
+          <Property Name="Correo_Institucional" Type="nvarchar" MaxLength="30" />
+          <Property Name="Fecha_Vence_Factura" Type="date" />
+          <Property Name="Titulo_Superior" Type="nvarchar" MaxLength="50" />
+          <Property Name="Oficina" Type="nvarchar" MaxLength="255" />
+          <Property Name="FechaIngreso" Type="datetime" />
+          <Property Name="Residencia" Type="nvarchar" MaxLength="50" />
+          <Property Name="CuentaIndustrial" Type="nvarchar" MaxLength="50" />
+          <Property Name="IdTipoDocente" Type="int" />
+        </EntityType>
+        <EntityType Name="Catedraticos_Rangos">
+          <Key>
+            <PropertyRef Name="ID_Rango" />
+          </Key>
+          <Property Name="ID_Rango" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Rango" Type="nvarchar" MaxLength="5" Nullable="false" />
+          <Property Name="Periodos" Type="int" Nullable="false" />
+          <Property Name="Aplica" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="CatedraticosColegios">
+          <Key>
+            <PropertyRef Name="IdAsignacionColegio" />
+          </Key>
+          <Property Name="IdAsignacionColegio" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdCatedratico" Type="float" Nullable="false" />
+          <Property Name="IdColegio" Type="int" Nullable="false" />
+          <Property Name="NoColegiado" Type="nvarchar" MaxLength="15" Nullable="false" />
+          <Property Name="VencimientoColegiado" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CatedraticosDocumentos">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idCatedratico" Type="float" Nullable="false" />
+          <Property Name="idDocumento" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="TipoDocumento" Type="nvarchar" MaxLength="50" />
+          <Property Name="FechaSubida" Type="datetime" />
+        </EntityType>
+        <EntityType Name="CatedraticosEmpresas">
+          <Key>
+            <PropertyRef Name="idEmpresaCatedatico" />
+          </Key>
+          <Property Name="idEmpresaCatedatico" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdCatedratico" Type="float" />
+          <Property Name="IGSS" Type="nvarchar" MaxLength="15" />
+          <Property Name="Empresa" Type="nvarchar" MaxLength="50" />
+          <Property Name="Direccion" Type="nvarchar" MaxLength="150" />
+          <Property Name="Telefono" Type="nvarchar" MaxLength="50" />
+          <Property Name="email" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="CatedraticosIdiomas">
+          <Key>
+            <PropertyRef Name="IdDocenteIdioma" />
+          </Key>
+          <Property Name="IdDocenteIdioma" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdCatedratico" Type="float" Nullable="false" />
+          <Property Name="idIdioma" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CatedraticosSalud">
+          <Key>
+            <PropertyRef Name="IdSalud" />
+          </Key>
+          <Property Name="IdSalud" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdCatedratico" Type="float" />
+          <Property Name="TelefonoEmergencia" Type="nvarchar" MaxLength="10" />
+          <Property Name="ContactoEmergencia" Type="nvarchar(max)" />
+          <Property Name="RelacionContacto" Type="nvarchar(max)" />
+          <Property Name="Medico" Type="nvarchar" MaxLength="50" />
+          <Property Name="TelefonoMedico" Type="nvarchar" MaxLength="10" />
+          <Property Name="Id_Grupo" Type="int" />
+          <Property Name="NoSeguroMedico" Type="nvarchar" MaxLength="50" />
+          <Property Name="EmpresaSeguroMedico" Type="nvarchar" MaxLength="50" />
+          <Property Name="AlergicoMedicamentos" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="CatedraticosSaludEnfermedades">
+          <Key>
+            <PropertyRef Name="IdEnfermedad" />
+          </Key>
+          <Property Name="IdEnfermedad" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdCatedratico" Type="float" />
+          <Property Name="EnfermedadCronica" Type="nvarchar" MaxLength="150" />
+          <Property Name="Tratamiento" Type="nvarchar" MaxLength="150" />
+        </EntityType>
+        <EntityType Name="CatedraticosTipo">
+          <Key>
+            <PropertyRef Name="IdTipoDocente" />
+          </Key>
+          <Property Name="IdTipoDocente" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Tipo" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="CatedraticosTitulos">
+          <Key>
+            <PropertyRef Name="IdTitulo" />
+          </Key>
+          <Property Name="IdTitulo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdCatedratico" Type="float" />
+          <Property Name="IdNivel" Type="int" />
+          <Property Name="Descripcion" Type="nvarchar" MaxLength="150" />
+        </EntityType>
+        <EntityType Name="ColegiosProfesionales">
+          <Key>
+            <PropertyRef Name="IdColegio" />
+          </Key>
+          <Property Name="IdColegio" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Colegio" Type="nvarchar" MaxLength="150" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Catedraticos_Catedraticos_Rangos">
+          <End Role="Catedraticos_Rangos" Type="Self.Catedraticos_Rangos" Multiplicity="0..1" />
+          <End Role="Catedraticos" Type="Self.Catedraticos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Catedraticos_Rangos">
+              <PropertyRef Name="ID_Rango" />
+            </Principal>
+            <Dependent Role="Catedraticos">
+              <PropertyRef Name="Rango_Catedraticos" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Catedraticos_CatedraticosTipo">
+          <End Role="CatedraticosTipo" Type="Self.CatedraticosTipo" Multiplicity="0..1" />
+          <End Role="Catedraticos" Type="Self.Catedraticos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CatedraticosTipo">
+              <PropertyRef Name="IdTipoDocente" />
+            </Principal>
+            <Dependent Role="Catedraticos">
+              <PropertyRef Name="IdTipoDocente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CatedraticosColegios_Catedraticos">
+          <End Role="Catedraticos" Type="Self.Catedraticos" Multiplicity="1" />
+          <End Role="CatedraticosColegios" Type="Self.CatedraticosColegios" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Catedraticos">
+              <PropertyRef Name="Codigo_Catedratico" />
+            </Principal>
+            <Dependent Role="CatedraticosColegios">
+              <PropertyRef Name="IdCatedratico" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CatedraticosColegios_ColegiosProfesionales">
+          <End Role="ColegiosProfesionales" Type="Self.ColegiosProfesionales" Multiplicity="1" />
+          <End Role="CatedraticosColegios" Type="Self.CatedraticosColegios" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ColegiosProfesionales">
+              <PropertyRef Name="IdColegio" />
+            </Principal>
+            <Dependent Role="CatedraticosColegios">
+              <PropertyRef Name="IdColegio" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CatedraticosDocumentos_Catedraticos">
+          <End Role="Catedraticos" Type="Self.Catedraticos" Multiplicity="1" />
+          <End Role="CatedraticosDocumentos" Type="Self.CatedraticosDocumentos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Catedraticos">
+              <PropertyRef Name="Codigo_Catedratico" />
+            </Principal>
+            <Dependent Role="CatedraticosDocumentos">
+              <PropertyRef Name="idCatedratico" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CatedraticosEmpresas_Catedraticos">
+          <End Role="Catedraticos" Type="Self.Catedraticos" Multiplicity="0..1" />
+          <End Role="CatedraticosEmpresas" Type="Self.CatedraticosEmpresas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Catedraticos">
+              <PropertyRef Name="Codigo_Catedratico" />
+            </Principal>
+            <Dependent Role="CatedraticosEmpresas">
+              <PropertyRef Name="IdCatedratico" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CatedraticosIdiomas_Catedraticos">
+          <End Role="Catedraticos" Type="Self.Catedraticos" Multiplicity="1" />
+          <End Role="CatedraticosIdiomas" Type="Self.CatedraticosIdiomas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Catedraticos">
+              <PropertyRef Name="Codigo_Catedratico" />
+            </Principal>
+            <Dependent Role="CatedraticosIdiomas">
+              <PropertyRef Name="IdCatedratico" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CatedraticosSalud_Catedraticos">
+          <End Role="Catedraticos" Type="Self.Catedraticos" Multiplicity="0..1" />
+          <End Role="CatedraticosSalud" Type="Self.CatedraticosSalud" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Catedraticos">
+              <PropertyRef Name="Codigo_Catedratico" />
+            </Principal>
+            <Dependent Role="CatedraticosSalud">
+              <PropertyRef Name="IdCatedratico" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CatedraticosSaludEnfermedades_Catedraticos">
+          <End Role="Catedraticos" Type="Self.Catedraticos" Multiplicity="0..1" />
+          <End Role="CatedraticosSaludEnfermedades" Type="Self.CatedraticosSaludEnfermedades" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Catedraticos">
+              <PropertyRef Name="Codigo_Catedratico" />
+            </Principal>
+            <Dependent Role="CatedraticosSaludEnfermedades">
+              <PropertyRef Name="IdCatedratico" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CatedraticosTitulos_Catedraticos">
+          <End Role="Catedraticos" Type="Self.Catedraticos" Multiplicity="0..1" />
+          <End Role="CatedraticosTitulos" Type="Self.CatedraticosTitulos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Catedraticos">
+              <PropertyRef Name="Codigo_Catedratico" />
+            </Principal>
+            <Dependent Role="CatedraticosTitulos">
+              <PropertyRef Name="IdCatedratico" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="NOTASMESOModelCatedraticoXelaStoreContainer">
+          <EntitySet Name="Catedraticos" EntityType="Self.Catedraticos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Catedraticos_Rangos" EntityType="Self.Catedraticos_Rangos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CatedraticosColegios" EntityType="Self.CatedraticosColegios" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CatedraticosDocumentos" EntityType="Self.CatedraticosDocumentos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CatedraticosEmpresas" EntityType="Self.CatedraticosEmpresas" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CatedraticosIdiomas" EntityType="Self.CatedraticosIdiomas" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CatedraticosSalud" EntityType="Self.CatedraticosSalud" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CatedraticosSaludEnfermedades" EntityType="Self.CatedraticosSaludEnfermedades" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CatedraticosTipo" EntityType="Self.CatedraticosTipo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CatedraticosTitulos" EntityType="Self.CatedraticosTitulos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ColegiosProfesionales" EntityType="Self.ColegiosProfesionales" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Catedraticos_Catedraticos_Rangos" Association="Self.FK_Catedraticos_Catedraticos_Rangos">
+            <End Role="Catedraticos_Rangos" EntitySet="Catedraticos_Rangos" />
+            <End Role="Catedraticos" EntitySet="Catedraticos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Catedraticos_CatedraticosTipo" Association="Self.FK_Catedraticos_CatedraticosTipo">
+            <End Role="CatedraticosTipo" EntitySet="CatedraticosTipo" />
+            <End Role="Catedraticos" EntitySet="Catedraticos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CatedraticosColegios_Catedraticos" Association="Self.FK_CatedraticosColegios_Catedraticos">
+            <End Role="Catedraticos" EntitySet="Catedraticos" />
+            <End Role="CatedraticosColegios" EntitySet="CatedraticosColegios" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CatedraticosColegios_ColegiosProfesionales" Association="Self.FK_CatedraticosColegios_ColegiosProfesionales">
+            <End Role="ColegiosProfesionales" EntitySet="ColegiosProfesionales" />
+            <End Role="CatedraticosColegios" EntitySet="CatedraticosColegios" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CatedraticosDocumentos_Catedraticos" Association="Self.FK_CatedraticosDocumentos_Catedraticos">
+            <End Role="Catedraticos" EntitySet="Catedraticos" />
+            <End Role="CatedraticosDocumentos" EntitySet="CatedraticosDocumentos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CatedraticosEmpresas_Catedraticos" Association="Self.FK_CatedraticosEmpresas_Catedraticos">
+            <End Role="Catedraticos" EntitySet="Catedraticos" />
+            <End Role="CatedraticosEmpresas" EntitySet="CatedraticosEmpresas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CatedraticosIdiomas_Catedraticos" Association="Self.FK_CatedraticosIdiomas_Catedraticos">
+            <End Role="Catedraticos" EntitySet="Catedraticos" />
+            <End Role="CatedraticosIdiomas" EntitySet="CatedraticosIdiomas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CatedraticosSalud_Catedraticos" Association="Self.FK_CatedraticosSalud_Catedraticos">
+            <End Role="Catedraticos" EntitySet="Catedraticos" />
+            <End Role="CatedraticosSalud" EntitySet="CatedraticosSalud" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CatedraticosSaludEnfermedades_Catedraticos" Association="Self.FK_CatedraticosSaludEnfermedades_Catedraticos">
+            <End Role="Catedraticos" EntitySet="Catedraticos" />
+            <End Role="CatedraticosSaludEnfermedades" EntitySet="CatedraticosSaludEnfermedades" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CatedraticosTitulos_Catedraticos" Association="Self.FK_CatedraticosTitulos_Catedraticos">
+            <End Role="Catedraticos" EntitySet="Catedraticos" />
+            <End Role="CatedraticosTitulos" EntitySet="CatedraticosTitulos" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="NOTASMESOModelCatedraticoXela" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Catedraticos">
+          <Key>
+            <PropertyRef Name="Codigo_Catedratico" />
+          </Key>
+          <Property Name="Codigo_Catedratico" Type="Double" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Nombre_y_apellidos_del_catedrático" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Cedula" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Titulo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Titulo2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Celular" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Telefono" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Esta_Activo" Type="Boolean" Nullable="false" />
+          <Property Name="NivelSeguridad" Type="Int32" />
+          <Property Name="Pais" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Huella" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="Sexo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="E_Civil" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="Fecha_Nac" Type="DateTime" Precision="3" />
+          <Property Name="N_Pais" Type="Int32" />
+          <Property Name="N_Dep" Type="Int32" />
+          <Property Name="N_Mun" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="retencionisr" Type="Double" />
+          <Property Name="sueldo" Type="Double" />
+          <Property Name="Usuario" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Fecha_Creacion_Usuario" Type="DateTime" Precision="0" />
+          <Property Name="Rango_Catedraticos" Type="Int32" />
+          <Property Name="NIT" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="RegimenFiscal" Type="Double" />
+          <Property Name="CuentaReformador" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Correo_Institucional" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="Fecha_Vence_Factura" Type="DateTime" Precision="0" />
+          <Property Name="Titulo_Superior" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Oficina" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="FechaIngreso" Type="DateTime" Precision="3" />
+          <Property Name="Residencia" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CuentaIndustrial" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IdTipoDocente" Type="Int32" />
+          <NavigationProperty Name="Catedraticos_Rangos" Relationship="Self.FK_Catedraticos_Catedraticos_Rangos" FromRole="Catedraticos" ToRole="Catedraticos_Rangos" />
+          <NavigationProperty Name="CatedraticosTipo" Relationship="Self.FK_Catedraticos_CatedraticosTipo" FromRole="Catedraticos" ToRole="CatedraticosTipo" />
+          <NavigationProperty Name="CatedraticosColegios" Relationship="Self.FK_CatedraticosColegios_Catedraticos" FromRole="Catedraticos" ToRole="CatedraticosColegios" />
+          <NavigationProperty Name="CatedraticosDocumentos" Relationship="Self.FK_CatedraticosDocumentos_Catedraticos" FromRole="Catedraticos" ToRole="CatedraticosDocumentos" />
+          <NavigationProperty Name="CatedraticosEmpresas" Relationship="Self.FK_CatedraticosEmpresas_Catedraticos" FromRole="Catedraticos" ToRole="CatedraticosEmpresas" />
+          <NavigationProperty Name="CatedraticosIdiomas" Relationship="Self.FK_CatedraticosIdiomas_Catedraticos" FromRole="Catedraticos" ToRole="CatedraticosIdiomas" />
+          <NavigationProperty Name="CatedraticosSalud" Relationship="Self.FK_CatedraticosSalud_Catedraticos" FromRole="Catedraticos" ToRole="CatedraticosSalud" />
+          <NavigationProperty Name="CatedraticosSaludEnfermedades" Relationship="Self.FK_CatedraticosSaludEnfermedades_Catedraticos" FromRole="Catedraticos" ToRole="CatedraticosSaludEnfermedades" />
+          <NavigationProperty Name="CatedraticosTitulos" Relationship="Self.FK_CatedraticosTitulos_Catedraticos" FromRole="Catedraticos" ToRole="CatedraticosTitulos" />
+        </EntityType>
+        <EntityType Name="Catedraticos_Rangos">
+          <Key>
+            <PropertyRef Name="ID_Rango" />
+          </Key>
+          <Property Name="ID_Rango" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Rango" Type="String" MaxLength="5" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Periodos" Type="Int32" Nullable="false" />
+          <Property Name="Aplica" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Catedraticos" Relationship="Self.FK_Catedraticos_Catedraticos_Rangos" FromRole="Catedraticos_Rangos" ToRole="Catedraticos" />
+        </EntityType>
+        <EntityType Name="CatedraticosColegios">
+          <Key>
+            <PropertyRef Name="IdAsignacionColegio" />
+          </Key>
+          <Property Name="IdAsignacionColegio" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdCatedratico" Type="Double" Nullable="false" />
+          <Property Name="IdColegio" Type="Int32" Nullable="false" />
+          <Property Name="NoColegiado" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="VencimientoColegiado" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Catedraticos" Relationship="Self.FK_CatedraticosColegios_Catedraticos" FromRole="CatedraticosColegios" ToRole="Catedraticos" />
+          <NavigationProperty Name="ColegiosProfesionales" Relationship="Self.FK_CatedraticosColegios_ColegiosProfesionales" FromRole="CatedraticosColegios" ToRole="ColegiosProfesionales" />
+        </EntityType>
+        <EntityType Name="CatedraticosDocumentos">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idCatedratico" Type="Double" Nullable="false" />
+          <Property Name="idDocumento" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="TipoDocumento" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FechaSubida" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Catedraticos" Relationship="Self.FK_CatedraticosDocumentos_Catedraticos" FromRole="CatedraticosDocumentos" ToRole="Catedraticos" />
+        </EntityType>
+        <EntityType Name="CatedraticosEmpresas">
+          <Key>
+            <PropertyRef Name="idEmpresaCatedatico" />
+          </Key>
+          <Property Name="idEmpresaCatedatico" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdCatedratico" Type="Double" />
+          <Property Name="IGSS" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="Empresa" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Direccion" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Telefono" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Catedraticos" Relationship="Self.FK_CatedraticosEmpresas_Catedraticos" FromRole="CatedraticosEmpresas" ToRole="Catedraticos" />
+        </EntityType>
+        <EntityType Name="CatedraticosIdiomas">
+          <Key>
+            <PropertyRef Name="IdDocenteIdioma" />
+          </Key>
+          <Property Name="IdDocenteIdioma" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdCatedratico" Type="Double" Nullable="false" />
+          <Property Name="idIdioma" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Catedraticos" Relationship="Self.FK_CatedraticosIdiomas_Catedraticos" FromRole="CatedraticosIdiomas" ToRole="Catedraticos" />
+        </EntityType>
+        <EntityType Name="CatedraticosSalud">
+          <Key>
+            <PropertyRef Name="IdSalud" />
+          </Key>
+          <Property Name="IdSalud" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdCatedratico" Type="Double" />
+          <Property Name="TelefonoEmergencia" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="ContactoEmergencia" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="RelacionContacto" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Medico" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TelefonoMedico" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Id_Grupo" Type="Int32" />
+          <Property Name="NoSeguroMedico" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="EmpresaSeguroMedico" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="AlergicoMedicamentos" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Catedraticos" Relationship="Self.FK_CatedraticosSalud_Catedraticos" FromRole="CatedraticosSalud" ToRole="Catedraticos" />
+        </EntityType>
+        <EntityType Name="CatedraticosSaludEnfermedades">
+          <Key>
+            <PropertyRef Name="IdEnfermedad" />
+          </Key>
+          <Property Name="IdEnfermedad" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdCatedratico" Type="Double" />
+          <Property Name="EnfermedadCronica" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Tratamiento" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Catedraticos" Relationship="Self.FK_CatedraticosSaludEnfermedades_Catedraticos" FromRole="CatedraticosSaludEnfermedades" ToRole="Catedraticos" />
+        </EntityType>
+        <EntityType Name="CatedraticosTipo">
+          <Key>
+            <PropertyRef Name="IdTipoDocente" />
+          </Key>
+          <Property Name="IdTipoDocente" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Tipo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Catedraticos" Relationship="Self.FK_Catedraticos_CatedraticosTipo" FromRole="CatedraticosTipo" ToRole="Catedraticos" />
+        </EntityType>
+        <EntityType Name="CatedraticosTitulos">
+          <Key>
+            <PropertyRef Name="IdTitulo" />
+          </Key>
+          <Property Name="IdTitulo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdCatedratico" Type="Double" />
+          <Property Name="IdNivel" Type="Int32" />
+          <Property Name="Descripcion" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Catedraticos" Relationship="Self.FK_CatedraticosTitulos_Catedraticos" FromRole="CatedraticosTitulos" ToRole="Catedraticos" />
+        </EntityType>
+        <EntityType Name="ColegiosProfesionales">
+          <Key>
+            <PropertyRef Name="IdColegio" />
+          </Key>
+          <Property Name="IdColegio" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Colegio" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="CatedraticosColegios" Relationship="Self.FK_CatedraticosColegios_ColegiosProfesionales" FromRole="ColegiosProfesionales" ToRole="CatedraticosColegios" />
+        </EntityType>
+        <Association Name="FK_Catedraticos_Catedraticos_Rangos">
+          <End Role="Catedraticos_Rangos" Type="Self.Catedraticos_Rangos" Multiplicity="0..1" />
+          <End Role="Catedraticos" Type="Self.Catedraticos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Catedraticos_Rangos">
+              <PropertyRef Name="ID_Rango" />
+            </Principal>
+            <Dependent Role="Catedraticos">
+              <PropertyRef Name="Rango_Catedraticos" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Catedraticos_CatedraticosTipo">
+          <End Role="CatedraticosTipo" Type="Self.CatedraticosTipo" Multiplicity="0..1" />
+          <End Role="Catedraticos" Type="Self.Catedraticos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CatedraticosTipo">
+              <PropertyRef Name="IdTipoDocente" />
+            </Principal>
+            <Dependent Role="Catedraticos">
+              <PropertyRef Name="IdTipoDocente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CatedraticosColegios_Catedraticos">
+          <End Role="Catedraticos" Type="Self.Catedraticos" Multiplicity="1" />
+          <End Role="CatedraticosColegios" Type="Self.CatedraticosColegios" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Catedraticos">
+              <PropertyRef Name="Codigo_Catedratico" />
+            </Principal>
+            <Dependent Role="CatedraticosColegios">
+              <PropertyRef Name="IdCatedratico" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CatedraticosDocumentos_Catedraticos">
+          <End Role="Catedraticos" Type="Self.Catedraticos" Multiplicity="1" />
+          <End Role="CatedraticosDocumentos" Type="Self.CatedraticosDocumentos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Catedraticos">
+              <PropertyRef Name="Codigo_Catedratico" />
+            </Principal>
+            <Dependent Role="CatedraticosDocumentos">
+              <PropertyRef Name="idCatedratico" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CatedraticosEmpresas_Catedraticos">
+          <End Role="Catedraticos" Type="Self.Catedraticos" Multiplicity="0..1" />
+          <End Role="CatedraticosEmpresas" Type="Self.CatedraticosEmpresas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Catedraticos">
+              <PropertyRef Name="Codigo_Catedratico" />
+            </Principal>
+            <Dependent Role="CatedraticosEmpresas">
+              <PropertyRef Name="IdCatedratico" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CatedraticosIdiomas_Catedraticos">
+          <End Role="Catedraticos" Type="Self.Catedraticos" Multiplicity="1" />
+          <End Role="CatedraticosIdiomas" Type="Self.CatedraticosIdiomas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Catedraticos">
+              <PropertyRef Name="Codigo_Catedratico" />
+            </Principal>
+            <Dependent Role="CatedraticosIdiomas">
+              <PropertyRef Name="IdCatedratico" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CatedraticosSalud_Catedraticos">
+          <End Role="Catedraticos" Type="Self.Catedraticos" Multiplicity="0..1" />
+          <End Role="CatedraticosSalud" Type="Self.CatedraticosSalud" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Catedraticos">
+              <PropertyRef Name="Codigo_Catedratico" />
+            </Principal>
+            <Dependent Role="CatedraticosSalud">
+              <PropertyRef Name="IdCatedratico" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CatedraticosSaludEnfermedades_Catedraticos">
+          <End Role="Catedraticos" Type="Self.Catedraticos" Multiplicity="0..1" />
+          <End Role="CatedraticosSaludEnfermedades" Type="Self.CatedraticosSaludEnfermedades" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Catedraticos">
+              <PropertyRef Name="Codigo_Catedratico" />
+            </Principal>
+            <Dependent Role="CatedraticosSaludEnfermedades">
+              <PropertyRef Name="IdCatedratico" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CatedraticosTitulos_Catedraticos">
+          <End Role="Catedraticos" Type="Self.Catedraticos" Multiplicity="0..1" />
+          <End Role="CatedraticosTitulos" Type="Self.CatedraticosTitulos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Catedraticos">
+              <PropertyRef Name="Codigo_Catedratico" />
+            </Principal>
+            <Dependent Role="CatedraticosTitulos">
+              <PropertyRef Name="IdCatedratico" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CatedraticosColegios_ColegiosProfesionales">
+          <End Role="ColegiosProfesionales" Type="Self.ColegiosProfesionales" Multiplicity="1" />
+          <End Role="CatedraticosColegios" Type="Self.CatedraticosColegios" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ColegiosProfesionales">
+              <PropertyRef Name="IdColegio" />
+            </Principal>
+            <Dependent Role="CatedraticosColegios">
+              <PropertyRef Name="IdColegio" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="NOTASMESOEntitiesCatedraticoXela" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Catedraticos" EntityType="Self.Catedraticos" />
+          <EntitySet Name="Catedraticos_Rangos" EntityType="Self.Catedraticos_Rangos" />
+          <EntitySet Name="CatedraticosColegios" EntityType="Self.CatedraticosColegios" />
+          <EntitySet Name="CatedraticosDocumentos" EntityType="Self.CatedraticosDocumentos" />
+          <EntitySet Name="CatedraticosEmpresas" EntityType="Self.CatedraticosEmpresas" />
+          <EntitySet Name="CatedraticosIdiomas" EntityType="Self.CatedraticosIdiomas" />
+          <EntitySet Name="CatedraticosSalud" EntityType="Self.CatedraticosSalud" />
+          <EntitySet Name="CatedraticosSaludEnfermedades" EntityType="Self.CatedraticosSaludEnfermedades" />
+          <EntitySet Name="CatedraticosTipo" EntityType="Self.CatedraticosTipo" />
+          <EntitySet Name="CatedraticosTitulos" EntityType="Self.CatedraticosTitulos" />
+          <EntitySet Name="ColegiosProfesionales" EntityType="Self.ColegiosProfesionales" />
+          <AssociationSet Name="FK_Catedraticos_Catedraticos_Rangos" Association="Self.FK_Catedraticos_Catedraticos_Rangos">
+            <End Role="Catedraticos_Rangos" EntitySet="Catedraticos_Rangos" />
+            <End Role="Catedraticos" EntitySet="Catedraticos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Catedraticos_CatedraticosTipo" Association="Self.FK_Catedraticos_CatedraticosTipo">
+            <End Role="CatedraticosTipo" EntitySet="CatedraticosTipo" />
+            <End Role="Catedraticos" EntitySet="Catedraticos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CatedraticosColegios_Catedraticos" Association="Self.FK_CatedraticosColegios_Catedraticos">
+            <End Role="Catedraticos" EntitySet="Catedraticos" />
+            <End Role="CatedraticosColegios" EntitySet="CatedraticosColegios" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CatedraticosDocumentos_Catedraticos" Association="Self.FK_CatedraticosDocumentos_Catedraticos">
+            <End Role="Catedraticos" EntitySet="Catedraticos" />
+            <End Role="CatedraticosDocumentos" EntitySet="CatedraticosDocumentos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CatedraticosEmpresas_Catedraticos" Association="Self.FK_CatedraticosEmpresas_Catedraticos">
+            <End Role="Catedraticos" EntitySet="Catedraticos" />
+            <End Role="CatedraticosEmpresas" EntitySet="CatedraticosEmpresas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CatedraticosIdiomas_Catedraticos" Association="Self.FK_CatedraticosIdiomas_Catedraticos">
+            <End Role="Catedraticos" EntitySet="Catedraticos" />
+            <End Role="CatedraticosIdiomas" EntitySet="CatedraticosIdiomas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CatedraticosSalud_Catedraticos" Association="Self.FK_CatedraticosSalud_Catedraticos">
+            <End Role="Catedraticos" EntitySet="Catedraticos" />
+            <End Role="CatedraticosSalud" EntitySet="CatedraticosSalud" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CatedraticosSaludEnfermedades_Catedraticos" Association="Self.FK_CatedraticosSaludEnfermedades_Catedraticos">
+            <End Role="Catedraticos" EntitySet="Catedraticos" />
+            <End Role="CatedraticosSaludEnfermedades" EntitySet="CatedraticosSaludEnfermedades" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CatedraticosTitulos_Catedraticos" Association="Self.FK_CatedraticosTitulos_Catedraticos">
+            <End Role="Catedraticos" EntitySet="Catedraticos" />
+            <End Role="CatedraticosTitulos" EntitySet="CatedraticosTitulos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CatedraticosColegios_ColegiosProfesionales" Association="Self.FK_CatedraticosColegios_ColegiosProfesionales">
+            <End Role="ColegiosProfesionales" EntitySet="ColegiosProfesionales" />
+            <End Role="CatedraticosColegios" EntitySet="CatedraticosColegios" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="NOTASMESOModelCatedraticoXelaStoreContainer" CdmEntityContainer="NOTASMESOEntitiesCatedraticoXela">
+          <EntitySetMapping Name="Catedraticos">
+            <EntityTypeMapping TypeName="NOTASMESOModelCatedraticoXela.Catedraticos">
+              <MappingFragment StoreEntitySet="Catedraticos">
+                <ScalarProperty Name="Codigo_Catedratico" ColumnName="Codigo_Catedratico" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Nombre_y_apellidos_del_catedrático" ColumnName="Nombre y apellidos del catedrático" />
+                <ScalarProperty Name="Cedula" ColumnName="Cedula" />
+                <ScalarProperty Name="Titulo" ColumnName="Titulo" />
+                <ScalarProperty Name="Titulo2" ColumnName="Titulo2" />
+                <ScalarProperty Name="Celular" ColumnName="Celular" />
+                <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Esta_Activo" ColumnName="Esta_Activo" />
+                <ScalarProperty Name="NivelSeguridad" ColumnName="NivelSeguridad" />
+                <ScalarProperty Name="Pais" ColumnName="Pais" />
+                <ScalarProperty Name="Huella" ColumnName="Huella" />
+                <ScalarProperty Name="Sexo" ColumnName="Sexo" />
+                <ScalarProperty Name="E_Civil" ColumnName="E_Civil" />
+                <ScalarProperty Name="Fecha_Nac" ColumnName="Fecha_Nac" />
+                <ScalarProperty Name="N_Pais" ColumnName="N_Pais" />
+                <ScalarProperty Name="N_Dep" ColumnName="N_Dep" />
+                <ScalarProperty Name="N_Mun" ColumnName="N_Mun" />
+                <ScalarProperty Name="retencionisr" ColumnName="retencionisr" />
+                <ScalarProperty Name="sueldo" ColumnName="sueldo" />
+                <ScalarProperty Name="Usuario" ColumnName="Usuario" />
+                <ScalarProperty Name="Fecha_Creacion_Usuario" ColumnName="Fecha_Creacion_Usuario" />
+                <ScalarProperty Name="Rango_Catedraticos" ColumnName="Rango_Catedraticos" />
+                <ScalarProperty Name="NIT" ColumnName="NIT" />
+                <ScalarProperty Name="RegimenFiscal" ColumnName="RegimenFiscal" />
+                <ScalarProperty Name="CuentaReformador" ColumnName="CuentaReformador" />
+                <ScalarProperty Name="Correo_Institucional" ColumnName="Correo_Institucional" />
+                <ScalarProperty Name="Fecha_Vence_Factura" ColumnName="Fecha_Vence_Factura" />
+                <ScalarProperty Name="Titulo_Superior" ColumnName="Titulo_Superior" />
+                <ScalarProperty Name="Oficina" ColumnName="Oficina" />
+                <ScalarProperty Name="FechaIngreso" ColumnName="FechaIngreso" />
+                <ScalarProperty Name="Residencia" ColumnName="Residencia" />
+                <ScalarProperty Name="CuentaIndustrial" ColumnName="CuentaIndustrial" />
+                <ScalarProperty Name="IdTipoDocente" ColumnName="IdTipoDocente" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Catedraticos_Rangos">
+            <EntityTypeMapping TypeName="NOTASMESOModelCatedraticoXela.Catedraticos_Rangos">
+              <MappingFragment StoreEntitySet="Catedraticos_Rangos">
+                <ScalarProperty Name="ID_Rango" ColumnName="ID_Rango" />
+                <ScalarProperty Name="Rango" ColumnName="Rango" />
+                <ScalarProperty Name="Periodos" ColumnName="Periodos" />
+                <ScalarProperty Name="Aplica" ColumnName="Aplica" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CatedraticosColegios">
+            <EntityTypeMapping TypeName="NOTASMESOModelCatedraticoXela.CatedraticosColegios">
+              <MappingFragment StoreEntitySet="CatedraticosColegios">
+                <ScalarProperty Name="IdAsignacionColegio" ColumnName="IdAsignacionColegio" />
+                <ScalarProperty Name="IdCatedratico" ColumnName="IdCatedratico" />
+                <ScalarProperty Name="IdColegio" ColumnName="IdColegio" />
+                <ScalarProperty Name="NoColegiado" ColumnName="NoColegiado" />
+                <ScalarProperty Name="VencimientoColegiado" ColumnName="VencimientoColegiado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CatedraticosDocumentos">
+            <EntityTypeMapping TypeName="NOTASMESOModelCatedraticoXela.CatedraticosDocumentos">
+              <MappingFragment StoreEntitySet="CatedraticosDocumentos">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="idCatedratico" ColumnName="idCatedratico" />
+                <ScalarProperty Name="idDocumento" ColumnName="idDocumento" />
+                <ScalarProperty Name="TipoDocumento" ColumnName="TipoDocumento" />
+                <ScalarProperty Name="FechaSubida" ColumnName="FechaSubida" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CatedraticosEmpresas">
+            <EntityTypeMapping TypeName="NOTASMESOModelCatedraticoXela.CatedraticosEmpresas">
+              <MappingFragment StoreEntitySet="CatedraticosEmpresas">
+                <ScalarProperty Name="idEmpresaCatedatico" ColumnName="idEmpresaCatedatico" />
+                <ScalarProperty Name="IdCatedratico" ColumnName="IdCatedratico" />
+                <ScalarProperty Name="IGSS" ColumnName="IGSS" />
+                <ScalarProperty Name="Empresa" ColumnName="Empresa" />
+                <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+                <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+                <ScalarProperty Name="email" ColumnName="email" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CatedraticosIdiomas">
+            <EntityTypeMapping TypeName="NOTASMESOModelCatedraticoXela.CatedraticosIdiomas">
+              <MappingFragment StoreEntitySet="CatedraticosIdiomas">
+                <ScalarProperty Name="IdDocenteIdioma" ColumnName="IdDocenteIdioma" />
+                <ScalarProperty Name="IdCatedratico" ColumnName="IdCatedratico" />
+                <ScalarProperty Name="idIdioma" ColumnName="idIdioma" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CatedraticosSalud">
+            <EntityTypeMapping TypeName="NOTASMESOModelCatedraticoXela.CatedraticosSalud">
+              <MappingFragment StoreEntitySet="CatedraticosSalud">
+                <ScalarProperty Name="IdSalud" ColumnName="IdSalud" />
+                <ScalarProperty Name="IdCatedratico" ColumnName="IdCatedratico" />
+                <ScalarProperty Name="TelefonoEmergencia" ColumnName="TelefonoEmergencia" />
+                <ScalarProperty Name="ContactoEmergencia" ColumnName="ContactoEmergencia" />
+                <ScalarProperty Name="RelacionContacto" ColumnName="RelacionContacto" />
+                <ScalarProperty Name="Medico" ColumnName="Medico" />
+                <ScalarProperty Name="TelefonoMedico" ColumnName="TelefonoMedico" />
+                <ScalarProperty Name="Id_Grupo" ColumnName="Id_Grupo" />
+                <ScalarProperty Name="NoSeguroMedico" ColumnName="NoSeguroMedico" />
+                <ScalarProperty Name="EmpresaSeguroMedico" ColumnName="EmpresaSeguroMedico" />
+                <ScalarProperty Name="AlergicoMedicamentos" ColumnName="AlergicoMedicamentos" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CatedraticosSaludEnfermedades">
+            <EntityTypeMapping TypeName="NOTASMESOModelCatedraticoXela.CatedraticosSaludEnfermedades">
+              <MappingFragment StoreEntitySet="CatedraticosSaludEnfermedades">
+                <ScalarProperty Name="IdEnfermedad" ColumnName="IdEnfermedad" />
+                <ScalarProperty Name="IdCatedratico" ColumnName="IdCatedratico" />
+                <ScalarProperty Name="EnfermedadCronica" ColumnName="EnfermedadCronica" />
+                <ScalarProperty Name="Tratamiento" ColumnName="Tratamiento" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CatedraticosTipo">
+            <EntityTypeMapping TypeName="NOTASMESOModelCatedraticoXela.CatedraticosTipo">
+              <MappingFragment StoreEntitySet="CatedraticosTipo">
+                <ScalarProperty Name="IdTipoDocente" ColumnName="IdTipoDocente" />
+                <ScalarProperty Name="Tipo" ColumnName="Tipo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CatedraticosTitulos">
+            <EntityTypeMapping TypeName="NOTASMESOModelCatedraticoXela.CatedraticosTitulos">
+              <MappingFragment StoreEntitySet="CatedraticosTitulos">
+                <ScalarProperty Name="IdTitulo" ColumnName="IdTitulo" />
+                <ScalarProperty Name="IdCatedratico" ColumnName="IdCatedratico" />
+                <ScalarProperty Name="IdNivel" ColumnName="IdNivel" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ColegiosProfesionales">
+            <EntityTypeMapping TypeName="NOTASMESOModelCatedraticoXela.ColegiosProfesionales">
+              <MappingFragment StoreEntitySet="ColegiosProfesionales">
+                <ScalarProperty Name="IdColegio" ColumnName="IdColegio" />
+                <ScalarProperty Name="Colegio" ColumnName="Colegio" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="NOTASMESO" Class="DataAlumnoDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=gp4;Initial Catalog=NOTASMESO;User ID=Local;MultipleActiveResultSets=True;Application Name=EntityFramework" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="NOTASMESOConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.alumno" Member="alumno">
+    <Type Name="alumno">
+      <Column Name="[Número de carné]" Member="Número_de_carné" Type="System.String" DbType="NVarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Password" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="[Nombre del alumno]" Member="Nombre_del_alumno" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="[Segundo nombre]" Member="Segundo_nombre" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="[Primer apellido]" Member="Primer_apellido" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="[Segundo apellido]" Member="Segundo_apellido" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="[Apellido de casada]" Member="Apellido_de_casada" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Sexo" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="[Fecha de Nacimiento]" Member="Fecha_de_Nacimiento" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="[Lugar de Nacimiento]" Member="Lugar_de_Nacimiento" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="Nacionalidad" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="[No de Cédula o Pasaporte]" Member="No_de_Cédula_o_Pasaporte" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="[Estado Civil]" Member="Estado_Civil" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="[Dirección completa]" Member="Dirección_completa" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Column Name="Ciudad" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Departamento" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Teléfono" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Email" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="Nombre_Completo" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Pasaporte" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Jornada" Type="System.String" DbType="NVarChar(15)" CanBeNull="true" />
+      <Column Name="Usuario" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Fecha_Creacion_Usuario" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="Pensum_Asignado" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+    </Type>
+  </Table>
+</Database>

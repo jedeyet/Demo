@@ -1,0 +1,17 @@
+﻿body {
+    background-image: url('../../Imagenes/Portada Sistema.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+/* Forzar centrado del contenedor de contenido */
+.container.body-content {
+    margin: 0 auto !important;
+    float: none !important;
+    text-align: center !important;
+}
+
+    /* Opcional: centrar todos los elementos de formulario dentro del contenedor */
+    .container.body-content form {
+        display: inline-block;
+        text-align: left; /* mantiene alineación de labels/inputs dentro del bloque */
+    }

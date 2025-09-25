@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="NOTASMESO" Class="ProcedimientosDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=gp4;Initial Catalog=NOTASMESO;User ID=Local;MultipleActiveResultSets=True;Application Name=EntityFramework" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="NOTASMESOConnectionString" Provider="System.Data.SqlClient" />
+  <Function Name="dbo.Ver_Cursos_Alumno" Method="Ver_Cursos_Alumno">
+    <Parameter Name="carnet" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="opcion" Type="System.Int32" DbType="Int" />
+    <ElementType Name="Ver_Cursos_AlumnoResult">
+      <Column Name="Asignatura" Type="System.String" DbType="NVarChar(90)" CanBeNull="true" />
+      <Column Name="Punteo" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Semestre" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+</Database>

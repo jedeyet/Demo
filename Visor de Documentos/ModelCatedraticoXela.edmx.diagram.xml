@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="81df28153ab14259ae6f2bd6cb4fe5a7" Name="Diagram1">
+        <EntityTypeShape EntityType="NOTASMESOModelCatedraticoXela.Catedraticos" Width="1.5" PointX="3" PointY="7.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="NOTASMESOModelCatedraticoXela.Catedraticos_Rangos" Width="1.5" PointX="0.75" PointY="11.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="NOTASMESOModelCatedraticoXela.CatedraticosColegios" Width="1.5" PointX="8.25" PointY="11" IsExpanded="true" />
+        <EntityTypeShape EntityType="NOTASMESOModelCatedraticoXela.CatedraticosDocumentos" Width="1.5" PointX="5.25" PointY="6.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="NOTASMESOModelCatedraticoXela.CatedraticosEmpresas" Width="1.5" PointX="5.25" PointY="9.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="NOTASMESOModelCatedraticoXela.CatedraticosIdiomas" Width="1.5" PointX="5.25" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="NOTASMESOModelCatedraticoXela.CatedraticosSalud" Width="1.5" PointX="5.25" PointY="15.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="NOTASMESOModelCatedraticoXela.CatedraticosSaludEnfermedades" Width="1.5" PointX="7.75" PointY="14.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="NOTASMESOModelCatedraticoXela.CatedraticosTipo" Width="1.5" PointX="0.75" PointY="8.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="NOTASMESOModelCatedraticoXela.CatedraticosTitulos" Width="1.5" PointX="7.875" PointY="17.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="NOTASMESOModelCatedraticoXela.ColegiosProfesionales" Width="1.5" PointX="8.125" PointY="7.25" IsExpanded="true" />
+        <AssociationConnector Association="NOTASMESOModelCatedraticoXela.FK_Catedraticos_Catedraticos_Rangos" ManuallyRouted="false" />
+        <AssociationConnector Association="NOTASMESOModelCatedraticoXela.FK_Catedraticos_CatedraticosTipo" ManuallyRouted="false" />
+        <AssociationConnector Association="NOTASMESOModelCatedraticoXela.FK_CatedraticosColegios_Catedraticos" ManuallyRouted="false" />
+        <AssociationConnector Association="NOTASMESOModelCatedraticoXela.FK_CatedraticosDocumentos_Catedraticos" ManuallyRouted="false" />
+        <AssociationConnector Association="NOTASMESOModelCatedraticoXela.FK_CatedraticosEmpresas_Catedraticos" ManuallyRouted="false" />
+        <AssociationConnector Association="NOTASMESOModelCatedraticoXela.FK_CatedraticosIdiomas_Catedraticos" ManuallyRouted="false" />
+        <AssociationConnector Association="NOTASMESOModelCatedraticoXela.FK_CatedraticosSalud_Catedraticos" ManuallyRouted="false" />
+        <AssociationConnector Association="NOTASMESOModelCatedraticoXela.FK_CatedraticosSaludEnfermedades_Catedraticos" ManuallyRouted="false" />
+        <AssociationConnector Association="NOTASMESOModelCatedraticoXela.FK_CatedraticosTitulos_Catedraticos" ManuallyRouted="false" />
+        <AssociationConnector Association="NOTASMESOModelCatedraticoXela.FK_CatedraticosColegios_ColegiosProfesionales" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

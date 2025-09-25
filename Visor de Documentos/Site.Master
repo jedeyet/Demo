@@ -1,0 +1,545 @@
+﻿<%-- ClientIDMode para poder usar el Jquery<--%>
+
+<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.Master.cs" ClientIDMode="Static" Inherits="VisorDeDocumentos.SiteMaster" %>
+
+<!DOCTYPE html>
+
+<html lang="es">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <asp:ContentPlaceHolder ID="HeaderC" runat="server">
+        <script src="Scripts/Site.Master.js" type="text/javascript"></script>
+    </asp:ContentPlaceHolder>
+    
+    <link href="./vendor/animate.css/animate.min.css" rel="stylesheet" />
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+   <meta name="description" content="Bootstrap Admin App + jQuery">
+   <meta name="keywords" content="app, responsive, jquery, bootstrap, dashboard, admin" aria-haspopup="True">
+   <title>Sistema General de Gestión UMES</title>
+
+
+    <!-- Font Tags Start -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="./src/font/CS-Interface/style.css" />
+    <!-- Font Tags End -->
+
+    <!-- Vendor Styles Start -->
+    <link rel="stylesheet" href="./src/css/vendor/bootstrap.min.css" />
+    <link rel="stylesheet" href="./src/css/vendor/OverlayScrollbars.min.css" />
+    <!-- Vendor Styles End -->
+
+    <!-- Template Base Styles Start -->
+    <link rel="stylesheet" href="./src/css/styles.css" />
+    <!-- Template Base Styles End -->
+
+    <!-- User Styles Start -->
+    <link rel="stylesheet" href="./src/css/main.css" />
+    <!-- User Styles End -->
+
+    <!-- Loader Start -->
+    <script src="./src/js/base/loader.js"></script>
+    <!-- Loader End -->
+
+
+</head>
+
+<body>
+      <!-- Content Container Start -->
+      <div id="root">
+
+      <!-- Nav Content Start -->
+      <div id="nav" class="nav-container d-flex">
+          <div class="nav-content d-flex">
+          <!-- Logo Start -->
+          <div class="logo position-relative">
+            <a href="https://www.umes.edu.gt/" target="_blank">
+              <!-- Logo can be added directly -->               
+               <img src="./app/img/MesoBlanco.png" alt="App Logo" class="img-responsive">
+
+              <!-- Or added via css to provide different ones for different color themes -->
+              <%--<div class="img"></div>--%>
+            </a>
+          </div>
+          <!-- Logo End -->
+          <!-- User Menu Start -->
+          
+          <!-- User Menu End -->
+
+          <!-- Icons Menu Start -->
+          <ul class="list-unstyled list-inline text-center menu-icons">            
+            <li class="list-inline-item">
+              <a href="#" id="pinButton" class="pin-button">
+                <i data-acorn-icon="lock-on" class="unpin" data-acorn-size="18"></i>
+                <i data-acorn-icon="lock-off" class="pin" data-acorn-size="18"></i>
+              </a>
+            </li>
+            <li class="list-inline-item">
+              <a href="#" id="colorButton">
+                <i data-acorn-icon="light-on" class="light" data-acorn-size="18"></i>
+                <i data-acorn-icon="light-off" class="dark" data-acorn-size="18"></i>
+              </a>
+            </li>
+	   <li class="list-inline-item">
+		  <a href="./Logout.aspx" id="logoutButton" title="Salir">
+		  <i data-acorn-icon="logout" data-acorn-size="18"></i>
+		  </a>
+	  </li>	
+          </ul>
+          <!-- Icons Menu End -->
+
+          <!-- Menu Start -->
+          <div class="menu-container flex-grow-1">
+            <ul id="menu" class="menu">
+              <li>
+                    <a href="#Academico" data-href="Pages.html">
+                    <i data-acorn-icon="notebook-1" class="icon" data-acorn-size="18"></i>
+                    <span class="label">Menú Principal</span>
+                    </a>
+                    <ul id="Academico">
+                          <li>
+                            <a href="#Docentes" data-href="Pages.Authentication.html">
+                                <span class="label">Docentes</span>
+                            </a>
+                             <ul id="Docentes" runat="server" visible="true">                      
+                                    <li class=" ">   <%--Inicia la clase para reportes de docentes--%>
+                                     <a href="#Reportes" title="Reportes varios de docentes" data-toggle="collapse">
+                                        <em class= "icon-book-open"></em>
+                                        <span data-localize="sidebar.nav.element.ELEMENTS">Reportes <3></span>
+                                     </a>
+                                         <ul id="Reportes" class="nav sidebar-subnav collapse">    <%--Inicia la lista de grupo ul para reportes a docentes--%>
+                        
+                                        <li> <a href="PagsDocentesReporteDetallado.aspx"><span class="label">Reporte Detallado</span></a> </li>
+                                        <li> <a href="PagsDocenteIndividual.aspx"><span class="label">Por Docente</span></a> </li>
+                                        <li> <a href="PagsDocentesHistorial.aspx"><span class="label">Historial Cursos</span></a> </li>
+                                     </ul>
+                                    </li>  
+
+                                <li class=" ">   <%--Inicia la clase para listados de docentes--%>
+                                     <a href="#Listados" title="Listados varios de docentes" data-toggle="collapse">
+                                        <em class= "icon-book-open"></em>
+                                        <span data-localize="sidebar.nav.element.ELEMENTS">Listados <5></span>
+                                     </a>
+                                        <ul id="Listados" class="nav sidebar-subnav collapse">    <%--Inicia la lista de grupo ul para listados a docentes--%>
+                                            <li> <a href="PagsDocentesActivo.aspx"><span class="label">Activos/Inactivos</span></a> </li>
+                                            <li> <a href="PagsDocentesSede.aspx"><span class="label">Por Sede y Facultad</span></a> </li>
+                                            <li> <a href="PagsDocenteCarrera.aspx"><span class="label">Por Sede y Carrera</span></a> </li>
+                                            <li> <a href="PagsDocentesContratos.aspx"><span class="label">Contratos (Firma)</span></a> </li>
+                                         <li> <a href="PagsDocentesContenidos.aspx"><span class="label">Contenidos</span></a> </li>
+                                     </ul>
+                                </li>  
+
+                                <li class=" ">   <%--Inicia la clase para zonas y finales de docentes--%>
+                                     <a href="#ZonasYfinales" title="Opciones de zonas y finales" data-toggle="collapse">
+                                        <em class= "icon-book-open"></em>
+                                        <span data-localize="sidebar.nav.element.ELEMENTS">Zonas y Finales <4&gt;</span>
+                                     </a>
+                                     <ul id="ZonasYfinales" class="nav sidebar-subnav collapse">    <%--Inicia la lista de grupo ul para zonas y finales--%>
+                            
+                                          <li> <a href="PagsDocentesActas.aspx"><span class="label">Zonas, Finales, Firma de actas</span></a> </li> 
+                                          <li> <a href="PagsDocentesZona.aspx"><span class="label">Zonas acumuladas por Carrera</span></a> </li>
+                                          <li> <a href="PagsDocentesActasNoEnviadas.aspx"><span class="label">Envío de Zonas y Finales</span></a> </li>
+                                         <li> <a href="PagsAlumnosFinales.aspx"><span class="label">Envío de Notas Finales</span></a> </li>
+                            
+                                     </ul>
+                                </li>  
+
+                    
+                                <li class=" ">   <%--Inicia la clase para zonas y finales de docentes--%>
+                                     <a href="#Subida" title="Opciones de subida de documentos" data-toggle="collapse">
+                                        <em class= "icon-book-open"></em>
+                                        <span data-localize="sidebar.nav.element.ELEMENTS">Subida de Documentos <2></span>
+                                     </a>
+                                     <ul id="Subida" class="nav sidebar-subnav collapse">    <%--Inicia la lista de grupo subida de documentos--%>
+                                          <li> <a href="PagsDocentesSedeDocumentos.aspx"><span class="label">Documentos subidos por Sede</span></a> </li>
+                                          <li> <a href="PagsDocenteVerDocumentos.aspx"><span class="label">Visor de documentos</span></a> </li>
+                                     </ul>
+                                </li>  
+
+                                 <li class=" ">   <%--Inicia la clase para reportes varios de docentes--%>
+                                     <a href="#Privados22" title="Privados" data-toggle="collapse">
+                                        <em class= "icon-book-open"></em>
+                                        <span data-localize="sidebar.nav.element.ELEMENTS">Privados <2></span>
+                                     </a>
+                                     <ul id="Privados22" class="nav sidebar-subnav collapse">    <%--Inicia la lista de grupo subida de documentos--%>
+                                                <li> <a href="PagsDocentesPrivadosConsolidados.aspx"><span class="label">Privados Consolidados</span></a> </li>
+                                                <li> <a href="PagsDocentesPrivadosPorArea.aspx"><span class="label">Privados por Área</span></a> </li>
+                                     </ul>
+                                </li>  
+
+                                 <li class=" ">   <%--Inicia la clase para reportes varios de docentes--%>
+                                     <a href="#Contenidos22" title="Reportes varios" data-toggle="collapse">
+                                        <em class= "icon-book-open"></em>
+                                        <span data-localize="sidebar.nav.element.ELEMENTS">Contenidos de cursos <2></span>
+                                     </a>
+                                     <ul id="Contenidos22" class="nav sidebar-subnav collapse">    <%--Inicia la lista de grupo subida de documentos--%>
+                                                <li> <a href="ListarPVCatedraticos.aspx"><span class="label">Contenidos por docente</span></a> </li>
+                                                <li> <a href="ListaProgramasVirPorCarrera.aspx"><span class="label">Contenidos por carrera</span></a> </li>
+                                     </ul>
+                                </li>  
+
+                                <li class=" ">   <%--Inicia la clase para evaluación a docentes--%>
+                                     <a href="#evaluaciones" title="Opciones sobre evaluación a docentes" data-toggle="collapse">
+                                        <em class= "icon-book-open"></em>
+                                        <span data-localize="sidebar.nav.element.ELEMENTS">Evaluación <3></span>
+                                     </a>
+                                     <ul id="evaluaciones" class="nav sidebar-subnav collapse">    <%--Inicia la lista de grupo ul para evaluación a docentes--%>
+                                              <li> <a href="PagsDocentesEvaluacionAsignatura.aspx"><span class="label">Evaluación por curso</span></a> </li>
+                                              <li> <a href="PagsDocentesEvaluacionPorCatedratico.aspx"><span class="label">Evaluación por docente</span></a> </li>
+                                              <li> <a href="PagsDocentesEvaluacionPorCatedraticoHistorial.aspx"><span class="label">Evaluación por docente Historial</span></a>  </li>
+                                     </ul>
+                                 </li>                     
+                        </ul>
+ 
+
+                          <li>
+                                <a href="#Alumnos" data-href="Pages.Blog.html">
+                                    <span class="label">Alumnos</span>
+                                </a>
+                               <ul id="Alumnos" runat="server" visible="true">
+
+                                   <li class=" ">   <%--Inicia la clase para reportes  de alumnos--%>
+                                    <a href="#Reportes33" title="Opciones sobre pagos de estudiantes " data-toggle="collapse">
+                                    <em class= "icon-book-open"></em>
+                                    <span data-localize="sidebar.nav.element.ELEMENTS">Reportes Alumnos <10></span>
+                                    </a>
+                                    <ul id="Reportes33" class="nav sidebar-subnav collapse">    <%--Inicia la lista de grupo ul --%>
+                                            <li id="liBuscarAlumno" runat="server" visible="false"> 
+                                                <a href="AlumnosBuscar.aspx"><span class="label">Buscar Alumno (Todas Sedes)</span></a></li>    
+                                            <li> <a href="PagsAlumnosReporteDetallado.aspx"><span class="label">Reporte Detallado</span></a></li>
+                                            <li> <a href="AlumnosIndividual.aspx"><span class="label">Por Alumno</span></a> </li>
+                                            <li><a href="PagsAlumnosDejaronMasDe2.aspx"><span class="label">Con más de 2 perdidos</span></a></li>        
+                                            <li> <a href="pagsAlumnosInscritos.aspx"><span class="label">Inscripciones</span></a> </li>
+                                            <li> <a href="pagsAlumnosRetirados.aspx"><span class="label">Alumnos Retirados</span></a> </li>
+                                            <li> <a href="pagsAlumnosNacionalidad.aspx"><span class="label">Alumnos Extranjeros</span></a> </li>
+                                            <li> <a href="PagsAlumnosNohanEvaluado.aspx"><span class="label">Alumnos que no han evaluado docentes</span></a> </li>
+                                            <li> <a href="PagsAlumnosInscripcionGenero.aspx"><span class="label">Alumnos por género</span></a> </li> 
+                                            <li> <a href="PagsAlumnosPasosIncompletos.aspx"><span class="label">Pasos incompletos</span></a> </li>
+                                            <li> <a href="PagsAlumnosCarreraCorreo.aspx"><span class="label">Correos por carrera</span></a>  </li> 
+                                            
+                                    </ul>
+                                    </li>
+                                
+                                    <li class=" ">   <%--Inicia la clase para notas de alumnos--%>
+                                    <a href="#Notas" title="Opciones sobre notas de estudiantes " data-toggle="collapse">
+                                    <em class= "icon-book-open"></em>
+                                    <span data-localize="sidebar.nav.element.ELEMENTS">Notas e imágenes <3></span>
+                                    </a>
+                                    <ul id="Notas" class="nav sidebar-subnav collapse">    <%--Inicia la lista de grupo ul --%>
+                                            <li> <a href="PagsAlumnosHistorial.aspx"><span class="label">Cursos</span></a> </li>
+                                            <li> <a href="PagsAlumnosPromedios.aspx"><span class="label">Promedios</span></a></li>
+                                            <li> <a href="VerPdf.aspx"><span class="label">Ver Documentos</span></a> </li>
+                                    </ul>
+                                    </li>
+
+
+                                <li class=" ">   <%--Inicia la clase para pagos de alumnos--%>
+                                    <a href="#pagos" title="Opciones sobre pagos de estudiantes " data-toggle="collapse">
+                                    <em class= "icon-book-open"></em>
+                                    <span data-localize="sidebar.nav.element.ELEMENTS">Pagos <3></span>
+                                    </a>
+                                    <ul id="pagos" class="nav sidebar-subnav collapse">    <%--Inicia la lista de grupo ul para pagos de estudiantes--%>
+                                                <li> <a href="PagsPagos.aspx"><span class="label">Pagos</span></a> </li>
+                                                <li> <a href="PagsCajaBeca.aspx"><span class="label">Becas</span></a> </li>
+                                                <li> <a href="PagsCajaConvenio.aspx"><span class="label">Convenios</span></a> </li>
+                                    </ul>
+                                    </li>
+                                </ul>
+                               </li>
+                              
+
+
+
+                         <li>
+                                <a href="#Registro" data-href="Pages.Miscellaneous.html">
+                                  <span class="label">Académico</span>
+                                </a>
+                                <ul id="Registro" runat="server" visible="true">
+
+                                    <li class=" ">   <%--Inicia la clase para pagos de alumnos--%>
+                                    <a href="#Regis" title="Opciones de estudiantes " data-toggle="collapse">
+                                    <em class= "icon-book-open"></em>
+                                    <span data-localize="sidebar.nav.element.ELEMENTS">Alumnos <7></span>
+                                    </a>
+                                    <ul id="Regis" class="nav sidebar-subnav collapse">    <%--Inicia la lista de grupo ul para pagos de estudiantes--%>
+                                            <li><a href="PagsAlumnosDejaronMasDe2.aspx"><span class="label">Con más de 2 perdidos</span></a></li>        
+                                            <li> <a href="pagsAlumnosInscritos.aspx"><span class="label">Inscripciones</span></a> </li>
+                                            <li> <a href="pagsAlumnosRetirados.aspx"><span class="label">Alumnos Retirados</span></a> </li>
+                                            <li> <a href="pagsAlumnosNacionalidad.aspx"><span class="label">Alumnos Extranjeros</span></a> </li>
+                                            <li> <a href="PagsAlumnosNohanEvaluado.aspx"><span class="label">Alumnos que no han evaluado docentes</span></a> </li>
+                                            <li> <a href="PagsAlumnosInscripcionGenero.aspx"><span class="label">Alumnos por género</span></a> </li>
+                                             
+                                    </ul>
+                                </li>
+                                </ul>
+
+                              
+                             <li>
+                                <a href="#Escaneos" data-href="Pages.Miscellaneous.html">
+                                  <span class="label">Escaneos por Sede</span>
+                                </a>
+                                <ul id="Escaneos" runat="server" visible="true">
+                             <li class=" ">   <%--Inicia la clase para escaneo en las diferentes sedes--%>
+                                    <a href="#Escan" title="Opciones sobre escaneo en diferentes Sedes " data-toggle="collapse">
+                                    <em class= "icon-book-open"></em>
+                                    <span data-localize="sidebar.nav.element.ELEMENTS">Escaneo <3></span>
+                                    </a>
+                                    <ul id="Escan" class="nav sidebar-subnav collapse">    <%--Inicia la lista de grupo ul para pagos de estudiantes--%>
+                                             <li> <a href="PagsReporteEscaneos.aspx"><span class="label">Escaneos por Sede</span></a> </li>
+                                             <li> <a href="PagsReporteEscaneosPorAlumno.aspx"><span class="label">Escaneos por Alumno</span></a> </li>
+                                             <li> <a href="VerPdf.aspx"><span class="label">Ver Documentos</span></a> </li>
+                                    </ul>
+                                    </li>
+                                </ul>
+                               </li>
+                        
+                             <li>
+                                <a href="#Contabilidad" data-href="Pages.Miscellaneous.html">
+                                  <span class="label">Reportes</span>
+                                </a>
+                                <ul id="Contabilidad" runat="server" visible="true">
+
+                                    <li class=" ">   <%--Inicia la clase para Conta--%>
+                                    <a href="#Conta1" title="Opciones de Contabilidad " data-toggle="collapse">
+                                    <em class= "icon-book-open"></em>
+                                    <span data-localize="sidebar.nav.element.ELEMENTS">Reportes Docentes <9></span>
+                                    </a>
+                                    <ul id="Conta1" class="nav sidebar-subnav collapse">    <%--Inicia la lista de grupo ul para estudiantes--%>
+                                            <li> <a href="PagsDocentesReporteDetallado.aspx"><span class="label">Reporte Detallado</span></a> </li>
+                                            <li> <a href="PagsDocenteIndividual.aspx"><span class="label">Por Docente</span></a> </li>
+                                            <li> <a href="PagsDocentesHistorial.aspx"><span class="label">Historial Cursos</span></a> </li>
+                                            <li> <a href="PagsDocentesActivo.aspx"><span class="label">Activos/Inactivos</span></a> </li>
+                                            <li> <a href="PagsDocentesActas.aspx"><span class="label">Zonas, Finales, Firma de actas</span></a> </li> 
+                                            <li> <a href="PagsDocentesActasNoEnviadas.aspx"><span class="label">Envío de Zonas y Finales</span></a> </li>
+                                            <li> <a href="PagsDocentesSedeDocumentos.aspx"><span class="label">Documentos subidos por Sede</span></a> </li>
+                                            <li> <a href="PagsDocenteVerDocumentos.aspx"><span class="label">Visor de documentos</span></a> </li>
+                                            <li> <a href="PagsDocentesContratos.aspx"><span class="label">Contratos (Firma)</span></a> </li>
+                                    </ul>
+                                </li>
+                              </ul>
+                          </li>
+
+                        
+                            <li>
+                                <a href="#Comunicacion" data-href="Pages.Miscellaneous.html">
+                                  <span class="label">Comunicación Social</span>
+                                </a>
+                                <ul id="Comunicacion" runat="server" visible="true">
+
+                                    <li class=" ">   <%--Inicia la clase comunicación--%>
+                                    <a href="#Comunica" title="Comunicación Social " data-toggle="collapse">
+                                    <em class= "icon-book-open"></em>
+                                    <span data-localize="sidebar.nav.element.ELEMENTS">Alumnos <6></span>
+                                    </a>
+                                    <ul id="Comunica" class="nav sidebar-subnav collapse">    <%--Inicia la lista de grupo ul para pagos de estudiantes--%>
+                                            <li> <a href="PagsAlumnosReporteDetallado.aspx"><span class="label">Reporte Detallado</span></a></li>
+                                            <li> <a href="AlumnosIndividual.aspx"><span class="label">Por Alumno</span></a> </li>
+                                            <li> <a href="pagsAlumnosInscritos.aspx"><span class="label">Inscripciones</span></a> </li>
+                                            <li> <a href="pagsAlumnosRetirados.aspx"><span class="label">Alumnos Retirados</span></a> </li>
+                                            <li> <a href="pagsAlumnosNacionalidad.aspx"><span class="label">Alumnos Extranjeros</span></a> </li>
+                                            <li> <a href="PagsAlumnosInscripcionGenero.aspx"><span class="label">Alumnos por género</span></a> </li>
+                                    </ul>
+                                    </li>
+ 
+
+
+                                <li class=" ">   <%--Inicia la clase para docentes en comunicación--%>
+                                    <a href="#ComunicDoc" title="Opciones sobre pagos de estudiantes " data-toggle="collapse">
+                                    <em class= "icon-book-open"></em>
+                                    <span data-localize="sidebar.nav.element.ELEMENTS">Docentes <2></span>
+                                    </a>
+                                    <ul id="ComunicDoc" class="nav sidebar-subnav collapse">    <%--Inicia la lista de grupo ul para pagos de estudiantes--%>
+                                             <li> <a href="PagsDocentesReporteDetallado.aspx"><span class="label">Reporte Detallado</span></a> </li>
+                                            <li> <a href="PagsDocenteIndividual.aspx"><span class="label">Por Docente</span></a> </li>   
+                                    </ul>
+                                    </li>
+                                </ul>
+                               </li>
+                 
+                            
+                              <li>
+                                <a href="#Entrevistas" data-href="Pages.Miscellaneous.html">
+                                  <span class="label">Entrevistas</span>
+                                </a>
+                                <ul id="Entrevistas" runat="server" visible="true">
+                             <li class=" ">   <%--Inicia la clase para Entrevistas--%>
+                                    <a href="#Entrevi" title="Entrevistas " data-toggle="collapse">
+                                    <em class= "icon-book-open"></em>
+                                    <span data-localize="sidebar.nav.element.ELEMENTS">Entrevistas <1></span>
+                                    </a>
+                                    <ul id="Entrevi" class="nav sidebar-subnav collapse">    <%--Inicia la lista de grupo ul para entrevistas--%>
+                                             <li> <a href="PagsAlumnosEntrevista.aspx"><span class="label">Entrevistas</span></a> </li>
+                                    </ul>
+                                    </li>
+                                </ul>
+                               </li>
+
+                        <li>
+                                <a href="#Alcanza" data-href="Pages.Miscellaneous.html">
+                                  <span class="label">Alcanza</span>
+                                </a>
+                                <ul id="Alcanza" runat="server" visible="true">
+                             <li class=" ">   <%--Inicia la clase para Entrevistas--%>
+                                    <a href="#Alca" title="Entrevistas " data-toggle="collapse">
+                                    <em class= "icon-book-open"></em>
+                                    <span data-localize="sidebar.nav.element.ELEMENTS">Finales <1></span>
+                                    </a>
+                                    <ul id="Alca" class="nav sidebar-subnav collapse">    <%--Inicia la lista de grupo ul para entrevistas--%>
+                                             <li> <a href="PagsAlumnosFinales.aspx"><span class="label">Finales</span></a> </li>
+                                    </ul>
+                                    </li>
+                                </ul>
+                               </li>
+
+                <li>
+                    <a href="./Logout.aspx">
+                        <i data-acorn-icon="logout" class="icon" data-acorn-size="18"></i>
+                        <span class="label">Salir</span>
+                    </a>
+                </li>  
+           </ul>
+           </ul>
+          </div>
+          <!-- Menu End -->
+          <!-- Mobile Buttons Start -->
+          <div class="mobile-buttons-container">
+            <!-- Menu Button Start -->
+            <a href="#" id="mobileMenuButton" class="menu-button">
+              <i data-acorn-icon="menu"></i>
+            </a>
+            <!-- Menu Button End -->
+          </div>
+          <!-- Mobile Buttons End -->
+      </div>
+     </div>
+      <!-- Nav Content End -->
+
+      <!-- Main Content Start -->
+      <main>
+          <div class="content-wrapper">
+                <div class="content-heading">
+                    <!-- START Language list
+               <div class="pull-right">
+                  <div class="btn-group">
+                     <button type="button" data-toggle="dropdown" class="btn btn-default">English</button>
+                     <ul role="menu" class="dropdown-menu dropdown-menu-right animated fadeInUpShort">
+                        <li><a href="#" data-set-lang="en">English</a>
+                        </li>
+                        <li><a href="#" data-set-lang="es">Spanish</a>
+                        </li>
+                     </ul>
+                  </div>
+               </div>
+               <!-- END Language list    -->
+
+                    <small data-localize="dashboard.WELCOME"></small>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12 text-center">
+                        <div class="container body-content">
+                            <asp:ContentPlaceHolder ID="MainContent" runat="server">
+                            </asp:ContentPlaceHolder>
+                            <hr />
+                            <footer>
+                                <p>&copy; <%: DateTime.Now.Year %> - Sistema General de Gestión UMES</p>
+                            </footer>
+                        </div>
+                    </div>
+                </div>
+            </div>
+      </main>
+      <!-- Main Content End -->
+
+      <!-- Footer Content Start -->
+      <footer>
+            <span>&copy; Redes y Programas</span>
+      </footer>
+      <!-- Footer Content End -->
+      
+    </div>
+    <!-- Content Container End -->
+
+
+
+    <%--<!-- =============== VENDOR SCRIPTS ===============-->
+    <!-- MODERNIZR-->
+    <script src="./vendor/modernizr/modernizr.js"></script>
+    <!-- JQUERY-->
+    <script src="./vendor/jquery/dist/jquery.js"></script>
+    <!-- BOOTSTRAP-->
+    <script src="./vendor/bootstrap/dist/js/bootstrap.js"></script>
+    <!-- STORAGE API-->
+    <script src="./vendor/jQuery-Storage-API/jquery.storageapi.js"></script>
+    <!-- JQUERY EASING-->
+    <script src="./vendor/jquery.easing/js/jquery.easing.js"></script>
+    <!-- ANIMO-->
+    <script src="./vendor/animo.js/animo.js"></script>
+    <!-- SLIMSCROLL-->
+    <script src="./vendor/slimScroll/jquery.slimscroll.min.js"></script>
+    <!-- SCREENFULL-->
+    <script src="./vendor/screenfull/dist/screenfull.js"></script>
+    <!-- LOCALIZE-->
+    <script src="./vendor/jquery-localize-i18n/dist/jquery.localize.js"></script>
+    <!-- =============== PAGE VENDOR SCRIPTS ===============-->
+    <!-- =============== APP SCRIPTS ===============-->
+    <script src="./app/js/app.js"></script>--%>
+
+    <!-- Vendor Scripts Start -->
+    <script src="./src/js/vendor/jquery-3.5.1.min.js"></script>
+    <script src="./src/js/vendor/bootstrap.bundle.min.js"></script>
+    <script src="./src/js/vendor/OverlayScrollbars.min.js"></script>
+    <script src="./src/js/vendor/autoComplete.min.js"></script>
+    <script src="./src/js/vendor/clamp.min.js"></script>
+    <!-- Vendor Scripts End -->
+
+    <!-- Acorn Icons Start -->
+    <script src="./src/icon/acorn-icons.js"></script>
+    <script src="./src/icon/acorn-icons-interface.js"></script>
+    <!-- Acorn Icons End -->
+
+    <!-- Template Base Scripts Start -->
+    <script src="./src/js/base/helpers.js"></script>
+    <script src="./src/js/base/globals.js"></script>
+    <script src="./src/js/base/nav.js"></script>
+    <script src="./src/js/base/search.js"></script>
+    <script src="./src/js/base/settings.js"></script>
+    <!-- Template Base Scripts End -->
+
+    <!-- Page Specific and Initialization Scripts Start -->
+    <script src="./src/js/common.js"></script>
+    <script src="./src/js/scripts.js"></script>
+    <!-- Page Specific and Initialization Scripts End -->
+
+    
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+        <script>
+        // Cierra automáticamente las alertas luego de 5 segundos
+        setTimeout(function () {
+            $(".alert").alert('close');
+        }, 5000);
+    </script>
+    <script>
+        $(document).ready(function () {
+            $(".alert").addClass("fadeInDown");
+
+            setTimeout(function () {
+                $(".alert").removeClass("fadeInDown").addClass("fadeOutUp");
+
+                // Esperar a que termine fadeOutUp antes de cerrar
+                setTimeout(function () {
+                    $(".alert").alert('close');
+                }, 500); // ⏱️ Igual al tiempo del animation-duration
+            }, 5000);
+        });
+    </script>
+
+
+
+</body>
+
+</html>
