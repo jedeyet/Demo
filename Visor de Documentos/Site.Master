@@ -394,6 +394,38 @@
                                 </ul>
                                </li>
 
+
+
+
+                        <li id="liReportes" runat="server" visible="false">
+                          <a href="#ReportesVarios" title="Reportes del sistema" data-toggle="collapse">
+                            <em class="icon-graph"></em>
+                            <span data-localize="sidebar.nav.element.ELEMENTS">Reportes Varios</span>
+                          </a>
+
+                          <ul id="ReportesVarios" class="nav sidebar-subnav collapse">
+                            <li id="RptAdmin" runat="server" visible="false">
+                              <a href="RptAdministrativos.aspx">
+                                <em class="icon-notebook"></em>
+                                <span class="label">Administrativos</span>
+                              </a>
+                            </li>
+                            <li id="RptFin" runat="server" visible="false">
+                              <a href="RptFinancieros.aspx">
+                                <em class="icon-wallet"></em>
+                                <span class="label">Financieros</span>
+                              </a>
+                            </li>
+                          </ul>
+                        </li>
+
+
+
+
+
+
+
+
                 <li>
                     <a href="./Logout.aspx">
                         <i data-acorn-icon="logout" class="icon" data-acorn-size="18"></i>

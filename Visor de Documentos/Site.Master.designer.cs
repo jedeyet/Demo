@@ -105,6 +105,33 @@ namespace VisorDeDocumentos
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl Alcanza;
 
         /// <summary>
+        /// Control liReportes.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl liReportes;
+
+        /// <summary>
+        /// Control RptAdmin.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl RptAdmin;
+
+        /// <summary>
+        /// Control RptFin.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl RptFin;
+
+        /// <summary>
         /// Control MainContent.
         /// </summary>
         /// <remarks>

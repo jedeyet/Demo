@@ -69,6 +69,12 @@ namespace VisorDeDocumentos
             }
         }
 
+      
+        protected void Unnamed_LoggingOut(object sender, LoginCancelEventArgs e)
+        {
+            Context.GetOwinContext().Authentication.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
+        }
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!Page.IsPostBack)
@@ -83,14 +89,17 @@ namespace VisorDeDocumentos
                 Entrevistas.Visible = false;
                 Alcanza.Visible = false;
                 liBuscarAlumno.Visible = false;
+                liReportes.Visible = false;
+                RptAdmin.Visible = false;
+                RptFin.Visible = false;
 
-                // 2. Usuario en sesión
+                // 2. Usuario actual en sesión
                 string usuario = "";
                 if (Session["usuario"] != null)
                     usuario = Session["usuario"].ToString().Trim().ToLower();
 
-                // 3. Consultar permisos en BD
-                string cadena = "SELECT * FROM AdminSedesPriv WHERE usuario = @usuario";
+                // 3. Consulta de permisos en la base de datos
+                string cadena = "SELECT Menu FROM AdminSedesPriv WHERE usuario = @usuario";
                 using (SqlConnection con = new SqlConnection("Data Source=GP4;Initial Catalog=NOTASMESO;User ID=Local;Password=L3ct0rL0c4l"))
                 using (SqlDataAdapter da = new SqlDataAdapter(cadena, con))
                 {
@@ -100,58 +109,66 @@ namespace VisorDeDocumentos
 
                     foreach (DataRow row in dt.Rows)
                     {
-                        string permiso = row["Menu"].ToString().Trim();
+                        string permiso = row["Menu"].ToString().Trim().ToUpper();
 
                         switch (permiso)
                         {
-                            case "Docentes":
+                            case "DOCENTES":
                                 Docentes.Visible = true;
                                 break;
 
-                            case "Alumnos":
+                            case "ALUMNOS":
                                 Alumnos.Visible = true;
                                 break;
 
-                            case "Registro":
+                            case "REGISTRO":
                                 Registro.Visible = true;
                                 break;
 
-                            case "Contabilidad":
+                            case "CONTABILIDAD":
                                 Contabilidad.Visible = true;
                                 break;
 
-                            case "Comunicacion":
+                            case "COMUNICACION":
                                 Comunicacion.Visible = true;
                                 break;
 
-                            case "Escaneo":  
-                                Escaneos.Visible = true;  
+                            case "ESCANEO":
+                                Escaneos.Visible = true;
                                 break;
 
-                            case "Entrevistas":
+                            case "ENTREVISTAS":
                                 Entrevistas.Visible = true;
                                 break;
 
-                            case "Alcanza":
+                            case "ALCANZA":
                                 Alcanza.Visible = true;
+                                break;
+
+                            // === NUEVOS PERMISOS DE REPORTES ===
+                            case "REPORTES":
+                                liReportes.Visible = true;
+                                break;
+
+                            case "RPT_ADMIN":
+                                liReportes.Visible = true;
+                                RptAdmin.Visible = true;
+                                break;
+
+                            case "RPT_FIN":
+                                liReportes.Visible = true;
+                                RptFin.Visible = true;
                                 break;
                         }
                     }
                 }
 
-                // 4. Excepciones especiales (acceso directo)
+                // 4. Excepciones especiales
                 if (usuario == "pjfr" || usuario == "jdeyet")
                 {
                     liBuscarAlumno.Visible = true;
                 }
             }
         }
-
-
-        protected void Unnamed_LoggingOut(object sender, LoginCancelEventArgs e)
-        {
-            Context.GetOwinContext().Authentication.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
-        }
     }
-
 }
