@@ -3,9 +3,9 @@ Imports System.Data.SqlClient
 Partial Class ListarProgramasVirtuales
     Inherits System.Web.UI.Page
     Dim usuario As String = ""
-    Dim xela As String = "Data Source=GP4;Initial Catalog=NOTASMESO; user id='Local'; password='L3ct0rL0c4l';"
-    Dim guate As String = "Data Source=10.0.0.6;Initial Catalog=NOTASMESO; User ID=Local; Password='LectorUm3sLoc4l'"
-    Dim actual As String = "Data Source=GP4;Initial Catalog=NOTASMESO; user id='Local'; password='L3ct0rL0c4l';"
+    Dim xela As String = conexion.ConnectionString = Visor_de_Documentos.Models.Conex.Con_X.ConnectionString;
+    Dim guate As String = conexion.ConnectionString = Visor_de_Documentos.Models.Conex.Con_G.ConnectionString;
+    Dim actual As String = conexion.ConnectionString = Visor_de_Documentos.Models.Conex.Con_X.ConnectionString;
     Private Sub CargaSedes()
         usuario = System.Web.HttpContext.Current.Session("usuario").ToString().Trim()
         DropDownList1.Items.Clear()
@@ -26,7 +26,7 @@ Partial Class ListarProgramasVirtuales
         Dim adaptador As SqlDataAdapter
         Dim cadena As String
 
-        conexion.ConnectionString = actual '"Data Source=GP4;Initial Catalog=NOTASMESO; user id='Local'; password='L3ct0rL0c4l';"
+        conexion.ConnectionString = actual
         Using (conexion)
             conexion.Open()
             cadena = "Select codigo_catedratico, [Nombre y apellidos del catedrático] as Catedratico From vista_asignacion_curso_profesor " &
@@ -57,7 +57,7 @@ Partial Class ListarProgramasVirtuales
         Dim adaptador As SqlDataAdapter
 
         Dim cadena As String
-        conexion.ConnectionString = actual  '"Data Source=GP4;Initial Catalog=NOTASMESO; user id='Local'; password='L3ct0rL0c4l';"
+        conexion.ConnectionString = actual
 
         Using (conexion)
             conexion.Open()
@@ -127,7 +127,7 @@ Partial Class ListarProgramasVirtuales
                 Me.rblSemestre.SelectedIndex = 1
             End If
 
-            conexion.ConnectionString = actual '"Data Source=GP4;Initial Catalog=NOTASMESO; user id='Local'; password='L3ct0rL0c4l';"
+            conexion.ConnectionString = actual
             Using (conexion)
                 conexion.Open()
                 'LLena el Drop DownList de Año
@@ -162,7 +162,7 @@ Partial Class ListarProgramasVirtuales
         Dim Lector As SqlDataReader
 
         Dim cadena As String
-        conexion.ConnectionString = actual '"Data Source=GP4;Initial Catalog=NOTASMESO; user id='Local'; password='L3ct0rL0c4l';"
+        conexion.ConnectionString = actual
         Using (conexion)
             conexion.Open()
             cadena = "Select Programa_Virtual From Asignacion_Curso_profesor Where Codigo_Asignacion_Curso_Profesor = @CACP"
@@ -204,7 +204,7 @@ Partial Class ListarProgramasVirtuales
 
         Dim conexion As New SqlConnection
         Dim comando As SqlCommand = New SqlCommand()
-        conexion.ConnectionString = actual '"Data Source=GP4;Initial Catalog=NOTASMESO; user id='Local'; password='L3ct0rL0c4l';"
+        conexion.ConnectionString = actual
         Using (conexion)
             conexion.Open()
             comando.Dispose()
@@ -229,7 +229,7 @@ Partial Class ListarProgramasVirtuales
 
         Dim conexion1 As New SqlConnection
         Dim comando1 As SqlCommand = New SqlCommand()
-        conexion1.ConnectionString = actual '"Data Source=GP4;Initial Catalog=NOTASMESO; user id='Local'; password='L3ct0rL0c4l';"
+        conexion1.ConnectionString = actual
         Using (conexion1)
             conexion1.Open()
             comando1.Dispose()

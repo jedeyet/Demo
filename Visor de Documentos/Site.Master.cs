@@ -100,7 +100,7 @@ namespace VisorDeDocumentos
 
                 // 3. Consulta de permisos en la base de datos
                 string cadena = "SELECT Menu FROM AdminSedesPriv WHERE usuario = @usuario";
-                using (SqlConnection con = new SqlConnection("Data Source=GP4;Initial Catalog=NOTASMESO;User ID=Local;Password=L3ct0rL0c4l"))
+                using (SqlConnection con = Visor_de_Documentos.Models.Conex.Con_X)
                 using (SqlDataAdapter da = new SqlDataAdapter(cadena, con))
                 {
                     da.SelectCommand.Parameters.AddWithValue("@usuario", usuario);

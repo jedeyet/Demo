@@ -16,7 +16,7 @@ Partial Class ListarProgramasVirtuales
             Dim datos As New DataSet
             Dim adaptador As SqlDataAdapter
             Dim cadena As String
-            conexion.ConnectionString = "Data Source=GP4;Initial Catalog=NOTASMESO; user id='Local'; password='L3ct0rL0c4l';"
+            conexion.ConnectionString = Visor_de_Documentos.Models.Conex.Con_X.ConnectionString;
             For x As Integer = 2002 To Now.Year
                 ddlAnio.Items.Add(x)
             Next
@@ -85,7 +85,7 @@ Partial Class ListarProgramasVirtuales
 
         Dim cadena As String
         Me.lblMensaje.Text = ""
-        conexion.ConnectionString = "Data Source=GP4;Initial Catalog=NOTASMESO; user id='Local'; password='L3ct0rL0c4l';"
+        conexion.ConnectionString = Visor_de_Documentos.Models.Conex.Con_X.ConnectionString;
         Using (conexion)
             conexion.Open()
             cadena = "Select Programa_Virtual From Asignacion_Curso_profesor Where Codigo_Asignacion_Curso_Profesor = @CACP"
@@ -114,7 +114,7 @@ Partial Class ListarProgramasVirtuales
         Dim adaptador As SqlDataAdapter
 
         Dim cadena, apcad, AuxCarr As String
-        conexion.ConnectionString = "Data Source=GP4;Initial Catalog=NOTASMESO; user id='Local'; password='L3ct0rL0c4l';"
+        conexion.ConnectionString = Visor_de_Documentos.Models.Conex.Con_X.ConnectionString;
         apcad = ""
         Using (conexion)
             conexion.Open()

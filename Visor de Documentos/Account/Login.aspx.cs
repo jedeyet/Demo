@@ -17,26 +17,33 @@ namespace Visor_de_Documentos.Account
 
         protected void Button1_Click(object sender, EventArgs e)
         {
-            int entro = 0; //esta variable obtiene el resultado del parámetro de salida del
-            //procedimiento almacenado LoginAdminSedes. 1 si se loguea, 0 si no lo hace. 
-            SqlCommand Comando = new SqlCommand
+            int entro = 0;
+
+            using (SqlConnection conn = Models.Conex.Con_X)
             {
-                CommandText = "LoginAdminSedes",
-                CommandType = CommandType.StoredProcedure,
-                Connection = Models.Conex.Con_X
-            };
-            Comando.Parameters.AddWithValue("@usuario", txtUsuario.Value);
-            Comando.Parameters.AddWithValue("@password", txtPassword.Value);
-            SqlParameter paramOut = Comando.Parameters.Add("@Result", SqlDbType.Int, int.MaxValue);
-            paramOut.Direction = ParameterDirection.Output;
-            Models.Conex.Con_X.Open();
-            var salida = Comando.ExecuteReader();
-            entro = (paramOut.Value != null && paramOut.Value != DBNull.Value) ? (int)paramOut.Value : 0;
-            Models.Conex.Con_X.Close();
+                using (SqlCommand Comando = new SqlCommand("LoginAdminSedes", conn))
+                {
+                    Comando.CommandType = CommandType.StoredProcedure;
+                    Comando.Parameters.AddWithValue("@usuario", txtUsuario.Value);
+                    Comando.Parameters.AddWithValue("@password", txtPassword.Value);
+
+                    SqlParameter paramOut = Comando.Parameters.Add("@Result", SqlDbType.Int);
+                    paramOut.Direction = ParameterDirection.Output;
+
+                    conn.Open();
+
+                    using (var salida = Comando.ExecuteReader())
+                    {
+                        // Si el SP devuelve datos, los puedes leer aquí
+                    }
+
+                    entro = (paramOut.Value != null && paramOut.Value != DBNull.Value) ? (int)paramOut.Value : 0;
+                }
+            }
+
             if (entro == 1)
             {
                 FormsAuthentication.SetAuthCookie(txtUsuario.Value, true);
-                //        Response.Redirect("~/Default.aspx");
                 Session["Movile"] = "NoMovil";
                 if (Request.Browser.IsMobileDevice) Session["Movile"] = "Movil";
                 FormsAuthentication.RedirectFromLoginPage(txtUsuario.Value, chkPersistCookie.Checked);
@@ -45,10 +52,12 @@ namespace Visor_de_Documentos.Account
                 Registra();
             }
             else
+            {
                 Response.Redirect("Login.aspx", true);
+            }
         }
 
-       private void Nivel()
+        private void Nivel()
         {
             string cad = "select * from AdminSedes where usuario ='" + txtUsuario.Value.ToString() + "'";
             DataTable dt = new DataTable();
