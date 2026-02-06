@@ -17,10 +17,22 @@ namespace Visor_de_Documentos.Models
     public partial class NOTASMESOAMATITTLANEntitiesEscaneos : DbContext
     {
         public NOTASMESOAMATITTLANEntitiesEscaneos()
-            : base("name=NOTASMESOAMATITTLANEntitiesEscaneos")
+            : base(GetConnectionString())
         {
         }
-    
+
+        private static string GetConnectionString()
+
+        {
+
+            // Llamar al método CadenaConexionLinq 
+
+            var connStr = UtilidadesDB.CadenaConexionLinq("SQL_CONN_NOTASMESOAMAT", "Model.ModelEscaneosAmatitlan");
+
+            return connStr;
+
+        }
+
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             throw new UnintentionalCodeFirstException();

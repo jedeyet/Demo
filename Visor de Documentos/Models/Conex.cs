@@ -69,6 +69,17 @@ namespace Visor_de_Documentos.Models
             get { return new SqlConnection(GetConnString("SQL_CONN_NOTASMESOAMATITLAN")); }
         }
 
+        public static SqlConnection Con_H
+        {
+            get { return new SqlConnection(GetConnString("SQL_CONN_NOTASMESOHONDURAS")); }
+        }
+
+        public static SqlConnection Con_S
+        {
+            get { return new SqlConnection(GetConnString("SQL_CONN_NOTASMESOSEMI")); }
+        }
+
+
         // ============================================================
         //   CONEXIONES CAJA (Financiero - ConF_)
         // ============================================================
@@ -107,6 +118,18 @@ namespace Visor_de_Documentos.Models
             get { return new SqlConnection(GetConnString("SQL_CONN_CAJAAMATITLAN")); }
         }
 
+        public static SqlConnection ConF_H
+        {
+            get { return new SqlConnection(GetConnString("SQL_CONN_CAJAHONDURAS")); }
+        }
+
+        public static SqlConnection ConF_S
+        {
+            get { return new SqlConnection(GetConnString("SQL_CONN_CAJASEMI")); }
+        }
+
+
+
         // ============================================================
         //   MÉTODOS EXISTENTES (sin cambios)
         // ============================================================
@@ -126,7 +149,9 @@ namespace Visor_de_Documentos.Models
             if (NoConexion == 3) conex = ConF_C;
             if (NoConexion == 4) conex = ConF_T;
             if (NoConexion == 5) conex = ConF_I;
-            if (NoConexion == 7) conex = ConF_A;
+            if (NoConexion == 6) conex = ConF_A;
+            if (NoConexion == 7) conex = ConF_H;
+            if (NoConexion == 8) conex = ConF_S;
             return conex;
         }
 
@@ -138,7 +163,9 @@ namespace Visor_de_Documentos.Models
             if (NoConexion == 3) conex = Con_C;
             if (NoConexion == 4) conex = Con_T;
             if (NoConexion == 5) conex = Con_I;
-            if (NoConexion == 7) conex = Con_A;
+            if (NoConexion == 6) conex = Con_A;
+            if (NoConexion == 7) conex = Con_H;
+            if (NoConexion == 8) conex = Con_S;
 
             SqlDataAdapter tabla = new SqlDataAdapter(cadena, conex);
             tabla.SelectCommand.CommandTimeout = 120;
@@ -155,7 +182,10 @@ namespace Visor_de_Documentos.Models
             if (NoConexion == 3) conex = ConF_C;
             if (NoConexion == 4) conex = ConF_T;
             if (NoConexion == 5) conex = ConF_I;
+            if (NoConexion == 6) conex = ConF_A;
             if (NoConexion == 7) conex = ConF_A;
+            if (NoConexion == 8) conex = ConF_A;
+
 
             SqlDataAdapter tabla = new SqlDataAdapter(cadena, conex);
             DataTable dato = new DataTable();

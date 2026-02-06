@@ -18,6 +18,8 @@ namespace Visor_de_Documentos
             if (!Page.IsPostBack)
             {
                 CargaSedes();
+                Chart1.ImageLocation = Server.MapPath("~/TempImageFiles/");
+                Chart1.ImageStorageMode = System.Web.UI.DataVisualization.Charting.ImageStorageMode.UseImageLocation;
             }
         }
         string usuario = "";  
