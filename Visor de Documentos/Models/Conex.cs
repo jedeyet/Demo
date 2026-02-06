@@ -141,6 +141,7 @@ namespace Visor_de_Documentos.Models
             if (NoConexion == 7) conex = Con_A;
 
             SqlDataAdapter tabla = new SqlDataAdapter(cadena, conex);
+            tabla.SelectCommand.CommandTimeout = 120;
             DataTable dato = new DataTable();
             tabla.Fill(dato);
             return dato;

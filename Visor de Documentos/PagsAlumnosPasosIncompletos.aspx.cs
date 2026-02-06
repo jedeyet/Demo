@@ -34,62 +34,102 @@ namespace Visor_de_Documentos
 
         protected void Button1_Click(object sender, EventArgs e)
         {
+            try { 
             int opcion = Convert.ToInt32(DropDownList1.SelectedValue.ToString());
             string anio = ddAnio.SelectedValue.ToString();
             string semestre = ddSemestre.SelectedValue.ToString();
             DataTable dt = new DataTable();
-            string cadena = "select distinct(carnet) from Caja.dbo.Contrato as C Inner Join Caja.dbo.ConfiguraSemestres as CS  " + 
-                " On C.id_configurasemestre=CS.id_configurasemestre where year(fecha_inicio_contrato)= " + anio + " and CS.ciclo_anual = " + semestre + 
-                " and estado_contrato = 1 and id_inscripcion> 0    and carnet collate Modern_Spanish_CI_AI not in " +
-                " (Select Numero_Carnet from NOTASMESO.dbo.Inscripcion where ano = " + anio + " and SemestreAnual = " + semestre + ")";
-            dt = Models.Conex.Consulta2(cadena, opcion);
-            if (dt.Rows.Count == 0)
-            {
-                lbResultado.Text = "No se localizan alumnos con pasos incompletos";
-                lbResultado.Visible = true; GridView1.Visible = false;
-                imgbutExc.Visible = false;
+            string sede = "notasmesoxela"; string sedecaja = "cajaxela";
+            switch (opcion)
+                {
+                case 2:
+                    sede = "notasmesoguate"; sedecaja = "cajaguate";
+                    break;
+                case 3:
+                    sede = "notasmesocoban"; sedecaja = "cajacoban";
+                    break;
+                case 4:
+                    sede = "notasmesoteo"; sedecaja = "cajateo";
+                    break;
+                case 5:
+                    sede = "notasmesoizabal"; sedecaja = "cajaizabal";
+                    break;
+                case 6:
+                    sede = "notasmesoamat"; sedecaja = "cajaamat";
+                    break;
             }
-            else
-            {
-                
-                dt.Columns.Add("nombre", typeof(string));
-                dt.Columns.Add("carrera", typeof(string));
 
-                int numerofilas = dt.Rows.Count;
-                for (int i = 0; i < numerofilas; i++)
+            string cadena = $@"
+                    SELECT DISTINCT C.carnet
+                    FROM {sedecaja}.dbo.Contrato C
+                    INNER JOIN {sedecaja}.dbo.ConfiguraSemestres CS
+                        ON C.id_configurasemestre = CS.id_configurasemestre
+                    WHERE YEAR(C.fecha_inicio_contrato) = {anio}
+                      AND CS.ciclo_anual = {semestre}
+                      AND C.estado_contrato = 1
+                      AND C.id_inscripcion > 0
+                      AND NOT EXISTS (
+                            SELECT 1
+                            FROM {sede}.dbo.Inscripcion I
+                            WHERE I.Numero_Carnet COLLATE DATABASE_DEFAULT
+                                  = C.carnet COLLATE DATABASE_DEFAULT
+                              AND I.ano = {anio}
+                              AND I.SemestreAnual = {semestre}
+                      )";
+          
+            dt = Models.Conex.Consulta2(cadena, opcion);
+                if (dt.Rows.Count == 0)
+                {
+                    lbResultado.Text = "No se localizan alumnos con pasos incompletos";
+                    lbResultado.Visible = true; GridView1.Visible = false;
+                    imgbutExc.Visible = false;
+                }
+                else
                 {
 
-                    string carnet = dt.Rows[i][0].ToString();
+                    dt.Columns.Add("nombre", typeof(string));
+                    dt.Columns.Add("carrera", typeof(string));
 
-                    string cadnom = "Select * from alumno where [número de carné]='" + carnet + "'";
-                    DataTable dtnombre = Models.Conex.Consulta2(cadnom, opcion);
-                    if (dtnombre.Rows.Count < 1 )
+                    int numerofilas = dt.Rows.Count;
+                    for (int i = 0; i < numerofilas; i++)
                     {
-                        dt.Rows[i]["nombre"] = "Estudiante sin traslado de almacenamiento temporal";
-                        string cod = carnet.Substring(4, 2);
-                        string cadCarr = "Select * from carrera where[Id Carrera] = " + cod;
-                        DataTable dtCarr = Models.Conex.Consulta2(cadCarr, opcion);
-                        dt.Rows[i]["carrera"] = dtCarr.Rows[0]["nombre de la carrera"].ToString();
+
+                        string carnet = dt.Rows[i][0].ToString();
+
+                        string cadnom = "Select * from alumno where [número de carné]='" + carnet + "'";
+                        DataTable dtnombre = Models.Conex.Consulta2(cadnom, opcion);
+                        if (dtnombre.Rows.Count < 1)
+                        {
+                            dt.Rows[i]["nombre"] = "Estudiante sin traslado de almacenamiento temporal";
+                            string cod = carnet.Substring(4, 2);
+                            string cadCarr = "Select * from carrera where[Id Carrera] = " + cod;
+                            DataTable dtCarr = Models.Conex.Consulta2(cadCarr, opcion);
+                            dt.Rows[i]["carrera"] = dtCarr.Rows[0]["nombre de la carrera"].ToString();
+                        }
+                        else
+                        {
+                            dt.Rows[i]["nombre"] = dtnombre.Rows[0]["Nombre_completo"].ToString();
+                            string cod = carnet.Substring(4, 2);
+                            string cadCarr = "Select * from carrera where[Id Carrera] = " + cod;
+                            DataTable dtCarr = Models.Conex.Consulta2(cadCarr, opcion);
+                            dt.Rows[i]["carrera"] = dtCarr.Rows[0]["nombre de la carrera"].ToString();
+                        }
                     }
-                    else
-                    {
-                        dt.Rows[i]["nombre"] = dtnombre.Rows[0]["Nombre_completo"].ToString();
-                        string cod = carnet.Substring(4, 2);
-                        string cadCarr = "Select * from carrera where[Id Carrera] = " + cod;
-                        DataTable dtCarr = Models.Conex.Consulta2(cadCarr, opcion);
-                        dt.Rows[i]["carrera"] = dtCarr.Rows[0]["nombre de la carrera"].ToString();
-                    }
+
+                    DataView vista = new DataView(dt);
+                    vista.Sort = "carrera asc, nombre asc";
+
+                    imgbutExc.Visible = true;
+
+                    GridView1.DataSource = vista;
+                    GridView1.DataBind();
+                    lbResultado.Visible = true; GridView1.Visible = true; lbResultado.Text = "Alumnos localizados: " + dt.Rows.Count.ToString(); 
                 }
-
-                DataView vista = new DataView(dt);
-                vista.Sort = "carrera asc, nombre asc";
-
-                imgbutExc.Visible = true;
                 
-                GridView1.DataSource = vista;
-                GridView1.DataBind();
-                lbResultado.Visible = true; GridView1.Visible = true; lbResultado.Text = "Alumnos localizados: " + dt.Rows.Count.ToString();
-                 
+            }
+            catch (Exception ex)
+            {
+                Response.Write("<script>alert('Ocurrió un problema al consultar los datos.');</script>");
             }
         }
         
