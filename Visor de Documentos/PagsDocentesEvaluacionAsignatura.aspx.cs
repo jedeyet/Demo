@@ -43,13 +43,13 @@ namespace Visor_de_Documentos
         }
         private void CargaDatos()
         {
-            for (int x = 2002; x <= DateTime.Now.Year; x++)
+            for (int x = DateTime.Now.Year; x >= 2002; x--)
                 ddAnio.Items.Add(x.ToString());
-            ddAnio.SelectedIndex = ddAnio.Items.Count - 1;
+            ddAnio.SelectedIndex = 0;
 
-           
-            
-            
+
+
+
             for (byte a = 65; a <= 90; a++)
             {
                  ddSeccion.Items.Add(((char)a).ToString());

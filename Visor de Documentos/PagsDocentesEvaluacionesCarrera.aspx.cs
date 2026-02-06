@@ -22,9 +22,9 @@ namespace Visor_de_Documentos
         string usuario = ""; int Nivel = 0;
         private void CargaDatos()
         {
-            for (int x = 2002; x <= DateTime.Now.Year; x++)
+            for (int x = DateTime.Now.Year; x >= 2002; x--)
                 ddAnio.Items.Add(x.ToString());
-            ddAnio.SelectedIndex = ddAnio.Items.Count - 1;
+            ddAnio.SelectedIndex = 0;
             ddSemestre.Items.Add("1");
             ddSemestre.Items.Add("2");
             if (DateTime.Now.Month >= 7) ddSemestre.SelectedIndex = 1; else ddSemestre.SelectedIndex = 0;
