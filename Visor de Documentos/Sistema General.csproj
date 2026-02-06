@@ -1063,6 +1063,7 @@
     <Content Include="src\js\vendor\sortable.min.js" />
     <Content Include="src\js\vendor\tagify.min.js" />
     <Content Include="src\js\vendor\timepicker.js" />
+    <Content Include="TempImageFiles\LogoU.png" />
     <Content Include="temp\excel2.jpg" />
     <Content Include="vendor\MisEstilos\MisEstilos.css" />
     <Content Include="VerPdf.aspx" />

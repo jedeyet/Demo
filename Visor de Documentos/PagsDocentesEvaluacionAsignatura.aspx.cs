@@ -21,7 +21,10 @@ namespace Visor_de_Documentos
                 CargaSedes(); 
                 CargaCarreras();
                 CargaDatos();
-               
+
+                Chart1.ImageLocation = Server.MapPath("~/TempImageFiles/");
+                Chart1.ImageStorageMode = System.Web.UI.DataVisualization.Charting.ImageStorageMode.UseImageLocation;
+
             }
         }
         string usuario = ""; int Nivel = 0;
