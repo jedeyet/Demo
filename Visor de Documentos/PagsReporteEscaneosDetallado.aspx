@@ -5,7 +5,7 @@
     <form id="form2" runat="server">
         <span>Sede
         <asp:DropDownList ID="DropDownListSede" runat="server" class ="btn btn-outline-success dropdown-toggle mb-1" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="true"  AutoPostBack="True"  OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged" AppendDataBoundItems="True">
-            <asp:ListItem>---- Seleccione la Sede ----</asp:ListItem>
+            <asp:ListItem Value="0">---- Seleccione la Sede ----</asp:ListItem>
             <asp:ListItem Value="1">Quetzaltenango</asp:ListItem>
             <asp:ListItem Value="2">Guatemala</asp:ListItem>
             <asp:ListItem Value="3">Cobán</asp:ListItem>
@@ -29,12 +29,12 @@
             <span class="text">Seleccione a la persona</span>  <br />          
             <asp:DropDownList ID="ddlAdmin" runat="server" DataTextField="Nombre" DataValueField="ID_Admin">
             </asp:DropDownList>
-            <asp:SqlDataSource ID="SqlDataSourceAdminsEscaneo" runat="server" ConnectionString="<%$ ConnectionStrings:NOTASMESOConnectionString %>" SelectCommand="SELECT DISTINCT Admins.ID_Admin, { fn CONCAT(Admins.Apellidos, { fn CONCAT(', ', Admins.Nombres) }) } AS Nombre FROM Admins INNER JOIN Escaneos ON Admins.ID_Admin = Escaneos.IdAdmin ORDER BY Nombre"></asp:SqlDataSource>
+            <asp:SqlDataSource ID="SqlDataSourceAdminsEscaneo" runat="server"  SelectCommand="SELECT DISTINCT Admins.ID_Admin, { fn CONCAT(Admins.Apellidos, { fn CONCAT(', ', Admins.Nombres) }) } AS Nombre FROM Admins INNER JOIN Escaneos ON Admins.ID_Admin = Escaneos.IdAdmin ORDER BY Nombre"></asp:SqlDataSource>
                     
             
             
             
-            <asp:SqlDataSource ID="SqlDataSourceAdminsEscaneoGuate" runat="server" ConnectionString="<%$ ConnectionStrings:NOTASMESOConnectionReporteEscaneoAdminsGuate %>" ProviderName="<%$ ConnectionStrings:NOTASMESOConnectionReporteEscaneoAdminsGuate.ProviderName %>" SelectCommand="SELECT DISTINCT Admins.ID_Admin, { fn CONCAT(Admins.Apellidos, { fn CONCAT(', ', Admins.Nombres) }) } AS Nombre FROM Admins INNER JOIN Escaneos ON Admins.ID_Admin = Escaneos.IdAdmin ORDER BY Nombre"></asp:SqlDataSource>
+            <asp:SqlDataSource ID="SqlDataSourceAdminsEscaneoGuate" runat="server" SelectCommand="SELECT DISTINCT Admins.ID_Admin, { fn CONCAT(Admins.Apellidos, { fn CONCAT(', ', Admins.Nombres) }) } AS Nombre FROM Admins INNER JOIN Escaneos ON Admins.ID_Admin = Escaneos.IdAdmin ORDER BY Nombre"></asp:SqlDataSource>
                     
             
             

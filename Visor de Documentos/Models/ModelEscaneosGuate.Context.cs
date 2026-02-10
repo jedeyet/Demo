@@ -26,7 +26,7 @@ namespace Visor_de_Documentos.Models
 
             // Llamar al método CadenaConexionLinq 
 
-            var connStr = UtilidadesDB.CadenaConexionLinq("SQL_CONN_NOTASMESOGUATE", "Model.ModelEscaneosGuate");
+            var connStr = UtilidadesDB.CadenaConexionLinq("SQL_CONN_NOTASMESOGUATE", "Models.ModelEscaneosGuate");
 
             return connStr;
 

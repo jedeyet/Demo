@@ -34,7 +34,21 @@ namespace Visor_de_Documentos
         }
         protected void Page_Load(object sender, EventArgs e)
         {
+            int sede = Convert.ToInt16(DropDownListSede.SelectedValue);
 
+
+            string connString = "";
+
+            if (sede > 0)
+            {
+                if (sede == 1)
+                    connString = UtilidadesDB.CadenaConexion("SQL_CONN_NOTASMESOXELA");
+                else
+                    connString = UtilidadesDB.CadenaConexion("SQL_CONN_NOTASMESOGUATE");
+
+                SqlDataSourceAdminsEscaneo.ConnectionString = connString;
+                SqlDataSourceAdminsEscaneoGuate.ConnectionString = connString;
+            }
         }
 
         protected void btnReporte_Click(object sender, EventArgs e)
