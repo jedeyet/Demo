@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNet.Identity.Owin;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.UI.WebControls;
@@ -23,7 +24,22 @@ namespace Visor_de_Documentos.Escaneos
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            int sede = Convert.ToInt16(DropDownListSede.SelectedValue);
 
+
+            string connString = "";
+
+            if (sede > 0)
+            {
+                if (sede == 1)
+                    connString = UtilidadesDB.CadenaConexion("SQL_CONN_NOTASMESOXELA");
+                else
+                    connString = UtilidadesDB.CadenaConexion("SQL_CONN_NOTASMESOGUATE");
+
+                SqlDataSourceAdminsEscaneo.ConnectionString = connString;
+                SqlDataSourceAdminsEscaneoGuate.ConnectionString = connString;
+            }
+            
         }
 
         protected void Limpiar()
